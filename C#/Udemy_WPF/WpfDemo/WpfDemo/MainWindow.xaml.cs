@@ -20,5 +20,12 @@ namespace WpfDemo
         {
             InitializeComponent(); // 初始化
         }
+
+
+        // 點擊按鈕事件
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("按下了按鈕") ; 
+        }
     }
 }

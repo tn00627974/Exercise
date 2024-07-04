@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\tn006\\source\\repos\\WpfDemo\\",
+  "WorkspaceRootPath": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Github\\Exercise\\C#\\Udemy_WPF\\WpfDemo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|c:\\users\\tn006\\source\\repos\\wpfdemo\\wpfdemo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|g:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\github\\exercise\\c#\\udemy_wpf\\wpfdemo\\wpfdemo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|solutionrelative:wpfdemo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|c:\\users\\tn006\\source\\repos\\wpfdemo\\wpfdemo\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|solutionrelative:wpfdemo\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|c:\\users\\tn006\\source\\repos\\wpfdemo\\wpfdemo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|g:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\github\\exercise\\c#\\udemy_wpf\\wpfdemo\\wpfdemo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|solutionrelative:wpfdemo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|c:\\users\\tn006\\source\\repos\\wpfdemo\\wpfdemo\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|g:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\github\\exercise\\c#\\udemy_wpf\\wpfdemo\\wpfdemo\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|solutionrelative:wpfdemo\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|g:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\github\\exercise\\c#\\udemy_wpf\\wpfdemo\\wpfdemo\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CCCA9DE-A4BB-4EED-949D-DEF9F13DBA49}|WpfDemo\\WpfDemo.csproj|solutionrelative:wpfdemo\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -44,21 +44,21 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\tn006\\source\\repos\\WpfDemo\\WpfDemo\\MainWindow.xaml",
+              "DocumentMoniker": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Github\\Exercise\\C#\\Udemy_WPF\\WpfDemo\\WpfDemo\\MainWindow.xaml",
               "RelativeDocumentMoniker": "WpfDemo\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\tn006\\source\\repos\\WpfDemo\\WpfDemo\\MainWindow.xaml",
+              "ToolTip": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Github\\Exercise\\C#\\Udemy_WPF\\WpfDemo\\WpfDemo\\MainWindow.xaml",
               "RelativeToolTip": "WpfDemo\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-01T14:34:49.208Z",
+              "WhenOpened": "2024-07-03T13:32:36.658Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\tn006\\source\\repos\\WpfDemo\\WpfDemo\\App.xaml.cs",
+              "DocumentMoniker": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Github\\Exercise\\C#\\Udemy_WPF\\WpfDemo\\WpfDemo\\App.xaml.cs",
               "RelativeDocumentMoniker": "WpfDemo\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\tn006\\source\\repos\\WpfDemo\\WpfDemo\\App.xaml.cs",
+              "ToolTip": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Github\\Exercise\\C#\\Udemy_WPF\\WpfDemo\\WpfDemo\\App.xaml.cs",
               "RelativeToolTip": "WpfDemo\\App.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -67,27 +67,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\tn006\\source\\repos\\WpfDemo\\WpfDemo\\AssemblyInfo.cs",
+              "DocumentMoniker": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Github\\Exercise\\C#\\Udemy_WPF\\WpfDemo\\WpfDemo\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "WpfDemo\\AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\tn006\\source\\repos\\WpfDemo\\WpfDemo\\AssemblyInfo.cs",
+              "ToolTip": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Github\\Exercise\\C#\\Udemy_WPF\\WpfDemo\\WpfDemo\\AssemblyInfo.cs",
               "RelativeToolTip": "WpfDemo\\AssemblyInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T14:36:04.058Z"
+              "WhenOpened": "2024-07-01T14:36:04.058Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\tn006\\source\\repos\\WpfDemo\\WpfDemo\\MainWindow.xaml.cs",
+              "DocumentMoniker": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Github\\Exercise\\C#\\Udemy_WPF\\WpfDemo\\WpfDemo\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "WpfDemo\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\tn006\\source\\repos\\WpfDemo\\WpfDemo\\MainWindow.xaml.cs",
+              "ToolTip": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Github\\Exercise\\C#\\Udemy_WPF\\WpfDemo\\WpfDemo\\MainWindow.xaml.cs",
               "RelativeToolTip": "WpfDemo\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T14:34:44.673Z"
+              "WhenOpened": "2024-07-01T14:34:44.673Z",
+              "EditorCaption": ""
             }
           ]
         }

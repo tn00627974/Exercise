@@ -1,0 +1,39 @@
+﻿<Window x:Class="TodoApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TodoApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400"
+        ResizeMode="NoResize">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="75" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="75" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Button Click="Create_Todo_TextBox" Grid.Row="5" Grid.Column="1" Content="Create Todo" ></Button>
+        <TextBox x:Name="TodoInput"  Grid.Row="3" Grid.Column="1" Background="black" Foreground="white" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" />
+        <ScrollViewer Grid.Column="1" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+
+            <StackPanel x:Name="TodoList" Background="Black">
+                <TextBlock Text="Todo List" FontSize="20" Foreground="White" />
+            </StackPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+</Window>

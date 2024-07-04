@@ -27,8 +27,8 @@
         </Grid.RowDefinitions>
         <!-- <Label Content="Hello World" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.545,0.658" Height="25" Width="78"/> -->
         <Label Grid.Row="1" Grid.Column="2" Content="Hello World" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
-        <Label Grid.Row="2" Grid.Column="2" Content="Hello World" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
-        <Button Grid.Row="3" Grid.Column="2" Content="A"/>
+        <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" Content="Hello World Hello World Hello World Hello World" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+        <Button Grid.Row="3" Grid.Column="2" Content="A" Click ="Button_Click"/>
         <Button Grid.Row="3" Grid.Column="4" Content="B"/>
 
 
