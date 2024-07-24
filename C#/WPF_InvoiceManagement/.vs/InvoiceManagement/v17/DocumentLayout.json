@@ -1,0 +1,108 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF_InvoiceManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3419A60F-EDDB-428B-8EDE-FD0D0241446B}|InvoiceManagement\\InvoiceManagement.csproj|c:\\users\\diyi-idd-003\\desktop\\exercise\\c#\\wpf_invoicemanagement\\invoicemanagement\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3419A60F-EDDB-428B-8EDE-FD0D0241446B}|InvoiceManagement\\InvoiceManagement.csproj|solutionrelative:invoicemanagement\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3419A60F-EDDB-428B-8EDE-FD0D0241446B}|InvoiceManagement\\InvoiceManagement.csproj|c:\\users\\diyi-idd-003\\desktop\\exercise\\c#\\wpf_invoicemanagement\\invoicemanagement\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3419A60F-EDDB-428B-8EDE-FD0D0241446B}|InvoiceManagement\\InvoiceManagement.csproj|solutionrelative:invoicemanagement\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3419A60F-EDDB-428B-8EDE-FD0D0241446B}|InvoiceManagement\\InvoiceManagement.csproj|c:\\users\\diyi-idd-003\\desktop\\exercise\\c#\\wpf_invoicemanagement\\invoicemanagement\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3419A60F-EDDB-428B-8EDE-FD0D0241446B}|InvoiceManagement\\InvoiceManagement.csproj|solutionrelative:invoicemanagement\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3419A60F-EDDB-428B-8EDE-FD0D0241446B}|InvoiceManagement\\InvoiceManagement.csproj|c:\\users\\diyi-idd-003\\desktop\\exercise\\c#\\wpf_invoicemanagement\\invoicemanagement\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3419A60F-EDDB-428B-8EDE-FD0D0241446B}|InvoiceManagement\\InvoiceManagement.csproj|solutionrelative:invoicemanagement\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3419A60F-EDDB-428B-8EDE-FD0D0241446B}|InvoiceManagement\\InvoiceManagement.csproj|c:\\users\\diyi-idd-003\\desktop\\exercise\\c#\\wpf_invoicemanagement\\invoicemanagement\\invoicemanagement.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3419A60F-EDDB-428B-8EDE-FD0D0241446B}|InvoiceManagement\\InvoiceManagement.csproj|solutionrelative:invoicemanagement\\invoicemanagement.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF_InvoiceManagement\\InvoiceManagement\\LoginView.xaml.cs",
+              "RelativeDocumentMoniker": "InvoiceManagement\\LoginView.xaml.cs",
+              "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF_InvoiceManagement\\InvoiceManagement\\LoginView.xaml.cs",
+              "RelativeToolTip": "InvoiceManagement\\LoginView.xaml.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAqwCkAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T14:55:01.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginView.xaml",
+              "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF_InvoiceManagement\\InvoiceManagement\\LoginView.xaml",
+              "RelativeDocumentMoniker": "InvoiceManagement\\LoginView.xaml",
+              "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF_InvoiceManagement\\InvoiceManagement\\LoginView.xaml",
+              "RelativeToolTip": "InvoiceManagement\\LoginView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-07-09T14:52:27.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InvoiceManagement.csproj",
+              "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF_InvoiceManagement\\InvoiceManagement\\InvoiceManagement.csproj",
+              "RelativeDocumentMoniker": "InvoiceManagement\\InvoiceManagement.csproj",
+              "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF_InvoiceManagement\\InvoiceManagement\\InvoiceManagement.csproj",
+              "RelativeToolTip": "InvoiceManagement\\InvoiceManagement.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-09T14:51:34.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF_InvoiceManagement\\InvoiceManagement\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "InvoiceManagement\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF_InvoiceManagement\\InvoiceManagement\\MainWindow.xaml",
+              "RelativeToolTip": "InvoiceManagement\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-07-09T14:49:26.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF_InvoiceManagement\\InvoiceManagement\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "InvoiceManagement\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF_InvoiceManagement\\InvoiceManagement\\MainWindow.xaml.cs",
+              "RelativeToolTip": "InvoiceManagement\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAArwBUAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T14:49:23.093Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

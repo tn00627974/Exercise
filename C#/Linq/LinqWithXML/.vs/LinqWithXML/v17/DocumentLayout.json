@@ -1,0 +1,49 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Exercise\\C#\\Linq\\LinqWithXML\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BAE5B1C2-81FB-479D-A006-E5864DEE6574}|LinqWithXML\\LinqWithXML.csproj|e:\\exercise\\c#\\linq\\linqwithxml\\linqwithxml\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAE5B1C2-81FB-479D-A006-E5864DEE6574}|LinqWithXML\\LinqWithXML.csproj|solutionrelative:linqwithxml\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Exercise\\C#\\Linq\\LinqWithXML\\LinqWithXML\\Program.cs",
+              "RelativeDocumentMoniker": "LinqWithXML\\Program.cs",
+              "ToolTip": "E:\\Exercise\\C#\\Linq\\LinqWithXML\\LinqWithXML\\Program.cs",
+              "RelativeToolTip": "LinqWithXML\\Program.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAEgAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T12:35:59.023Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
