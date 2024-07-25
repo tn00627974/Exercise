@@ -15,14 +15,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration ;
+using System.Data.SqlClient;
 
 namespace CurrencyConverter_Database
 {
     /// <summary>
     /// MainWindow.xaml 的互動邏輯
     /// </summary> 
-    public partial class MainWindow
+    public partial class MainWindow : Window
     {
+        // 創建 SQL 連線
+        SqlConnection con = new SqlConnection();
+
+        // 創建 SQL 指令
+        SqlCommand cmd = new SqlCommand();
+
+        // 創建 SQL DataAdapter
+        SqlDataAdapter da = new SqlDataAdapter();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,24 +42,51 @@ namespace CurrencyConverter_Database
             BindCurrency(); // 呼叫 BindCurrency 方法
         }
 
+        public void mycon()
+        {
+            //Database connection string
+            String Conn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            con = new SqlConnection(Conn);
+            con.Open(); //Connection Open
+        }
+
         // Private 是一個存取修飾符。類型或成員只能由同一類別或結構中的程式碼存取。
         // Void 關鍵字用於方法簽章來聲明不傳回任何值的方法。使用 void 傳回類型宣告的方法不能為其包含的任何傳回語句提供任何參數。
         public void BindCurrency()
         {
-            DataTable dtCurrency = new DataTable(); // using System.Data;
 
-            dtCurrency.Columns.Add("Text"); //Add display column in DataTable
-            dtCurrency.Columns.Add("Value"); // Add value column in DataTable
+            mycon(); // 呼叫連接資料庫的函數
+            DataTable dt = new DataTable(); // 創建一個新的資料表物件，使用 System.Data 命名空間
 
-            //Add rows in Datatable with text and value
-            dtCurrency.Rows.Add("--SELECT--", 0);
-            dtCurrency.Rows.Add("TWD", 30);
-            dtCurrency.Rows.Add("INR", 1);
-            dtCurrency.Rows.Add("USD", 90);
-            dtCurrency.Rows.Add("EUR", 85);
-            dtCurrency.Rows.Add("SAR", 20);
-            dtCurrency.Rows.Add("POUND", 5);
-            dtCurrency.Rows.Add("DEM", 43);
+            // 創建 SQL 命令，查詢 Currency_Master 表中的 Id 和 CurrencyName 欄位
+            cmd = new SqlCommand("select Id, CurrencyName from Currency_Master", con);
+            cmd.CommandType = CommandType.Text; // 設定命令類型為文字 SQL 查詢
+
+            da = new SqlDataAdapter(cmd); // 創建資料適配器，將 SQL 命令與資料庫連接
+            da.Fill(dt); // 使用適配器填充資料表 dt
+
+            DataRow newRow = dt.NewRow(); // 創建一個新的資料行
+
+            // 設定新資料行的 Id 和 CurrencyName 欄位值
+            newRow["Id"] = 0;
+            newRow["CurrencyName"] = "--SELECT--";
+
+            // 將新資料行插入到資料表的第一行
+            dt.Rows.InsertAt(newRow, 0);
+
+
+            //dtCurrency.Columns.Add("Text"); //Add display column in DataTable
+            //dtCurrency.Columns.Add("Value"); // Add value column in DataTable
+
+            ////Add rows in Datatable with text and value
+            //dtCurrency.Rows.Add("--SELECT--", 0);
+            //dtCurrency.Rows.Add("TWD", 30);
+            //dtCurrency.Rows.Add("INR", 1);
+            //dtCurrency.Rows.Add("USD", 90);
+            //dtCurrency.Rows.Add("EUR", 85);
+            //dtCurrency.Rows.Add("SAR", 20);
+            //dtCurrency.Rows.Add("POUND", 5);
+            //dtCurrency.Rows.Add("DEM", 43);
 
             // cmbFromCurrency
             cmbFromCurrency.ItemsSource = dtCurrency.DefaultView;   // 將 DataTable 指派給 Combobox  
