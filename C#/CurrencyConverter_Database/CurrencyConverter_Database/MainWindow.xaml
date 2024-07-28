@@ -11,10 +11,12 @@
         <TabItem Name="tbConverter" Header="Currency Converter">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="212*"/>
-                    <ColumnDefinition Width="122*"/>
-                    <ColumnDefinition Width="333*"/>
-                    <ColumnDefinition Width="333*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="91*"/>
+                    <ColumnDefinition Width="159*"/>
+                    <ColumnDefinition Width="250*"/>
+                    <ColumnDefinition Width="0*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"></RowDefinition>
@@ -23,7 +25,7 @@
                     <RowDefinition Height="100"></RowDefinition>
                     <RowDefinition Height="150"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="2" Width="800" CornerRadius="10" BorderThickness="5" Margin="100,0,100,0" Grid.ColumnSpan="4">
+                <Border Grid.Row="2" Width="800" CornerRadius="10" BorderThickness="5" Margin="100,0,100,0" Grid.ColumnSpan="5">
                     <Border.BorderBrush>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStop Color="#ec2075" Offset="0.0" />
@@ -40,25 +42,25 @@
                     </Rectangle>
                 </Border>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="50" Width="1000" VerticalAlignment="Center" Grid.Column="2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="50" Width="1000" VerticalAlignment="Center" Grid.Column="2" Grid.ColumnSpan="3">
                     <Label Height="50" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Currency Converter" FontSize="25" Foreground="#ec2075" FontWeight="Bold"></Label>
                 </StackPanel>
-                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Height="80" Width="1000" Grid.Column="2">
+                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left" Height="80" Width="1000" Grid.Column="2" Grid.ColumnSpan="3">
                     <Label Height="40" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Converted Currency" FontSize="20"></Label>
                     <Label Name="lblCurrency" Height="40" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></Label>
                 </StackPanel>
-                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="60" Width="800" Grid.Column="2">
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="800" Grid.Column="2" Grid.ColumnSpan="3" Margin="100,0,0,0">
                     <Label Height="40" Width="150" Content="Enter Amount : " Margin="35 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
                     <Label Height="40" Width="150" Content="From : " Margin="110 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
                     <Label Height="40" Width="150" Content="To : " Margin="130 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
                 </StackPanel>
-                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Height="90" Width="800" VerticalAlignment="Top" Margin="0,60,0,0" Grid.Column="2">
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Height="90" Width="800" VerticalAlignment="Top" Margin="100,60,0,0" Grid.Column="2" Grid.ColumnSpan="3">
                     <TextBox Name="txtCurrency" Width="200" Height="30" Margin="40 0 0 0" PreviewTextInput="NumberValidationTextBox" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top"></TextBox>
                     <ComboBox Name="cmbFromCurrency" Width="170" Height="30" Margin="60 0 40 0" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" SelectionChanged="cmbFromCurrency_SelectionChanged" PreviewKeyDown="cmbFromCurrency_PreviewKeyDown" MaxDropDownHeight="150"></ComboBox>
                     <!--<fa:ImageAwesome Icon="Exchange" Height="30" Width="30" Foreground="White" VerticalAlignment="Top"></fa:ImageAwesome>-->
                     <ComboBox Name="cmbToCurrency" Width="170" Height="30" Margin="40 0 0 0" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" SelectionChanged="cmbToCurrency_SelectionChanged" PreviewKeyDown="cmbToCurrency_PreviewKeyDown" MaxDropDownHeight="150"></ComboBox>
                 </StackPanel>
-                <StackPanel Grid.Row="3" Height="100" Width="1000" Orientation="Horizontal" Grid.ColumnSpan="4">
+                <StackPanel Grid.Row="3" Height="100" Width="1000" Orientation="Horizontal" Grid.ColumnSpan="5">
                     <Button Name="Convert" Height="40" Width="150" Content="Convert" Click="Convert_Click" Margin="350 0 20 0" Foreground="White" FontSize="20" Style="{StaticResource ButtonRound}">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
@@ -75,10 +77,12 @@
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
+                    <Label Name ="lbMessage" Content="Label"/>
                 </StackPanel>
-                <StackPanel Grid.Row="4" Height="150" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="2">
-                    <Image Height="150" Width="150"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="325 0"/>
+                <!--<StackPanel Grid.Row="4" Height="150" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="4" >
+                    <Image Height="150" Width="150"  VerticalAlignment="Center" HorizontalAlignment="Center" />
                 </StackPanel>
+                >-->
             </Grid>
         </TabItem>
 
@@ -116,7 +120,7 @@
                     <Label Height="40" Width="180" Content="Currency Name : " Margin="60 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Height="60" Width="800" VerticalAlignment="Bottom" Margin="100,0">
-                    <TextBox Name="txtAmount" Width="200" Height="30" Margin="180 0 0 0" PreviewTextInput="NumberValidationTextBox" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top"></TextBox>
+                    <TextBox Name="SavetxtAmount" Width="200" Height="30" Margin="180 0 0 0" PreviewTextInput="NumberValidationTextBox" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top"></TextBox>
                     <TextBox Name="txtCurrencyName" Width="200" Height="30" Margin="40 0 0 0" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" MaxLength="50" CharacterCasing="Upper"></TextBox>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Height="60" Width="1000" Orientation="Horizontal">
@@ -162,9 +166,9 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
-                <StackPanel Grid.Row="4" Height="150" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <!--<StackPanel Grid.Row="4" Height="150" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                     <Image Height="150" Width="150"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="325 0"/>
-                </StackPanel>
+                </StackPanel>-->
             </Grid>
         </TabItem>
     </TabControl>

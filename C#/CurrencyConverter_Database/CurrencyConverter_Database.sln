@@ -5,8 +5,6 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConverter_Database", "CurrencyConverter_Database\CurrencyConverter_Database.csproj", "{A1169447-4800-40FB-9550-AD4C472610EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConverter_DatabaseTests", "CurrencyConverter_DatabaseTests\CurrencyConverter_DatabaseTests.csproj", "{815BCB41-96BE-4B36-A6A0-107F03CC9133}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{A1169447-4800-40FB-9550-AD4C472610EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1169447-4800-40FB-9550-AD4C472610EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1169447-4800-40FB-9550-AD4C472610EE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{815BCB41-96BE-4B36-A6A0-107F03CC9133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{815BCB41-96BE-4B36-A6A0-107F03CC9133}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{815BCB41-96BE-4B36-A6A0-107F03CC9133}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{815BCB41-96BE-4B36-A6A0-107F03CC9133}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

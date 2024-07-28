@@ -30,3 +30,9 @@ G:\其他電腦\我的電腦\GoogleDisk\Exercise\C#\CurrencyConverter_Database\C
 G:\其他電腦\我的電腦\GoogleDisk\Exercise\C#\CurrencyConverter_Database\CurrencyConverter_Database\obj\Debug\CurrencyConverter_Database.csproj.CoreCompileInputs.cache
 G:\其他電腦\我的電腦\GoogleDisk\Exercise\C#\CurrencyConverter_Database\CurrencyConverter_Database\obj\Debug\CurrencyConverter_Database.exe
 G:\其他電腦\我的電腦\GoogleDisk\Exercise\C#\CurrencyConverter_Database\CurrencyConverter_Database\obj\Debug\CurrencyConverter_Database.pdb
+G:\我的雲端硬碟\Exercise\C#\CurrencyConverter_Database\CurrencyConverter_Database\obj\Debug\CurrencyConverter_Database.csproj.AssemblyReference.cache
+G:\我的雲端硬碟\Exercise\C#\CurrencyConverter_Database\CurrencyConverter_Database\obj\Debug\MainWindow.g.cs
+G:\我的雲端硬碟\Exercise\C#\CurrencyConverter_Database\CurrencyConverter_Database\obj\Debug\App.g.cs
+G:\我的雲端硬碟\Exercise\C#\CurrencyConverter_Database\CurrencyConverter_Database\obj\Debug\CurrencyConverter_Database_Content.g.cs
+G:\我的雲端硬碟\Exercise\C#\CurrencyConverter_Database\CurrencyConverter_Database\obj\Debug\CurrencyConverter_Database_MarkupCompile.cache
+G:\我的雲端硬碟\Exercise\C#\CurrencyConverter_Database\CurrencyConverter_Database\obj\Debug\CurrencyConverter_Database_MarkupCompile.lref

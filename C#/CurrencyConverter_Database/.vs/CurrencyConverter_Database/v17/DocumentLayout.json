@@ -1,32 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\",
+  "WorkspaceRootPath": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|g:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\googledisk\\exercise\\c#\\currencyconverter_database\\currencyconverter_database\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|g:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\exercise\\c#\\currencyconverter_database\\currencyconverter_database\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|solutionrelative:currencyconverter_database\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|CurrencyConverter_DatabaseTests||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\currencyconverter_database\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|solutionrelative:currencyconverter_database\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\currencyconverter_database\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|g:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\exercise\\c#\\currencyconverter_database\\currencyconverter_database\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|solutionrelative:currencyconverter_database\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\currencyconverter_database\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|solutionrelative:currencyconverter_database\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\currencyconverter_database\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|solutionrelative:currencyconverter_database\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|CurrencyConverter_Database||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\currencyconverter_database\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|solutionrelative:currencyconverter_database\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\currencyconverter_database\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|solutionrelative:currencyconverter_database\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\currencyconverter_database\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|solutionrelative:currencyconverter_database\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1169447-4800-40FB-9550-AD4C472610EE}|CurrencyConverter_Database\\CurrencyConverter_Database.csproj|g:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\exercise\\c#\\currencyconverter_database\\currencyconverter_database\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,8 +36,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -47,93 +51,100 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CurrencyConverter_DatabaseTests",
-              "DocumentMoniker": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_DatabaseTests\\CurrencyConverter_DatabaseTests.csproj",
-              "RelativeDocumentMoniker": "CurrencyConverter_DatabaseTests\\CurrencyConverter_DatabaseTests.csproj",
-              "ToolTip": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_DatabaseTests\\CurrencyConverter_DatabaseTests.csproj",
-              "RelativeToolTip": "CurrencyConverter_DatabaseTests\\CurrencyConverter_DatabaseTests.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-07-24T14:26:54.973Z"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.xaml.cs",
+              "RelativeDocumentMoniker": "CurrencyConverter_Database\\App.xaml.cs",
+              "ToolTip": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.xaml.cs",
+              "RelativeToolTip": "CurrencyConverter_Database\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T12:24:09.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "App.config",
-              "DocumentMoniker": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.config",
+              "DocumentMoniker": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.config",
               "RelativeDocumentMoniker": "CurrencyConverter_Database\\App.config",
-              "ToolTip": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.config",
+              "ToolTip": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.config",
               "RelativeToolTip": "CurrencyConverter_Database\\App.config",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-07-24T13:37:46.815Z"
+              "WhenOpened": "2024-07-24T13:37:46.815Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "CurrencyConverter_Database",
-              "DocumentMoniker": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\CurrencyConverter_Database.csproj",
+              "DocumentMoniker": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\CurrencyConverter_Database.csproj",
               "RelativeDocumentMoniker": "CurrencyConverter_Database\\CurrencyConverter_Database.csproj",
-              "ToolTip": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\CurrencyConverter_Database.csproj",
+              "ToolTip": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\CurrencyConverter_Database.csproj",
               "RelativeToolTip": "CurrencyConverter_Database\\CurrencyConverter_Database.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-07-24T13:38:03Z"
+              "WhenOpened": "2024-07-24T13:38:03Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\MainWindow.xaml.cs",
+              "DocumentMoniker": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "CurrencyConverter_Database\\MainWindow.xaml.cs",
-              "ToolTip": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\MainWindow.xaml.cs",
+              "ToolTip": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\MainWindow.xaml.cs",
               "RelativeToolTip": "CurrencyConverter_Database\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAEIAAAAAAAAA",
+              "ViewState": "AQIAAC4BAAAAAAAAAAAmwC8BAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-21T13:44:45.544Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "App.xaml",
-              "DocumentMoniker": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.xaml",
+              "DocumentMoniker": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.xaml",
               "RelativeDocumentMoniker": "CurrencyConverter_Database\\App.xaml",
-              "ToolTip": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.xaml",
+              "ToolTip": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.xaml",
               "RelativeToolTip": "CurrencyConverter_Database\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-21T14:02:51.58Z"
-            },
+              "WhenOpened": "2024-07-21T14:02:51.58Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "23cc1662-c45f-4ca5-b9e6-cd3d67bb5a41",
+        "Display": 1,
+        "X": 174,
+        "Y": 105,
+        "Width": 1230,
+        "Height": 806,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.xaml.cs",
-              "RelativeDocumentMoniker": "CurrencyConverter_Database\\App.xaml.cs",
-              "ToolTip": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\App.xaml.cs",
-              "RelativeToolTip": "CurrencyConverter_Database\\App.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T14:02:49.726Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\MainWindow.xaml",
+              "DocumentMoniker": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\MainWindow.xaml",
               "RelativeDocumentMoniker": "CurrencyConverter_Database\\MainWindow.xaml",
-              "ToolTip": "G:\\\u5176\u4ED6\u96FB\u8166\\\u6211\u7684\u96FB\u8166\\GoogleDisk\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\MainWindow.xaml",
+              "ToolTip": "G:\\\u6211\u7684\u96F2\u7AEF\u786C\u789F\\Exercise\\C#\\CurrencyConverter_Database\\CurrencyConverter_Database\\MainWindow.xaml",
               "RelativeToolTip": "CurrencyConverter_Database\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-21T13:44:45.665Z"
+              "WhenOpened": "2024-07-21T13:44:45.665Z",
+              "EditorCaption": ""
             }
           ]
         }
