@@ -28,6 +28,10 @@ namespace CurrencyConverter_Database
             lblCurrency.Content = "請選擇您要轉換的貨幣";
             //txtAmount.Content = "金額";
             BindCurrency(); // 呼叫 BindCurrency 方法
+            ClearControls();
+            GetData();
+
+
         }
 
         // 建立mycon 基本連接資料庫設定
@@ -45,9 +49,6 @@ namespace CurrencyConverter_Database
         // Void 關鍵字用於方法簽章來聲明不傳回任何值的方法。使用 void 傳回類型宣告的方法不能為其包含的任何傳回語句提供任何參數。
         public void BindCurrency()
         {
-
-
-
             mycon(); // 呼叫連接資料庫的函數
             DataTable dt = new DataTable(); // 創建一個新的資料表物件，使用 System.Data 命名空間 
 
@@ -77,6 +78,9 @@ namespace CurrencyConverter_Database
             cmbFromCurrency.SelectedValuePath = "Id"; // SelectedValuePath是用來顯示Combobox的Value值
             cmbFromCurrency.SelectedValue = 0; // SelectedValue 是用來設定Combobox的預設選取項目，預設值為0，表示Select。
 
+            cmbToCurrency.DisplayMemberPath = "CurrencyName";
+            cmbToCurrency.SelectedValuePath = "Id";
+            cmbToCurrency.SelectedValue = 0;
 
 
             //dtCurrency.Columns.Add("Text"); //Add display column in DataTable
@@ -236,7 +240,6 @@ namespace CurrencyConverter_Database
 
         }
 
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -246,8 +249,6 @@ namespace CurrencyConverter_Database
                     MessageBox.Show("Please enter amount", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     txtAmount.Focus();
                     return;
-                    // 檢查金額文字方塊的驗證。如果金額文字方塊為空，則會顯示訊息「請輸入金額」。
-                    // 檢查貨幣名稱的驗證。如果貨幣名稱文字方塊為空，則會顯示訊息「請輸入貨幣名稱」。
                 }
                 else if (txtCurrencyName.Text == null || txtCurrencyName.Text.Trim() == "")
                 {
@@ -256,13 +257,17 @@ namespace CurrencyConverter_Database
                     return;
                 }
                 else
-                {
+                {   //Edit time and set that record Id in CurrencyId variable.
+                    //Code to Update. If CurrencyId greater than zero than it is go for update.
                     if (CurrencyId > 0)
+                    {
+                        //Show the confirmation message
                         if (MessageBox.Show("Are you sure you want to update ?", "Information", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                         {
                             mycon();
                             DataTable dt = new DataTable();
 
+                            //Update Query Record update using Id
                             cmd = new SqlCommand("UPDATE Currency_Master SET Amount = @Amount, CurrencyName = @CurrencyName WHERE Id = @Id", con);
                             cmd.CommandType = CommandType.Text;
                             cmd.Parameters.AddWithValue("@Id", CurrencyId);
@@ -271,14 +276,32 @@ namespace CurrencyConverter_Database
                             cmd.ExecuteNonQuery();
                             con.Close();
 
+                            MessageBox.Show("Data updated successfully", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
-                }
+                    }
+                    // Code to Save
+                    else
+                    {
+                        if (MessageBox.Show("Are you sure you want to save ?", "Information", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        {
+                            mycon();
+                            //Insert query to Save data in the table
+                            cmd = new SqlCommand("INSERT INTO Currency_Master(Amount, CurrencyName) VALUES(@Amount, @CurrencyName)", con);
+                            cmd.CommandType = CommandType.Text;
+                            cmd.Parameters.AddWithValue("@Amount", txtAmount.Text);
+                            cmd.Parameters.AddWithValue("@CurrencyName", txtCurrencyName.Text);
+                            cmd.ExecuteNonQuery();
+                            con.Close();
 
+                            MessageBox.Show("Data saved successfully", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
+                    ClearMaster();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
         }
 
@@ -320,26 +343,32 @@ namespace CurrencyConverter_Database
                 if (cmbFromCurrency.SelectedValue != null && int.Parse(cmbFromCurrency.SelectedValue.ToString()) != 0 && cmbFromCurrency.SelectedIndex != 0)
                 {
                     int CurrencyFromId = int.Parse(cmbFromCurrency.SelectedValue.ToString());
-                }
+                
 
-                mycon();
-                DataTable dt = new DataTable();
+                    mycon();
+                    DataTable dt = new DataTable();
 
 
-                cmd = new SqlCommand("SELECT Amount FROM Currency_Master WHERE Id = @CurrencyFromId", con);
-                cmd.CommandType = CommandType.Text;
+                    cmd = new SqlCommand("SELECT Amount FROM Currency_Master WHERE Id = @CurrencyFromId", con);
+                    cmd.CommandType = CommandType.Text;
 
                 if (CurrencyFromId != null && CurrencyFromId != 0)
-                
+                {
                     cmd.Parameters.AddWithValue("@CurrencyFromId", CurrencyFromId);
+
+                }
+
 
                 da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
 
-                if (dt != null && dt.Rows.Count > 0)
+                if (dt != null && dt.Rows.Count > 0) 
+                {
                     FromAmount = double.Parse(dt.Rows[0]["Amount"].ToString()); // 取得 "從" 貨幣的金額
+                }
 
                 con.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -358,7 +387,7 @@ namespace CurrencyConverter_Database
 
                 if (row_selected != null) // 如果有選擇的項目
                 {
-                    if (dgvCurrency.Items.Conut > 0) // 處理選擇 < DataGird Name = "dgvCurrency" > 的資料
+                    if (dgvCurrency.Items.Count > 0) // 處理選擇 < DataGird Name = "dgvCurrency" > 的資料
                     {
                         if (grd.SelectedCells.Count > 0) // 如果有選擇的資料格
                         {
@@ -400,28 +429,34 @@ namespace CurrencyConverter_Database
             }
         }
 
-
         private void cmbToCurrency_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
-            { 
+            {
+                //If cmbToCurrency selectedvalue is not equal to null and not equal to zero
                 if (cmbToCurrency.SelectedValue != null && int.Parse(cmbToCurrency.SelectedValue.ToString()) != 0 && cmbToCurrency.SelectedIndex != 0)
                 {
+                    //cmbToCurrency selectedvalue is set to CurrencyToId variable
                     int CurrencyToId = int.Parse(cmbToCurrency.SelectedValue.ToString());
 
                     mycon();
 
                     DataTable dt = new DataTable();
+                    //Select query for get Amount from database using id
                     cmd = new SqlCommand("SELECT Amount FROM Currency_Master WHERE Id = @CurrencyToId", con);
                     cmd.CommandType = CommandType.Text;
 
                     if (CurrencyToId != null && CurrencyToId != 0)
+                        //CurrencyToId set in @CurrencyToId parameter and send parameter in our query
                         cmd.Parameters.AddWithValue("@CurrencyToId", CurrencyToId);
 
                     da = new SqlDataAdapter(cmd);
+
+                    //Set the data that the query returns in the data table
                     da.Fill(dt);
 
                     if (dt != null && dt.Rows.Count > 0)
+                        //Get amount column value from datatable and set amount value in ToAmount variable which is declared globally
                         ToAmount = double.Parse(dt.Rows[0]["Amount"].ToString());
                     con.Close();
                 }
@@ -434,6 +469,7 @@ namespace CurrencyConverter_Database
 
         // 當用戶在 cmbToCurrency 控件中按下按鍵時觸發此事件處理程序
         private void cmbToCurrency_PreviewKeyDown(object sender, KeyEventArgs e)
+
         {
             // 如果用戶按下的是 Tab 鍵或 Enter 鍵，則執行 cmbToCurrency_SelectionChanged 事件
             if (e.Key == Key.Tab || e.SystemKey == Key.Enter)
@@ -458,6 +494,11 @@ namespace CurrencyConverter_Database
 
 
         private void dgvCurrency_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cmbFromCurrency_PreviewKeyDown(object sender, KeyEventArgs e)
         {
 
         }

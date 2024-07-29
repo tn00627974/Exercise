@@ -88,6 +88,10 @@
 
         <TabItem Name="tbMaster" Header="Currency Master">
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="57*"/>
+                    <ColumnDefinition Width="1043*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"></RowDefinition>
                     <RowDefinition Height="100"></RowDefinition>
@@ -95,7 +99,7 @@
                     <RowDefinition Height="200"></RowDefinition>
                     <RowDefinition Height="150"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="1" Width="800" CornerRadius="10" BorderThickness="5" Margin="100,0">
+                <Border Grid.Row="1" Width="800" CornerRadius="10" BorderThickness="5" Margin="93,0,150,0" Grid.Column="1">
                     <Border.BorderBrush>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStop Color="#ec2075" Offset="0.0" />
@@ -112,18 +116,18 @@
                     </Rectangle>
                 </Border>
 
-                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Height="50" Width="1000" VerticalAlignment="Center" Margin="0,5">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="50" Width="1000" VerticalAlignment="Center" Margin="50,0,0,0" Grid.ColumnSpan="2">
                     <Label Height="50" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Currency Master" FontSize="25" Foreground="#ec2075" FontWeight="Bold"></Label>
                 </StackPanel>
-                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="800" Margin="100,0">
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="800" Margin="93,0,0,0" Grid.Column="1">
                     <Label Height="40" Width="180" Content="Enter Amount : " Margin="180 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
                     <Label Height="40" Width="180" Content="Currency Name : " Margin="60 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
                 </StackPanel>
-                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Height="60" Width="800" VerticalAlignment="Bottom" Margin="100,0">
-                    <TextBox Name="SavetxtAmount" Width="200" Height="30" Margin="180 0 0 0" PreviewTextInput="NumberValidationTextBox" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top"></TextBox>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Height="60" Width="800" VerticalAlignment="Bottom" Margin="93,0,0,0" Grid.Column="1">
+                    <TextBox Name="txtAmount" Width="200" Height="30" Margin="180 0 0 0" PreviewTextInput="NumberValidationTextBox" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top"></TextBox>
                     <TextBox Name="txtCurrencyName" Width="200" Height="30" Margin="40 0 0 0" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" MaxLength="50" CharacterCasing="Upper"></TextBox>
                 </StackPanel>
-                <StackPanel Grid.Row="2" Height="60" Width="1000" Orientation="Horizontal">
+                <StackPanel Grid.Row="2" Height="60" Width="1000" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="50,0,50,0">
                     <Button Name="btnSave" Height="40" Width="150" Content="Save" Click="btnSave_Click" Margin="350 0 20 0" Foreground="White" FontSize="20" Style="{StaticResource ButtonRound}">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
@@ -141,7 +145,7 @@
                         </Button.Background>
                     </Button>
                 </StackPanel>
-                <StackPanel Height="200" Width="800" Grid.Row="3" Margin="150,0" VerticalAlignment="Top">
+                <StackPanel Height="200" Width="800" Grid.Row="3" Margin="93,0,150,0" VerticalAlignment="Center" Grid.Column="1">
                     <DataGrid Name="dgvCurrency" AutoGenerateColumns="False" Height="180" Margin="10" Width="480" Background="Transparent" CanUserAddRows="False" SelectedCellsChanged="dgvCurrency_SelectedCellsChanged" SelectionUnit="Cell" VerticalScrollBarVisibility="Auto">
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="Id" Header="Id" Width="100" CanUserResize="False" Visibility="Hidden" Binding="{Binding Path=Id}"/>
