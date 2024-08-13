@@ -1,0 +1,145 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|e:\\googledisk\\0728\\c#\\linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002Blinqtosql\\linqtosql\\linqtosql\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|solutionrelative:linqtosql\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\linqtosql\\panjutorialsdb1dataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|solutionrelative:linqtosql\\panjutorialsdb1dataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\linqtosql\\linqtosqldataclasses.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|solutionrelative:linqtosql\\linqtosqldataclasses.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\linqtosql\\linqtosqldataclasses.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|",
+      "RelativeMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|solutionrelative:linqtosql\\linqtosqldataclasses.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\linqtosql\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|solutionrelative:linqtosql\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\linqtosql\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|solutionrelative:linqtosql\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\linqtosql\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90FCCF74-1140-42F6-B34E-EC1237041D42}|LinqToSQL\\LinqToSQL.csproj|solutionrelative:linqtosql\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "LinqToSQL\\MainWindow.xaml.cs",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\MainWindow.xaml.cs",
+              "RelativeToolTip": "LinqToSQL\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAAwEwAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T13:48:28.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PanjutorialsDB1DataSet.xsd",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\PanjutorialsDB1DataSet.xsd",
+              "RelativeDocumentMoniker": "LinqToSQL\\PanjutorialsDB1DataSet.xsd",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\PanjutorialsDB1DataSet.xsd",
+              "RelativeToolTip": "LinqToSQL\\PanjutorialsDB1DataSet.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2024-08-12T13:48:24.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LinqToSqlDataClasses.designer.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\LinqToSqlDataClasses.designer.cs",
+              "RelativeDocumentMoniker": "LinqToSQL\\LinqToSqlDataClasses.designer.cs",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\LinqToSqlDataClasses.designer.cs",
+              "RelativeToolTip": "LinqToSQL\\LinqToSqlDataClasses.designer.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAAwFcAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T13:30:06.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.config",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\App.config",
+              "RelativeDocumentMoniker": "LinqToSQL\\App.config",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\App.config",
+              "RelativeToolTip": "LinqToSQL\\App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-11T14:02:42.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "App.xaml",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\App.xaml",
+              "RelativeDocumentMoniker": "LinqToSQL\\App.xaml",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\App.xaml",
+              "RelativeToolTip": "LinqToSQL\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-08-11T14:02:40.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LinqToSqlDataClasses.dbml",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\LinqToSqlDataClasses.dbml",
+              "RelativeDocumentMoniker": "LinqToSQL\\LinqToSqlDataClasses.dbml",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\LinqToSqlDataClasses.dbml",
+              "RelativeToolTip": "LinqToSQL\\LinqToSqlDataClasses.dbml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001722|",
+              "WhenOpened": "2024-08-11T14:01:45.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "LinqToSQL\\MainWindow.xaml",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\Linq\\\u6559\u5B78\u6A94\u6848\\1210\u002B-\u002BLinqToSQL\\LinqToSQL\\LinqToSQL\\MainWindow.xaml",
+              "RelativeToolTip": "LinqToSQL\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-08-11T14:01:42.818Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

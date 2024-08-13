@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DockerNet8")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+232e7222d8429971b6ef38129763bf2fd34ed0ae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3351946082e3363993375ed14e90ea50e18db96b")]
 [assembly: System.Reflection.AssemblyProductAttribute("DockerNet8")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DockerNet8")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
