@@ -24,29 +24,30 @@ namespace LinqToSQL
         LinqToSqlDataClassesDataContext dataContext; // 資料庫連線物件Linq 
         public MainWindow()
         {
-            dataContext = new LinqToSqlDataClassesDataContext(); // 資料庫連線物件Linq 
-
-
             InitializeComponent();
+
+            //dataContext = new LinqToSqlDataClassesDataContext(); // 資料庫連線物件Linq 
+
+            string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            dataContext = new LinqToSqlDataClassesDataContext(connectionString);
+            Console.WriteLine($"{dataContext}資料庫連線成功");
             //InsertUniversities();
-            InsertStudent();
+            //InsertStudent();
             //InsertLectures();
-            //InsertStudentLectureAssociations();
+            InsertStudentLectureAssociations();
 
             // 取得資料庫連線
             //string connectionString = ConfigurationManager.ConnectionStrings["Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=G:\\我的雲端硬碟\\Exercise\\C#\\LinqToSQL\\LinqToSQL\\LinqData.mdf;Integrated Security=True"].ConnectionString;
-            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            dataContext = new LinqToSqlDataClassesDataContext(connectionString);
-            Console.WriteLine("資料庫連線成功");
 
-            
+
+
         }
 
         public void InsertUniversities()
         {
             // 清除原有資料
             //dataContext.ExecuteCommand("select * from University");
-            dataContext.ExecuteCommand("delete from University");
+            //dataContext.ExecuteCommand("delete from University");
 
             //University yale = new University();
             //yale.Name = "Yale";
@@ -70,6 +71,13 @@ namespace LinqToSQL
                 dataContext.University.InsertOnSubmit(university);
             }
 
+            foreach (var university in dataContext.University)
+            {
+                // 新增資料到資料庫
+                Console.WriteLine($"學生: {university.Id}, 性別: {university.Name}");
+            }
+
+
             // 送出資料
             dataContext.SubmitChanges();
             // 在DataGrid 顯示資料
@@ -83,20 +91,29 @@ namespace LinqToSQL
             University beijingTech = dataContext.University.First(u => u.Name == "Beijing Tech"); // 取得Beijing Tech學校
 
             List<Student> students = new List<Student>();
-           
-                students.Add(new Student { Name = "Carla", Gender = "female", UniversityId = yale.Id });
-                students.Add(new Student { Name = "Toni", Gender = "male", University = yale });
-                students.Add(new Student { Name = "Leyle", Gender = "female", University = beijingTech });
-                students.Add(new Student { Name = "Jame", Gender = "trans-gender", University = beijingTech });
-            
+            //{
+            students.Add(new Student { Name = "Carla", Gender = "female", UniversityId = yale.Id });
+            students.Add(new Student { Name = "Toni", Gender = "male", University = yale });
+            students.Add(new Student { Name = "Leyle", Gender = "female", University = beijingTech });
+            students.Add(new Student { Name = "Jame", Gender = "trans-gender", University = beijingTech });
+            //};
+ 
+
+                 
             foreach (var student in students)
             {
                 // 新增資料到資料庫
                 dataContext.Student.InsertOnSubmit(student);
             }
-            dataContext.SubmitChanges();
 
-            MainDataGrid.ItemsSource = dataContext.Student; 
+            foreach (var student in dataContext.Student)
+            {
+                Console.WriteLine($"學生: {student.Name}, 性別: {student.Gender}, 大學ID: {student.UniversityId}");
+            }
+
+            dataContext.SubmitChanges(); // 送出資料
+
+            MainDataGrid.ItemsSource = dataContext.Student;  // 在DataGrid 顯示資料
         }
 
         public void InsertLectures()
@@ -111,7 +128,7 @@ namespace LinqToSQL
 
         public void InsertStudentLectureAssociations()
         {
-            Student Carla = dataContext.Student.First(st => st.Name.Equals("Carla"));
+            Student Carla = dataContext.Student.First(st => st.Name.Equals("Carla")); // First 找出第一個符合條件 Equals 避免大小寫不同
             Student Toni = dataContext.Student.First(st => st.Name.Equals("Toni"));
             Student Leyle = dataContext.Student.First(st => st.Name.Equals("Leyle"));
             Student Jame = dataContext.Student.First(st => st.Name.Equals("Jame"));
