@@ -25,16 +25,16 @@ namespace LinqToSQL
         public MainWindow()
         {
             InitializeComponent();
-
-            //dataContext = new LinqToSqlDataClassesDataContext(); // 資料庫連線物件Linq 
-
             string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
             dataContext = new LinqToSqlDataClassesDataContext(connectionString);
             Console.WriteLine($"{dataContext}資料庫連線成功");
             //InsertUniversities();
             //InsertStudent();
             //InsertLectures();
-            InsertStudentLectureAssociations();
+            //InsertStudentLectureAssociations();
+            //GetUniversityOfToni();
+            GetLecturesFromToni();
+            GetAllStudentsFromYale();
 
             // 取得資料庫連線
             //string connectionString = ConfigurationManager.ConnectionStrings["Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=G:\\我的雲端硬碟\\Exercise\\C#\\LinqToSQL\\LinqToSQL\\LinqData.mdf;Integrated Security=True"].ConnectionString;
@@ -151,8 +151,36 @@ namespace LinqToSQL
             MainDataGrid.ItemsSource = dataContext.StudentLecture;
         }
 
+        public void GetUniversityOfToni()
+        {
+            Student Toni = dataContext.Student.First(st => st.Name.Equals("Toni"));
 
+            University TonisUniversity = Toni.University;
 
+            List<University> universities = new List<University>();
+            universities.Add(TonisUniversity);
+
+            MainDataGrid.ItemsSource = universities ;
+        }
+
+        public void GetLecturesFromToni()
+        {
+            Student Toni = dataContext.Student.First(st => st.Name.Equals("Toni"));
+
+            //var tonisLectures = Toni.StudentLecture.Select(sl => sl.Lecture);
+            var tonisLectures = from sl in Toni.StudentLecture select sl.Lecture;
+
+            MainDataGrid.ItemsSource = tonisLectures;
+        }
+
+        public void GetAllStudentsFromYale()
+        {
+            var studentsFromYale = from student in dataContext.Student
+                                   where student.University.Name == "Yale"
+                                   select student;
+
+            MainDataGrid.ItemsSource = studentsFromYale;
+        }
     }
 }
 
