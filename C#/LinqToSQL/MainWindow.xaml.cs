@@ -33,8 +33,12 @@ namespace LinqToSQL
             //InsertLectures();
             //InsertStudentLectureAssociations();
             //GetUniversityOfToni();
-            GetLecturesFromToni();
-            GetAllStudentsFromYale();
+            //GetLecturesFromToni();
+            //GetAllStudentsFromYale();
+            //GetAllUniversitiesWithTransgenders();
+            //UpdateToni();
+            //DeleteJame();
+            SelectAll();
 
             // 取得資料庫連線
             //string connectionString = ConfigurationManager.ConnectionStrings["Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=G:\\我的雲端硬碟\\Exercise\\C#\\LinqToSQL\\LinqToSQL\\LinqData.mdf;Integrated Security=True"].ConnectionString;
@@ -58,7 +62,7 @@ namespace LinqToSQL
             //dataContext.Universities.InsertOnSubmit(beijingTech);
 
             // 新增資料List
-            List<University> Universities = new List<University> 
+            List<University> Universities = new List<University>
             {
                 new University { Name = "Yale" },
                 new University { Name = "Beijing Tech" },
@@ -97,9 +101,9 @@ namespace LinqToSQL
             students.Add(new Student { Name = "Leyle", Gender = "female", University = beijingTech });
             students.Add(new Student { Name = "Jame", Gender = "trans-gender", University = beijingTech });
             //};
- 
 
-                 
+
+
             foreach (var student in students)
             {
                 // 新增資料到資料庫
@@ -160,7 +164,7 @@ namespace LinqToSQL
             List<University> universities = new List<University>();
             universities.Add(TonisUniversity);
 
-            MainDataGrid.ItemsSource = universities ;
+            MainDataGrid.ItemsSource = universities;
         }
 
         public void GetLecturesFromToni()
@@ -181,6 +185,57 @@ namespace LinqToSQL
 
             MainDataGrid.ItemsSource = studentsFromYale;
         }
+        public void GetAllUniversitiesWithTransgenders()
+        {
+            var transgernderUniversities = from student in dataContext.Student
+                                           join University in dataContext.University
+                                           on student.UniversityId equals University.Id
+                                           where student.Gender == "trans-gender"
+                                           select new
+                                           {
+                                               StudentName = student.Name,  // 學生姓名
+                                               StudentGender = student.Gender,  // 學生性別
+                                               UniversityName = University.Name  // 大學名稱
+                                           };
+            MainDataGrid.ItemsSource = transgernderUniversities;
+        }
+        public void GetAllLecturesFromBeijingTech()
+        {
+            var lecturesFromBeijingTech = from sl in dataContext.StudentLecture
+                                          join student in dataContext.Student on sl.StudentId equals student.Id
+                                          where student.University.Name == "Beijing Tech"
+                                          select sl.Lecture;
+
+            MainDataGrid.ItemsSource = lecturesFromBeijingTech;
+        }
+
+        public void UpdateToni()
+        {
+            Student Toni = dataContext.Student.FirstOrDefault(st => st.Name == "Toni");
+
+            Toni.Name = "Antonio"; // 更新Toni的姓名為Antonio
+
+            dataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource = dataContext.Student;
+        }
+        public void DeleteJame()
+        {
+            Student Jame = dataContext.Student.FirstOrDefault(st => st.Name == "Jame");
+            dataContext.Student.DeleteOnSubmit(Jame);
+            dataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource = dataContext.Student;
+        }
+        public void SelectAll()
+        {
+            MainDataGrid.ItemsSource = dataContext.Student.Select(u => u);
+            MainDataGrid1.ItemsSource = dataContext.University.Select(u => u);
+            MainDataGrid2.ItemsSource = dataContext.Lecture.Select(u => u);
+            MainDataGrid3.ItemsSource = dataContext.StudentLecture.Select(u => u);
+
+        }
+
     }
 }
 

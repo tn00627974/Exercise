@@ -27,7 +27,7 @@
         <elementListCompartment Id="7f041b11-f1a4-4798-af5f-5f966a3036a5" absoluteBounds="4.1400000000000006, 3.835, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.0625 : 2.53730509440104); (5.0625 : 3.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.0625 : 2.53730509440104); (5.0625 : 3.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqToSqlDataClassesDataContext/Student/Student_StudentLecture" />
       <nodes>
         <classShapeMoniker Id="97e53340-9d10-4751-ace7-0c62843c66b6" />

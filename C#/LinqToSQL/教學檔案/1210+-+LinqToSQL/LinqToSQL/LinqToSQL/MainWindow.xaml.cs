@@ -151,6 +151,8 @@ namespace LinqToSQL
 
         public void GetAllUniversitiesWithTransgenders()
         {
+            // query to get all transgernderUniversities
+            // 作用是取得所有性別為transgender的學校
             var transgernderUniversities = from student in dataContext.Students
                                            join university in dataContext.Universities
                                            on student.University equals university

@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LinqToSQL"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="525">
+        Title="MainWindow" Height="500
+        " Width="525">
     <Grid>
-        <DataGrid x:Name="MainDataGrid" HorizontalAlignment="Left" Height="400" Margin="10" Width="500" VerticalAlignment="Top" />
+        <DataGrid x:Name="MainDataGrid" HorizontalAlignment="Center" Height="100" Margin="0,10,0,0" Width="500" VerticalAlignment="Top" />
+        <DataGrid x:Name="MainDataGrid1" HorizontalAlignment="Center" Height="100" Margin="0,120,0,0" Width="500" VerticalAlignment="Top" />
+        <DataGrid x:Name="MainDataGrid2" HorizontalAlignment="Center" Height="100" Margin="0,230,0,0" Width="500" VerticalAlignment="Top" />
+        <DataGrid x:Name="MainDataGrid3" HorizontalAlignment="Center" Height="100" Margin="0,340
+                  ,0,0" Width="500" VerticalAlignment="Top" />
     </Grid>
+
 </Window>
