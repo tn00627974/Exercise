@@ -1,0 +1,120 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\wpf zoomanager\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|solutionrelative:wpf zoomanager\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\wpf zoomanager\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|solutionrelative:wpf zoomanager\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|e:\\googledisk\\0728\\c#\\wpf zoomanager\\wpf zoomanager\\panjutorialsdbdataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|solutionrelative:wpf zoomanager\\panjutorialsdbdataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|e:\\googledisk\\0728\\c#\\wpf zoomanager\\wpf zoomanager\\panjutorialsdbdataset.xsc||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|solutionrelative:wpf zoomanager\\panjutorialsdbdataset.xsc||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|e:\\googledisk\\0728\\c#\\wpf zoomanager\\wpf zoomanager\\panjutorialsdbdataset.xss||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|solutionrelative:wpf zoomanager\\panjutorialsdbdataset.xss||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|e:\\googledisk\\0728\\c#\\wpf zoomanager\\wpf zoomanager\\panjutorialsdbdataset.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|solutionrelative:wpf zoomanager\\panjutorialsdbdataset.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PanjutorialsDBDataSet.xsc",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\PanjutorialsDBDataSet.xsc",
+              "RelativeDocumentMoniker": "WPF ZooManager\\PanjutorialsDBDataSet.xsc",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\PanjutorialsDBDataSet.xsc",
+              "RelativeToolTip": "WPF ZooManager\\PanjutorialsDBDataSet.xsc",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001612|",
+              "WhenOpened": "2024-09-13T00:51:22.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PanjutorialsDBDataSet.xss",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\PanjutorialsDBDataSet.xss",
+              "RelativeDocumentMoniker": "WPF ZooManager\\PanjutorialsDBDataSet.xss",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\PanjutorialsDBDataSet.xss",
+              "RelativeToolTip": "WPF ZooManager\\PanjutorialsDBDataSet.xss",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEQSURBVDhPpZIxDoIwFIYfbsAiNxBu4KKwMnMBmDyCJxFXndy4AHcgunADdGdAE4EwVV4pWqEgiV/y0uZ/7Z\u002B\u002B1wdjlGW5KYoiroN0IsYcEEIkdrZHfchPkmQbRREEQcDUBtd1wbIsMAxjz6Rvsiybp2lKDocjuWcPYfg7n75mxu4IyfOc7fo8WW6sBOI4DugLHVbrNVMbLuczXG9XCMPw2wAvse0bNBkCDXol4IU2pjDagyn0DPBZ/PoLaoC1i\u002BpH0EhkpqoqXWkT244PgQZ83jRN8DzvM0hoYNs2P6rvGNCbUa6ZoUBdOBRFEc5HVVUa5upYyrJ8Qo32oH1et4yurmnanW44/v5GaaiEaaUBvACMFdHTTBiv\u002BAAAAABJRU5ErkJggg==",
+              "WhenOpened": "2024-09-13T00:51:20.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PanjutorialsDBDataSet.Designer.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\PanjutorialsDBDataSet.Designer.cs",
+              "RelativeDocumentMoniker": "WPF ZooManager\\PanjutorialsDBDataSet.Designer.cs",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\PanjutorialsDBDataSet.Designer.cs",
+              "RelativeToolTip": "WPF ZooManager\\PanjutorialsDBDataSet.Designer.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T00:51:14.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PanjutorialsDBDataSet.xsd",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\PanjutorialsDBDataSet.xsd",
+              "RelativeDocumentMoniker": "WPF ZooManager\\PanjutorialsDBDataSet.xsd",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\PanjutorialsDBDataSet.xsd",
+              "RelativeToolTip": "WPF ZooManager\\PanjutorialsDBDataSet.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2024-09-07T13:08:35.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "WPF ZooManager\\MainWindow.xaml",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\MainWindow.xaml",
+              "RelativeToolTip": "WPF ZooManager\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-07T13:03:30.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WPF ZooManager\\MainWindow.xaml.cs",
+              "ToolTip": "E:\\GoogleDisk\\0728\\C#\\WPF ZooManager\\WPF ZooManager\\MainWindow.xaml.cs",
+              "RelativeToolTip": "WPF ZooManager\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-07T13:03:28.962Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
