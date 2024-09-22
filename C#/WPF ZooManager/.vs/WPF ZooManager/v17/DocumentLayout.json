@@ -3,23 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\wpf zoomanager\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|solutionrelative:wpf zoomanager\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|c:\\users\\diyi-idd-003\\desktop\\exercise\\c#\\wpf zoomanager\\wpf zoomanager\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|solutionrelative:wpf zoomanager\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\wpf zoomanager\\panjutorialsdbdataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|c:\\users\\diyi-idd-003\\desktop\\exercise\\c#\\wpf zoomanager\\wpf zoomanager\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|solutionrelative:wpf zoomanager\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|c:\\users\\diyi-idd-003\\desktop\\exercise\\c#\\wpf zoomanager\\wpf zoomanager\\panjutorialsdbdataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
       "RelativeMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|solutionrelative:wpf zoomanager\\panjutorialsdbdataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|c:\\users\\diyi-idd-003\\desktop\\exercise\\c#\\wpf zoomanager\\wpf zoomanager\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|solutionrelative:wpf zoomanager\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Diyi-IDD-003\\AppData\\Local\\Temp\\.vsdbgsrc\\e634508d0a1eb7428b3c162fd3c20c6585b52f76983ae8d5bcb15c1c5ca4f289\\ExecutionContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FDA9F679-8E7C-4254-A639-5D2E47D5A8C0}|WPF ZooManager\\WPF ZooManager.csproj|C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\wpf zoomanager\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -59,44 +52,32 @@
         },
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "WPF ZooManager\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\MainWindow.xaml.cs",
-              "RelativeToolTip": "WPF ZooManager\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAQwF8AAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T02:08:42.213Z",
+              "DocumentIndex": 3,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\App.config",
+              "RelativeDocumentMoniker": "WPF ZooManager\\App.config",
+              "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\App.config",
+              "RelativeToolTip": "WPF ZooManager\\App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-09-21T02:10:42.357Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\MainWindow.xaml",
               "RelativeDocumentMoniker": "WPF ZooManager\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\MainWindow.xaml",
               "RelativeToolTip": "WPF ZooManager\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-07T13:03:30.046Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\App.xaml.cs",
-              "RelativeDocumentMoniker": "WPF ZooManager\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\App.xaml.cs",
-              "RelativeToolTip": "WPF ZooManager\\App.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T01:36:51.759Z",
+              "WhenOpened": "2024-09-22T05:46:01.194Z",
               "EditorCaption": ""
             },
             {
@@ -108,32 +89,20 @@
               "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\PanjutorialsDBDataSet.xsd",
               "RelativeToolTip": "WPF ZooManager\\PanjutorialsDBDataSet.xsd",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2024-09-21T02:08:37.652Z",
+              "WhenOpened": "2024-09-22T05:46:00.472Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ExecutionContext.cs",
-              "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\AppData\\Local\\Temp\\.vsdbgsrc\\e634508d0a1eb7428b3c162fd3c20c6585b52f76983ae8d5bcb15c1c5ca4f289\\ExecutionContext.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\e634508d0a1eb7428b3c162fd3c20c6585b52f76983ae8d5bcb15c1c5ca4f289\\ExecutionContext.cs",
-              "ToolTip": "C:\\Users\\Diyi-IDD-003\\AppData\\Local\\Temp\\.vsdbgsrc\\e634508d0a1eb7428b3c162fd3c20c6585b52f76983ae8d5bcb15c1c5ca4f289\\ExecutionContext.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\e634508d0a1eb7428b3c162fd3c20c6585b52f76983ae8d5bcb15c1c5ca4f289\\ExecutionContext.cs",
-              "ViewState": "AQIAAOoBAAAAAAAAAAAQwPYBAAADAAAA",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WPF ZooManager\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\MainWindow.xaml.cs",
+              "RelativeToolTip": "WPF ZooManager\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAIAwwGIAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T02:28:35.425Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\App.config",
-              "RelativeDocumentMoniker": "WPF ZooManager\\App.config",
-              "ToolTip": "C:\\Users\\Diyi-IDD-003\\Desktop\\Exercise\\C#\\WPF ZooManager\\WPF ZooManager\\App.config",
-              "RelativeToolTip": "WPF ZooManager\\App.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-09-21T02:10:42.357Z",
+              "WhenOpened": "2024-09-21T02:08:42.213Z",
               "EditorCaption": ""
             }
           ]
