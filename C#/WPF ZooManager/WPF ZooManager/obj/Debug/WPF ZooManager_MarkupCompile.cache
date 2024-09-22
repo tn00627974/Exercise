@@ -4,16 +4,11 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
 C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\
-=======
-E:\GoogleDisk\0728\C#\WPF ZooManager\WPF ZooManager\obj\Debug\
->>>>>>> 271ded391e6acdc20ec63ad77cd7a3b49f4861d5
 WPF_ZooManager
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
 C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\App.xaml
 1219584333
 
@@ -22,14 +17,4 @@ C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\App.xaml
 MainWindow.xaml;
 
 False
-=======
-E:\GoogleDisk\0728\C#\WPF ZooManager\WPF ZooManager\App.xaml
-1219584333
-
-7-1593433347
-13-38814620
-MainWindow.xaml;
-
-True
->>>>>>> 271ded391e6acdc20ec63ad77cd7a3b49f4861d5
 

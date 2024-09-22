@@ -35,46 +35,80 @@ namespace WPF_ZooManager
             ShowZooS();
         }
 
-        //private void ShowZooS(object sender , RoutedEventArgs e)
-
+        // 顯示動物園清單 (點擊按鈕後執行)
+        //private void ShowZooS(object sender, RoutedEventArgs e)
         //{
-        //    MessageBox.Show("連接字串成功");            
-        //    string query = "SELECT * FROM Zoo";
-        //    SqlCommand command = new SqlCommand(query, SqlConnection); // 連線 + 執行查詢
-        //    SqlConnection.Open();
-
-
-        //    SqlDataReader reader = command.ExecuteReader(); // 讀取資料
-        //    while (reader.Read())
+        //    try
         //    {
-        //        int id = (int)reader["Id"];
-        //        string location = (string)reader["Location"];
-        //        //MessageBox.Show($"{id}{location}");
-        //        Console.WriteLine($"{id} | {location}");
+        //        MessageBox.Show("連接字串成功");
+        //        string query = "SELECT * FROM Zoo";
+        //        SqlCommand command = new SqlCommand(query, SqlConnection); // 連線 + 執行查詢
+        //        SqlConnection.Open();
+
+
+        //        SqlDataReader reader = command.ExecuteReader(); // 讀取資料
+        //        while (reader.Read())
+        //        {
+        //            int id = (int)reader["Id"];
+        //            string location = (string)reader["Location"];
+        //            //MessageBox.Show($"{id}{location}");
+        //            //Console.WriteLine($"{id} | {location}");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    { 
+        //        MessageBox.Show(ex.Message);
         //    }
 
         //}
+
+        // 顯示動物園清單 (自動執行)
+        //private void ShowZooS()
+        //{
+        //    string query = "SELECT * FROM Zoo";
+        //    SqlDataAdapter sqlDataReader = new SqlDataAdapter(query, SqlConnection);
+
+        //    using (sqlDataReader)
+        //    {
+        //        DataTable zooTable = new DataTable();
+        //        sqlDataReader.Fill(zooTable);
+
+        //        // 使用自動生成的列
+        //        listZoos.Items.Clear();
+        //        foreach (DataRow row in zooTable.Rows)
+        //        {
+        //            // 每一項的顯示格式: Id - Location
+        //            listZoos.Items.Add($"{row["Id"]}  {row["Location"]}");
+        //        }
+        //    }
+        //}
+
+        // 顯示動物園清單 (自動執行)
         private void ShowZooS()
         {
-            string query = "SELECT * FROM Zoo";
-            SqlDataAdapter sqlDataReader = new SqlDataAdapter(query, SqlConnection);
-
-            using (sqlDataReader)
+            try 
             {
-                DataTable zooTable = new DataTable();
+                string query = "SELECT * FROM Zoo";
+                SqlDataAdapter sqlDataReader = new SqlDataAdapter(query, SqlConnection);
 
-                sqlDataReader.Fill(zooTable);
+                using (sqlDataReader)
+                {
+                    DataTable zooTable = new DataTable();
+                    sqlDataReader.Fill(zooTable);
 
-                listZoos.DisplayMemberPath = "Location";
-                listZoos.SelectedValuePath = "Id";
-
-                listZoos.ItemsSource = zooTable.DefaultView;
+                    listZoos.DisplayMemberPath = "Location"; // 設定顯示格式
+                    listZoos.SelectedValuePath = "Id"; // 設定顯示格式
 
 
+                    // 使用自動生成的列
+                    listZoos.ItemsSource = zooTable.DefaultView; // 設定資料來源
+                }
             }
-
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
+
