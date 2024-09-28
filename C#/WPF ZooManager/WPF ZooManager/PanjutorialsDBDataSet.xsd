@@ -59,14 +59,14 @@ SELECT Id, Location FROM Zoo WHERE (Id = @Id)</CommandText>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="PanjutorialsDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="PanjutorialsDBDataSet" msprop:Generator_DataSetName="PanjutorialsDBDataSet">
+  <xs:element name="PanjutorialsDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="PanjutorialsDBDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="PanjutorialsDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Zoo" msprop:Generator_RowEvHandlerName="ZooRowChangeEventHandler" msprop:Generator_RowDeletedName="ZooRowDeleted" msprop:Generator_RowDeletingName="ZooRowDeleting" msprop:Generator_RowEvArgName="ZooRowChangeEvent" msprop:Generator_TablePropName="Zoo" msprop:Generator_RowChangedName="ZooRowChanged" msprop:Generator_RowChangingName="ZooRowChanging" msprop:Generator_TableClassName="ZooDataTable" msprop:Generator_RowClassName="ZooRow" msprop:Generator_TableVarName="tableZoo" msprop:Generator_UserTableName="Zoo">
+        <xs:element name="Zoo" msprop:Generator_RowClassName="ZooRow" msprop:Generator_RowEvHandlerName="ZooRowChangeEventHandler" msprop:Generator_RowDeletedName="ZooRowDeleted" msprop:Generator_RowDeletingName="ZooRowDeleting" msprop:Generator_RowEvArgName="ZooRowChangeEvent" msprop:Generator_TablePropName="Zoo" msprop:Generator_RowChangedName="ZooRowChanged" msprop:Generator_UserTableName="Zoo" msprop:Generator_RowChangingName="ZooRowChanging" msprop:Generator_TableClassName="ZooDataTable" msprop:Generator_TableVarName="tableZoo">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_UserColumnName="Id" type="xs:int" />
-              <xs:element name="Location" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_UserColumnName="Location">
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" />
+              <xs:element name="Location" msprop:Generator_UserColumnName="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnVarNameInTable="columnLocation">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

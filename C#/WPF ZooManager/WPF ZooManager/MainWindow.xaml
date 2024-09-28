@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_ZooManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="725">
     <Grid>
-        
+        <Label Content="Zoo List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.494,-1.396"/>
+        <ListBox Name="listZoos" Margin="10,41,0,-0" HorizontalAlignment="Left" Width="75" Height="175" VerticalAlignment="Top"/>
+        <ListBox Name="Animels" MouseDoubleClick=" = " Margin="115,41,0,0" HorizontalAlignment="Left" Width="75" Height="175" VerticalAlignment="Top"/>
     </Grid>
 </Window>
