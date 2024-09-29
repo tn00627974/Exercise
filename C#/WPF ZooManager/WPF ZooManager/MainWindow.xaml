@@ -8,7 +8,15 @@
         Title="MainWindow" Height="500" Width="725">
     <Grid>
         <Label Content="Zoo List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.494,-1.396"/>
-        <ListBox Name="listZoos" Margin="10,41,0,-0" HorizontalAlignment="Left" Width="75" Height="175" VerticalAlignment="Top"/>
-        <ListBox Name="Animels" MouseDoubleClick=" = " Margin="115,41,0,0" HorizontalAlignment="Left" Width="75" Height="175" VerticalAlignment="Top"/>
+        <Label Content="Associated Animals List" HorizontalAlignment="Left" Margin="379,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.494,-1.396"/>
+        <Label Content="Zoo_Animals" HorizontalAlignment="Left" Margin="195,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.494,-1.396"/>
+
+        <ListBox Name="listZoos" Margin="10,41,0,-0" HorizontalAlignment="Left" Width="150
+                 " Height="175" VerticalAlignment="Top" SelectionChanged="listZoos_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <ListBox Name="ListAnimals" Margin="384,40,0,0" HorizontalAlignment="Left" Width="150
+                 " Height="175" VerticalAlignment="Top"  d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListAnimals_SelectionChanged"/>
+        <ListBox Name="Animalsaaa" Margin="195,40,0,0" HorizontalAlignment="Left" Width="150
+                 " Height="175" VerticalAlignment="Top" SelectionChanged="Animels_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
     </Grid>
 </Window>

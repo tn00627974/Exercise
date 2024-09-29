@@ -33,6 +33,7 @@ namespace WPF_ZooManager
             MessageBox.Show(connectionString,"連接字串成功");
             SqlConnection = new SqlConnection(connectionString); // 
             ShowZooS();
+            ShowAnimals();
         }
 
         // 顯示動物園清單 (點擊按鈕後執行)
@@ -108,6 +109,78 @@ namespace WPF_ZooManager
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ShowAnimals()
+        {
+            try
+            {
+                string query = "SELECT * FROM Animal";
+                SqlDataAdapter sqlDataReader = new SqlDataAdapter(query, SqlConnection);
+
+                using (sqlDataReader)
+                {
+                    DataTable AnimelTable = new DataTable();
+                    sqlDataReader.Fill(AnimelTable);
+
+                    ListAnimals.DisplayMemberPath = "Name"; // 設定顯示格式
+                    ListAnimals.SelectedValuePath = "Id"; // 設定顯示格式
+
+
+                    // 使用自動生成的列
+                    ListAnimals.ItemsSource = AnimelTable.DefaultView; // 設定資料來源
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ShowAssocatedAnimals()
+        {
+            try
+            {
+                //  
+                string query = "SELECT * FROM Animal a " +
+                    "INNER JOIN ZooAnimal za ON a.Id = za.AnimalId WHERE za.ZooId = @ZooId";
+                SqlCommand sqlcommand = new SqlCommand(query, SqlConnection);
+                SqlDataAdapter sqlDataReader = new SqlDataAdapter(sqlcommand);
+
+                using (sqlDataReader)
+                {
+                    sqlcommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue); // 設定參數
+
+                    DataTable AnimelTable = new DataTable();
+
+                    sqlDataReader.Fill(AnimelTable);
+
+                    Animalsaaa.DisplayMemberPath = "Name"; // 設定顯示格式
+                    Animalsaaa.SelectedValuePath = "Id"; // 設定顯示格式
+
+                    // 使用自動生成的列
+                    Animalsaaa.ItemsSource = AnimelTable.DefaultView; // 設定資料來源
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void listZoos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ShowAssocatedAnimals();
+        }
+
+        private void Animels_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ListAnimals_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
