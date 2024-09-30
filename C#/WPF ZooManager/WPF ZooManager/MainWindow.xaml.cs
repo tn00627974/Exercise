@@ -90,12 +90,12 @@ namespace WPF_ZooManager
             try 
             {
                 string query = "SELECT * FROM Zoo";
-                SqlDataAdapter sqlDataReader = new SqlDataAdapter(query, SqlConnection);
+                SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(query, SqlConnection);
 
-                using (sqlDataReader)
+                using (SqlDataAdapter)
                 {
                     DataTable zooTable = new DataTable();
-                    sqlDataReader.Fill(zooTable);
+                    SqlDataAdapter.Fill(zooTable);
 
                     listZoos.DisplayMemberPath = "Location"; // 設定顯示格式
                     listZoos.SelectedValuePath = "Id"; // 設定顯示格式
@@ -116,12 +116,12 @@ namespace WPF_ZooManager
             try
             {
                 string query = "SELECT * FROM Animal";
-                SqlDataAdapter sqlDataReader = new SqlDataAdapter(query, SqlConnection);
+                SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(query, SqlConnection);
 
-                using (sqlDataReader)
+                using (SqlDataAdapter)
                 {
                     DataTable AnimelTable = new DataTable();
-                    sqlDataReader.Fill(AnimelTable);
+                    SqlDataAdapter.Fill(AnimelTable);
 
                     ListAnimals.DisplayMemberPath = "Name"; // 設定顯示格式
                     ListAnimals.SelectedValuePath = "Id"; // 設定顯示格式
@@ -145,15 +145,15 @@ namespace WPF_ZooManager
                 string query = "SELECT * FROM Animal a " +
                     "INNER JOIN ZooAnimal za ON a.Id = za.AnimalId WHERE za.ZooId = @ZooId";
                 SqlCommand sqlcommand = new SqlCommand(query, SqlConnection);
-                SqlDataAdapter sqlDataReader = new SqlDataAdapter(sqlcommand);
+                SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlcommand);
 
-                using (sqlDataReader)
+                using (SqlDataAdapter)
                 {
                     sqlcommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue); // 設定參數
 
                     DataTable AnimelTable = new DataTable();
 
-                    sqlDataReader.Fill(AnimelTable);
+                    SqlDataAdapter.Fill(AnimelTable);
 
                     Animalsaaa.DisplayMemberPath = "Name"; // 設定顯示格式
                     Animalsaaa.SelectedValuePath = "Id"; // 設定顯示格式
@@ -182,6 +182,73 @@ namespace WPF_ZooManager
         {
 
         }
+
+        // 刪除動物園 0930
+        private void DeleteZoo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "DELETE FROM Zoo WHERE Id = @ZooId";
+                SqlCommand sqlcommand = new SqlCommand(query, SqlConnection);
+                SqlConnection.Open();
+                sqlcommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue); // 設定參數
+                sqlcommand.ExecuteScalar(); // 刪除所選的動物園
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            finally
+            {
+                SqlConnection.Close();
+                ShowZooS();
+            }
+        }
+
+        
+
+        private void AddZoo_Click(object sender, RoutedEventArgs e)
+        {
+            string query = "INSERT INTO Zoo WHERE Id = @ZooId";
+            SqlCommand sqlcommand = new SqlCommand(query, SqlConnection);
+            SqlConnection.Open();
+            sqlcommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue); // 設定參數
+            sqlcommand.ExecuteScalar(); // 新增動物園
+            SqlConnection.Close();
+        }
+
+        private void UpdateZoo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveAnimal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddAnimalZoo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UpdateAnimal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteAnimalZoo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddAnimal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
     }
 }
 
