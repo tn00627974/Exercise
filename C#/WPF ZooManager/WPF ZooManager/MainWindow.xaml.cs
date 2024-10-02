@@ -33,6 +33,7 @@ namespace WPF_ZooManager
             MessageBox.Show(connectionString,"連接字串成功");
             SqlConnection = new SqlConnection(connectionString); // 
             ShowZooS();
+            ShowAnimals();
         }
 
         // 顯示動物園清單 (點擊按鈕後執行)
@@ -89,12 +90,12 @@ namespace WPF_ZooManager
             try 
             {
                 string query = "SELECT * FROM Zoo";
-                SqlDataAdapter sqlDataReader = new SqlDataAdapter(query, SqlConnection);
+                SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(query, SqlConnection);
 
-                using (sqlDataReader)
+                using (SqlDataAdapter)
                 {
                     DataTable zooTable = new DataTable();
-                    sqlDataReader.Fill(zooTable);
+                    SqlDataAdapter.Fill(zooTable);
 
                     listZoos.DisplayMemberPath = "Location"; // 設定顯示格式
                     listZoos.SelectedValuePath = "Id"; // 設定顯示格式
@@ -109,6 +110,145 @@ namespace WPF_ZooManager
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void ShowAnimals()
+        {
+            try
+            {
+                string query = "SELECT * FROM Animal";
+                SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(query, SqlConnection);
+
+                using (SqlDataAdapter)
+                {
+                    DataTable AnimelTable = new DataTable();
+                    SqlDataAdapter.Fill(AnimelTable);
+
+                    ListAnimals.DisplayMemberPath = "Name"; // 設定顯示格式
+                    ListAnimals.SelectedValuePath = "Id"; // 設定顯示格式
+
+
+                    // 使用自動生成的列
+                    ListAnimals.ItemsSource = AnimelTable.DefaultView; // 設定資料來源
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ShowAssocatedAnimals()
+        {
+            try
+            {
+                //  
+                string query = "SELECT * FROM Animal a " +
+                    "INNER JOIN ZooAnimal za ON a.Id = za.AnimalId WHERE za.ZooId = @ZooId";
+                SqlCommand sqlcommand = new SqlCommand(query, SqlConnection);
+                SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlcommand);
+
+                using (SqlDataAdapter)
+                {
+                    sqlcommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue); // 設定參數
+
+                    DataTable AnimelTable = new DataTable();
+
+                    SqlDataAdapter.Fill(AnimelTable);
+
+                    Animalsaaa.DisplayMemberPath = "Name"; // 設定顯示格式
+                    Animalsaaa.SelectedValuePath = "Id"; // 設定顯示格式
+
+                    // 使用自動生成的列
+                    Animalsaaa.ItemsSource = AnimelTable.DefaultView; // 設定資料來源
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void listZoos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ShowAssocatedAnimals();
+        }
+
+        private void Animels_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ListAnimals_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        // 刪除動物園 0930
+        private void DeleteZoo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "DELETE FROM Zoo WHERE Id = @ZooId";
+                SqlCommand sqlcommand = new SqlCommand(query, SqlConnection);
+                SqlConnection.Open();
+                sqlcommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue); // 設定參數
+                sqlcommand.ExecuteScalar(); // 刪除所選的動物園
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            finally
+            {
+                SqlConnection.Close();
+                ShowZooS();
+            }
+        }
+
+        
+
+        private void AddZoo_Click(object sender, RoutedEventArgs e)
+        {
+            string query = "INSERT INTO Zoo WHERE Id = @ZooId";
+            SqlCommand sqlcommand = new SqlCommand(query, SqlConnection);
+            SqlConnection.Open();
+            sqlcommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue); // 設定參數
+            sqlcommand.ExecuteScalar(); // 新增動物園
+            SqlConnection.Close();
+        }
+
+        private void UpdateZoo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveAnimal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddAnimalZoo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UpdateAnimal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteAnimalZoo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddAnimal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
     }
 }
 

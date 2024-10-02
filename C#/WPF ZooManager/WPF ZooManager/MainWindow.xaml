@@ -8,7 +8,24 @@
         Title="MainWindow" Height="500" Width="725">
     <Grid>
         <Label Content="Zoo List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.494,-1.396"/>
-        <ListBox Name="listZoos" Margin="10,41,0,-0" HorizontalAlignment="Left" Width="75" Height="175" VerticalAlignment="Top"/>
-        <ListBox Name="Animels" MouseDoubleClick=" = " Margin="115,41,0,0" HorizontalAlignment="Left" Width="75" Height="175" VerticalAlignment="Top"/>
+        <Label Content="Associated Animals List" HorizontalAlignment="Left" Margin="379,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.494,-1.396"/>
+        <Label Content="Zoo_Animals" HorizontalAlignment="Left" Margin="195,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.494,-1.396"/>
+
+        <ListBox Name="listZoos" Margin="10,41,0,-0" HorizontalAlignment="Left" Width="150
+                 " Height="175" VerticalAlignment="Top" SelectionChanged="listZoos_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <ListBox Name="ListAnimals" Margin="384,40,0,0" HorizontalAlignment="Left" Width="150
+                 " Height="175" VerticalAlignment="Top"  d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListAnimals_SelectionChanged"/>
+        <ListBox Name="Animalsaaa" Margin="195,40,0,0" HorizontalAlignment="Left" Width="150
+                 " Height="176" VerticalAlignment="Top" SelectionChanged="Animels_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button Content="Delete Zoo" Margin="10,220,565,237" Click="DeleteZoo_Click"/>
+        <Button Content="Add Zoo" Margin="10,281,565,175" Click="AddZoo_Click"/>
+        <Button Content="Update Zoo" Margin="10,315,565,141" Click="UpdateZoo_Click"/>
+
+        <Button Content="Remove Animal" Margin="195,220,380,236" Click="RemoveAnimal_Click"/>
+        <Button Content="Add Animal Zoo" Margin="195,281,380,175" Click="AddAnimalZoo_Click"/>
+        <Button Content="Update Animal" Margin="195,315,380,141" Click="UpdateAnimal_Click"/>
+        
+        <Button Content="Delete Animal Zoo" Margin="384,219,191,237" Click="DeleteAnimalZoo_Click"/>
+        <Button Content="Add Animal" Margin="384,281,191,175" Click="AddAnimal_Click"/>
     </Grid>
 </Window>
