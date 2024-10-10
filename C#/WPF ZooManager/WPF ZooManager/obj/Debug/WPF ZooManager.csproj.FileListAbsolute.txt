@@ -1,10 +1,3 @@
-C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF ZooManager.csproj.AssemblyReference.cache
-C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF ZooManager.csproj.SuggestedBindingRedirects.cache
-C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF ZooManager.exe.config
-C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\MainWindow.g.cs
-C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\App.g.cs
-C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF ZooManager_MarkupCompile.cache
-C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF ZooManager_MarkupCompile.lref
 C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\bin\Debug\WPF ZooManager.exe.config
 C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\bin\Debug\WPF ZooManager.exe
 C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\bin\Debug\WPF ZooManager.pdb
@@ -15,6 +8,13 @@ C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\bin\Debu
 C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\bin\Debug\System.Buffers.dll
 C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF ZooManager.csproj.AssemblyReference.cache
+C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF ZooManager.csproj.SuggestedBindingRedirects.cache
+C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF ZooManager.exe.config
+C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\MainWindow.g.cs
+C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\App.g.cs
+C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF ZooManager_MarkupCompile.cache
+C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF ZooManager_MarkupCompile.lref
 C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\MainWindow.baml
 C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF ZooManager.g.resources
 C:\Users\Diyi-IDD-003\Desktop\Exercise\C#\WPF ZooManager\WPF ZooManager\obj\Debug\WPF_ZooManager.Properties.Resources.resources
