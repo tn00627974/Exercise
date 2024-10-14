@@ -2,7 +2,7 @@ CREATE TABLE Books(
 Book_ID INT PRIMARY KEY IDENTITY(1,1),
 title CHAR(50) NOT NULL ,
 author CHAR(20),
-Pub_ID CHAR(20),
+Pub_ID INT,
 remark CHAR(50),
 price INT,
 place CHAR(20)
