@@ -1,6 +1,6 @@
 CREATE TABLE Records (
-    Guest_ID CHAR(20) NOT NULL,  -- NOT NULL 但無需自增
-    Book_ID INT NOT NULL,   -- NOT NULL 但無需自增
+    Guest_ID CHAR(20) PRIMARY KEY NOT NULL, -- 出版商編碼
+    Book_ID INT NOT NULL,   
     date DATE,
     PRIMARY KEY (Guest_ID, Book_ID) -- 複合主鍵
 );
