@@ -25,3 +25,18 @@ JOIN Records r on b.Book_ID = r.Book_ID
 JOIN Guests g on g.Guest_ID = r.Guest_ID 
 WHERE g.name = '郭大豪';                 
                            
+-- 更新 Records 資料表
+INSERT INTO Records
+VALUES ('A013', 12, GETDATE());
+--  Records 資料總表
+SELECT COUNT(*)AS 總共筆數 FROM Records 
+WHERE Guest_ID ='A013';
+
+
+--  更新 Records 的 Book_ID書籍
+UPDATE Records
+SET Book_ID = '11'
+WHERE 
+Guest_ID = 'A013' and Book_ID = '14';
+
+
