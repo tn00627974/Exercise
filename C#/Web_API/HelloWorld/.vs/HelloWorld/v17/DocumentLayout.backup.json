@@ -15,20 +15,40 @@
       "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\models\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\models\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\dtos\\newdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\dtos\\newdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\dtos\\newsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\dtos\\newsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\controllers\\helloworldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\controllers\\helloworldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\models\\newsfiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\models\\newsfiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\helloworld.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\helloworld.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +58,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 254,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NewsDto.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Dtos\\NewsDto.cs",
+              "RelativeDocumentMoniker": "HelloWorld\\Dtos\\NewsDto.cs",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Dtos\\NewsDto.cs",
+              "RelativeToolTip": "HelloWorld\\Dtos\\NewsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T13:22:30.915Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -58,67 +92,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Program.cs",
-              "RelativeDocumentMoniker": "HelloWorld\\Program.cs",
-              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Program.cs",
-              "RelativeToolTip": "HelloWorld\\Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T13:32:08.886Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WebContext.cs",
-              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Models\\WebContext.cs",
-              "RelativeDocumentMoniker": "HelloWorld\\Models\\WebContext.cs",
-              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Models\\WebContext.cs",
-              "RelativeToolTip": "HelloWorld\\Models\\WebContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T13:22:27.793Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "NewDto.cs",
-              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Dtos\\NewDto.cs",
-              "RelativeDocumentMoniker": "HelloWorld\\Dtos\\NewDto.cs",
-              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Dtos\\NewDto.cs",
-              "RelativeToolTip": "HelloWorld\\Dtos\\NewDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T13:22:30.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "News.cs",
               "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Models\\News.cs",
               "RelativeDocumentMoniker": "HelloWorld\\Models\\News.cs",
               "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Models\\News.cs",
               "RelativeToolTip": "HelloWorld\\Models\\News.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T13:22:23.345Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\appsettings.json",
-              "RelativeDocumentMoniker": "HelloWorld\\appsettings.json",
-              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\appsettings.json",
-              "RelativeToolTip": "HelloWorld\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-30T13:19:33.248Z",
               "EditorCaption": ""
             },
             {
@@ -129,14 +111,53 @@
               "RelativeDocumentMoniker": "HelloWorld\\Controllers\\NewsController.cs",
               "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\NewsController.cs",
               "RelativeToolTip": "HelloWorld\\Controllers\\NewsController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAIwBgAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAAwFcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T12:31:22.797Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Program.cs",
+              "RelativeDocumentMoniker": "HelloWorld\\Program.cs",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Program.cs",
+              "RelativeToolTip": "HelloWorld\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T13:32:08.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "HelloWorld.http",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\HelloWorld.http",
+              "RelativeDocumentMoniker": "HelloWorld\\HelloWorld.http",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\HelloWorld.http",
+              "RelativeToolTip": "HelloWorld\\HelloWorld.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-04-02T13:25:15.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "HelloWorld\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "HelloWorld\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T13:47:53.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Employee.cs",
               "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Models\\Employee.cs",
               "RelativeDocumentMoniker": "HelloWorld\\Models\\Employee.cs",
@@ -144,7 +165,72 @@
               "RelativeToolTip": "HelloWorld\\Models\\Employee.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T13:35:33.182Z",
+              "WhenOpened": "2025-04-02T13:24:38.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NewsFiles.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Models\\NewsFiles.cs",
+              "RelativeDocumentMoniker": "HelloWorld\\Models\\NewsFiles.cs",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Models\\NewsFiles.cs",
+              "RelativeToolTip": "HelloWorld\\Models\\NewsFiles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T13:24:36.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WebContext.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Models\\WebContext.cs",
+              "RelativeDocumentMoniker": "HelloWorld\\Models\\WebContext.cs",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Models\\WebContext.cs",
+              "RelativeToolTip": "HelloWorld\\Models\\WebContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T13:24:37.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HelloWorldController.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\HelloWorldController.cs",
+              "RelativeDocumentMoniker": "HelloWorld\\Controllers\\HelloWorldController.cs",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\HelloWorldController.cs",
+              "RelativeToolTip": "HelloWorld\\Controllers\\HelloWorldController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAA0wDUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T13:47:57.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "HelloWorld\\WeatherForecast.cs",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\WeatherForecast.cs",
+              "RelativeToolTip": "HelloWorld\\WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T13:24:35.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "HelloWorld\\appsettings.Development.json",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\appsettings.Development.json",
+              "RelativeToolTip": "HelloWorld\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-02T13:27:03.517Z",
               "EditorCaption": ""
             }
           ]

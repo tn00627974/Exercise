@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HelloWorld.Dtos;
+using Microsoft.EntityFrameworkCore;
 
 namespace HelloWorld.Controllers
 {
@@ -46,6 +47,43 @@ namespace HelloWorld.Controllers
             //    }).ToList();
 
             //return newsResult;
-        }     
+        }
+
+        [HttpGet("{id}")]
+        public News Get(Guid id)
+        {
+            var newsResult = _webContext.News.Find(id);
+
+            return newsResult;
+        }
+
+        [HttpGet("[action]")]
+        public IEnumerable<NewsDto> Get(string title, string content, DateTime? stratDateTime)
+        {
+            var newsResult = from n in _webContext.News
+                             select new NewsDto
+                             {
+                                 NewsId = n.NewsId,
+                                 Title = n.Title,
+                                 Content = n.Content,
+                                 StartDateTime = n.StartDateTime,
+                                 EndDateTime = n.EndDateTime,
+                                 Click = n.Click
+                             };
+
+            if (!string.IsNullOrEmpty(title))
+            {
+                newsResult = newsResult.Where(n => n.Title == title);
+            }
+            if (!string.IsNullOrEmpty(content))
+            {
+                newsResult = newsResult.Where(n => n.Content == content);
+            }
+            if (stratDateTime != null)
+            {
+                newsResult = newsResult.Where(n => n.StartDateTime.Date == ((DateTime)stratDateTime).Date); // 2025/01/01 00:00:00 只取日期 2025/01/01
+            }
+            return newsResult;
+        }
     }
 }
