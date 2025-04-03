@@ -6,6 +6,7 @@ namespace HelloWorld.Models;
 
 public partial class WebContext : DbContext
 {
+
     public WebContext(DbContextOptions<WebContext> options)
         : base(options)
     {

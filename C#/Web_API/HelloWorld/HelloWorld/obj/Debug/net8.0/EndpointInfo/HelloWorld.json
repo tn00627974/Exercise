@@ -340,7 +340,7 @@
         }
       }
     },
-    "/api/News/Get": {
+    "/api/News/search": {
       "get": {
         "tags": [
           "News"
@@ -361,7 +361,7 @@
             }
           },
           {
-            "name": "stratDateTime",
+            "name": "startDateTime",
             "in": "query",
             "schema": {
               "type": "string",
@@ -475,7 +475,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "insertEmployeeId": {
+          "bInsertEmployeeId": {
             "type": "integer",
             "format": "int32"
           },
@@ -488,7 +488,8 @@
             "format": "int32"
           },
           "enable": {
-            "type": "boolean"
+            "type": "integer",
+            "format": "int64"
           }
         },
         "additionalProperties": false

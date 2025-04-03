@@ -184,7 +184,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "HelloWorld.Models.News",
+        "Type": "HelloWorld.MysqlModels.News",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -197,7 +197,7 @@
   {
     "ContainingType": "HelloWorld.Controllers.NewsController",
     "Method": "Get",
-    "RelativePath": "api/News/Get",
+    "RelativePath": "api/News/search",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -213,7 +213,7 @@
         "IsRequired": false
       },
       {
-        "Name": "stratDateTime",
+        "Name": "startDateTime",
         "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }

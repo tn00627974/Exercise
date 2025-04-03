@@ -1,4 +1,5 @@
-﻿using HelloWorld.Models;
+﻿//using HelloWorld.Models;
+using HelloWorld.MysqlModels; // 引用 MySQL Models
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HelloWorld.Dtos;
@@ -57,8 +58,8 @@ namespace HelloWorld.Controllers
             return newsResult;
         }
 
-        [HttpGet("[action]")]
-        public IEnumerable<NewsDto> Get(string title, string content, DateTime? stratDateTime)
+        [HttpGet("search")]
+        public IEnumerable<NewsDto> Get(string title, string content, DateTime? startDateTime)
         {
             var newsResult = from n in _webContext.News
                              select new NewsDto
@@ -73,15 +74,15 @@ namespace HelloWorld.Controllers
 
             if (!string.IsNullOrEmpty(title))
             {
-                newsResult = newsResult.Where(n => n.Title == title);
+                newsResult = newsResult.Where(n => n.Title.Contains(title));
             }
             if (!string.IsNullOrEmpty(content))
             {
-                newsResult = newsResult.Where(n => n.Content == content);
+                newsResult = newsResult.Where(n => n.Content.Contains(content));
             }
-            if (stratDateTime != null)
+            if (startDateTime != null)
             {
-                newsResult = newsResult.Where(n => n.StartDateTime.Date == ((DateTime)stratDateTime).Date); // 2025/01/01 00:00:00 只取日期 2025/01/01
+                newsResult = newsResult.Where(n => n.StartDateTime.Date == ((DateTime)startDateTime).Date); // 2025/01/01 00:00:00 只取日期 2025/01/01
             }
             return newsResult;
         }
