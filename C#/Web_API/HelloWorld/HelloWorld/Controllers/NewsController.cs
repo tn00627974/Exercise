@@ -82,7 +82,9 @@ namespace HelloWorld.Controllers
             }
             if (startDateTime != null)
             {
-                newsResult = newsResult.Where(n => n.StartDateTime.Date == ((DateTime)startDateTime).Date); // 2025/01/01 00:00:00 只取日期 2025/01/01
+                //newsResult = newsResult.Where(n => n.StartDateTime.Date == ((DateTime)startDateTime).Date); // 2025/01/01 00:00:00 只取日期 2025/01/01
+                // OR 這種
+                newsResult = newsResult.Where(n => n.StartDateTime.Date == startDateTime.Value.Date); // 2025/01/01 00:00:00 只取日期 2025/01/01
             }
             return newsResult;
         }

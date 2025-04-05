@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// 註冊 WebContext 到 DI 容器
+ //註冊 WebContext 到 DI 容器
 builder.Services.AddDbContext<WebContext>(options =>
 //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 options.UseMySQL(builder.Configuration.GetConnectionString("MySQLConnection")));
