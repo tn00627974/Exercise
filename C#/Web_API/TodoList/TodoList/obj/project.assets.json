@@ -5176,9 +5176,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\GoogleDisk\\leam\\C#\\Web_API\\TodoList\\TodoList\\TodoList.csproj",
-      "projectName": "TodoList",
-      "projectPath": "E:\\GoogleDisk\\leam\\C#\\Web_API\\TodoList\\TodoList\\TodoList.csproj",
+      "projectUniqueName": "E:\\GoogleDisk\\leam\\C#\\Web_API\\TodoList\\TodoList\\Todo.csproj",
+      "projectName": "Todo",
+      "projectPath": "E:\\GoogleDisk\\leam\\C#\\Web_API\\TodoList\\TodoList\\Todo.csproj",
       "packagesPath": "C:\\Users\\tn006\\.nuget\\packages\\",
       "outputPath": "E:\\GoogleDisk\\leam\\C#\\Web_API\\TodoList\\TodoList\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using TodoList.Models;
 
-namespace TodoList.Models;
+namespace Todo.Models;
 
 public partial class TodoContext : DbContext
 {
@@ -47,6 +46,8 @@ public partial class TodoContext : DbContext
 
         modelBuilder.Entity<TodoList>(entity =>
         {
+            entity.ToTable("TodoList", "dbo");
+
             entity.HasKey(e => e.TodoId).HasName("PK__TodoList__958625526CEF186C");
 
             entity.Property(e => e.TodoId).ValueGeneratedNever();

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TodoList.Models;
+namespace Todo.Models;
 
 public partial class Division
 {

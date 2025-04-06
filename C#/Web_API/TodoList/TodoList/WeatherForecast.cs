@@ -1,4 +1,4 @@
-namespace TodoList
+namespace Todo
 {
     public class WeatherForecast
     {
