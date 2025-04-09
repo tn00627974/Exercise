@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WPF_Login_View")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3351946082e3363993375ed14e90ea50e18db96b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5756b2fd54a2bec024f06379396fe831ee1719e6")]
 [assembly: System.Reflection.AssemblyProductAttribute("WPF_Login_View")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WPF_Login_View")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

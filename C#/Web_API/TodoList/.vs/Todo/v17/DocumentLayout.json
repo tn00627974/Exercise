@@ -9,6 +9,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{DFA30341-7B8B-48B2-AAF9-2E4F5C7820EC}|TodoList\\Todo.csproj|e:\\googledisk\\leam\\c#\\web_api\\todolist\\todolist\\models\\todolist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DFA30341-7B8B-48B2-AAF9-2E4F5C7820EC}|TodoList\\Todo.csproj|solutionrelative:todolist\\models\\todolist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DFA30341-7B8B-48B2-AAF9-2E4F5C7820EC}|TodoList\\Todo.csproj|e:\\googledisk\\leam\\c#\\web_api\\todolist\\todolist\\dtos\\todolistselectdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DFA30341-7B8B-48B2-AAF9-2E4F5C7820EC}|TodoList\\Todo.csproj|solutionrelative:todolist\\dtos\\todolistselectdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 284,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,13 +42,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TodoListSelectDto.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\TodoList\\TodoList\\Dtos\\TodoListSelectDto.cs",
+              "RelativeDocumentMoniker": "TodoList\\Dtos\\TodoListSelectDto.cs",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\TodoList\\TodoList\\Dtos\\TodoListSelectDto.cs",
+              "RelativeToolTip": "TodoList\\Dtos\\TodoListSelectDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T14:08:25.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "TodoController.cs",
               "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\TodoList\\TodoList\\Controllers\\TodoController.cs",
               "RelativeDocumentMoniker": "TodoList\\Controllers\\TodoController.cs",
               "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\TodoList\\TodoList\\Controllers\\TodoController.cs",
               "RelativeToolTip": "TodoList\\Controllers\\TodoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAAwEEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-06T10:24:36.88Z",
               "EditorCaption": ""
@@ -57,7 +74,7 @@
               "RelativeDocumentMoniker": "TodoList\\Models\\TodoList.cs",
               "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\TodoList\\TodoList\\Models\\TodoList.cs",
               "RelativeToolTip": "TodoList\\Models\\TodoList.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-06T10:22:52.239Z",
               "EditorCaption": ""

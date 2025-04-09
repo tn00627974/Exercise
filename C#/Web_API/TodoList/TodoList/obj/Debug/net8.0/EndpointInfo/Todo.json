@@ -5,87 +5,30 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Todo/test": {
-      "get": {
+    "/api/Todo": {
+      "post": {
         "tags": [
           "Todo"
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
-                }
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoSelectParameter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoSelectParameter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoSelectParameter"
               }
             }
           }
-        }
-      }
-    },
-    "/api/Todo": {
-      "get": {
-        "tags": [
-          "Todo"
-        ],
-        "parameters": [
-          {
-            "name": "name",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "enable",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "InsertTime",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "minOrder",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "maxOrder",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "order",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -192,6 +135,39 @@
             "nullable": true
           },
           "updateEmployeeName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TodoSelectParameter": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "enable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "insertTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "minOrder": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxOrder": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "order": {
             "type": "string",
             "nullable": true
           }
