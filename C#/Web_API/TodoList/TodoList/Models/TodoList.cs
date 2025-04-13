@@ -13,8 +13,7 @@ public partial class TodoList
     public int Orders { get; set; }
     public Guid InsertEmployeeId { get; set; }
     public Guid UpdateEmployeeId { get; set; }
-    //public string? InsertEmployeeName { get; set; }
-    //public string? UpdateEmployeeName { get; set; }
     public virtual Employee? InsertEmployee { get; set; }
     public virtual Employee? UpdateEmployee { get; set; }
+
 }

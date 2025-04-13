@@ -5,7 +5,81 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Todo": {
+    "/api/Todo/todos": {
+      "get": {
+        "tags": [
+          "Todo"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "enable",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "InsertTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "minOrder",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "maxOrder",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoListSelectDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoListSelectDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoListSelectDto"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "Todo"
@@ -14,47 +88,61 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TodoSelectParameter"
+                "$ref": "#/components/schemas/CreateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/TodoSelectParameter"
+                "$ref": "#/components/schemas/CreateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/TodoSelectParameter"
+                "$ref": "#/components/schemas/CreateDto"
               }
             }
           }
         },
         "responses": {
           "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Todo/todos/{id}": {
+      "get": {
+        "tags": [
+          "Todo"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
             "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TodoListSelectDto"
-                  }
+                  "$ref": "#/components/schemas/TodoListSelectDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TodoListSelectDto"
-                  }
+                  "$ref": "#/components/schemas/TodoListSelectDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TodoListSelectDto"
-                  }
+                  "$ref": "#/components/schemas/TodoListSelectDto"
                 }
               }
             }
@@ -62,41 +150,24 @@
         }
       }
     },
-    "/WeatherForecast": {
+    "/api/Todo/Route/{id}": {
       "get": {
         "tags": [
-          "WeatherForecast"
+          "Todo"
         ],
-        "operationId": "GetWeatherForecast",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -104,6 +175,39 @@
   },
   "components": {
     "schemas": {
+      "CreateDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "insertTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "enable": {
+            "type": "boolean"
+          },
+          "orders": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "insertEmployeeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateEmployeeName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "TodoListSelectDto": {
         "type": "object",
         "properties": {
@@ -135,62 +239,6 @@
             "nullable": true
           },
           "updateEmployeeName": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TodoSelectParameter": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "enable": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "insertTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "minOrder": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "maxOrder": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "order": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WeatherForecast": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "summary": {
             "type": "string",
             "nullable": true
           }

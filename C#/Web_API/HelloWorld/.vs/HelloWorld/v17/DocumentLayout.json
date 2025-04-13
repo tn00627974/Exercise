@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\helloworld.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\helloworld.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\controllers\\helloworldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\controllers\\helloworldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,6 +17,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\dtos\\newsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\dtos\\newsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\helloworld.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\helloworld.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,7 +51,33 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HelloWorld",
+              "Title": "HelloWorldController.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\HelloWorldController.cs",
+              "RelativeDocumentMoniker": "HelloWorld\\Controllers\\HelloWorldController.cs",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\HelloWorldController.cs",
+              "RelativeToolTip": "HelloWorld\\Controllers\\HelloWorldController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T10:50:54.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "HelloWorld\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "HelloWorld\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T10:50:53.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HelloWorld.csproj",
               "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
               "RelativeDocumentMoniker": "HelloWorld\\HelloWorld.csproj",
               "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
@@ -55,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "NewsDto.cs",
               "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Dtos\\NewsDto.cs",
               "RelativeDocumentMoniker": "HelloWorld\\Dtos\\NewsDto.cs",
@@ -63,17 +97,18 @@
               "RelativeToolTip": "HelloWorld\\Dtos\\NewsDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T02:11:28.817Z"
+              "WhenOpened": "2025-04-05T02:11:28.817Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "NewsController.cs",
               "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\NewsController.cs",
               "RelativeDocumentMoniker": "HelloWorld\\Controllers\\NewsController.cs",
               "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\NewsController.cs",
               "RelativeToolTip": "HelloWorld\\Controllers\\NewsController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAwCIAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAQwC4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T12:31:22.797Z",
               "EditorCaption": ""

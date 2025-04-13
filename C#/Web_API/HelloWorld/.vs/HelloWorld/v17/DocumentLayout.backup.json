@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\helloworld.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\helloworld.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|e:\\googledisk\\leam\\c#\\web_api\\helloworld\\helloworld\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F7F85EF-A22F-4E1B-8878-4A4D9F30F6BB}|HelloWorld\\HelloWorld.csproj|solutionrelative:helloworld\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 254,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +42,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "HelloWorld",
+              "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
+              "RelativeDocumentMoniker": "HelloWorld\\HelloWorld.csproj",
+              "ToolTip": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
+              "RelativeToolTip": "HelloWorld\\HelloWorld.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-05T14:52:36.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "NewsDto.cs",
               "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Dtos\\NewsDto.cs",
               "RelativeDocumentMoniker": "HelloWorld\\Dtos\\NewsDto.cs",
@@ -46,12 +63,11 @@
               "RelativeToolTip": "HelloWorld\\Dtos\\NewsDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T02:11:28.817Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T02:11:28.817Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "NewsController.cs",
               "DocumentMoniker": "E:\\GoogleDisk\\leam\\C#\\Web_API\\HelloWorld\\HelloWorld\\Controllers\\NewsController.cs",
               "RelativeDocumentMoniker": "HelloWorld\\Controllers\\NewsController.cs",

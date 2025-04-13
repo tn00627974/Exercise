@@ -9,7 +9,6 @@ namespace Todo.Parameter
         public DateTime? InsertTime { get; set; }
         public int? minOrder { get; set; }
         public int? maxOrder { get; set; }
-
         private string _order { get; set;}
 
         public string? order

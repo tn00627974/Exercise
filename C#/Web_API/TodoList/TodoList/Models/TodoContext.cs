@@ -50,7 +50,8 @@ public partial class TodoContext : DbContext
 
             entity.HasKey(e => e.TodoId).HasName("PK__TodoList__958625526CEF186C");
 
-            entity.Property(e => e.TodoId).ValueGeneratedNever();
+            //entity.Property(e => e.TodoId).ValueGeneratedNever(); // 手動新增Guid
+            entity.Property(e => e.TodoId).ValueGeneratedOnAdd(); // // 自動新增Guid
             entity.Property(e => e.InsertTime).HasColumnType("datetime");
             entity.Property(e => e.UpdateTime).HasColumnType("datetime");
         });

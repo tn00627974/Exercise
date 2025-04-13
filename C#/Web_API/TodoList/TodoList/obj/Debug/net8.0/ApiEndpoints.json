@@ -1,21 +1,62 @@
 [
   {
     "ContainingType": "Todo.Controllers.TodoController",
-    "Method": "Get",
-    "RelativePath": "api/Todo",
-    "HttpMethod": "POST",
+    "Method": "GetFrom",
+    "RelativePath": "api/Todo/Route/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "TSPvalue",
-        "Type": "Todo.Parameter.TodoSelectParameter",
+        "Name": "id",
+        "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Todo.Controllers.TodoController",
+    "Method": "GetAll",
+    "RelativePath": "api/Todo/todos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "enable",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "InsertTime",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "minOrder",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "maxOrder",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "order",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Todo.Dtos.TodoListSelectDto, Todo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "Todo.Dtos.TodoListSelectDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -26,16 +67,38 @@
     ]
   },
   {
-    "ContainingType": "Todo.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "Todo.Controllers.TodoController",
+    "Method": "CreateTodo",
+    "RelativePath": "api/Todo/todos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Todo.Dtos.CreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Todo.Controllers.TodoController",
+    "Method": "GetById",
+    "RelativePath": "api/Todo/todos/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Todo.WeatherForecast, Todo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "Todo.Dtos.TodoListSelectDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -43,7 +106,6 @@
         ],
         "StatusCode": 200
       }
-    ],
-    "EndpointName": "GetWeatherForecast"
+    ]
   }
 ]
