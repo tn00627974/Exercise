@@ -1,7 +1,0 @@
-E:\GoogleDisk\leam\C#\Web_API\TodoList\TodoList\obj\Debug\net5.0\Todo.csproj.AssemblyReference.cache
-E:\GoogleDisk\leam\C#\Web_API\TodoList\TodoList\obj\Debug\net5.0\Todo.GeneratedMSBuildEditorConfig.editorconfig
-E:\GoogleDisk\leam\C#\Web_API\TodoList\TodoList\obj\Debug\net5.0\Todo.AssemblyInfoInputs.cache
-E:\GoogleDisk\leam\C#\Web_API\TodoList\TodoList\obj\Debug\net5.0\Todo.AssemblyInfo.cs
-E:\GoogleDisk\leam\C#\Web_API\TodoList\TodoList\obj\Debug\net5.0\Todo.csproj.CoreCompileInputs.cache
-E:\GoogleDisk\leam\C#\Web_API\TodoList\TodoList\obj\Debug\net5.0\Todo.MvcApplicationPartsAssemblyInfo.cache
-E:\GoogleDisk\leam\C#\Web_API\TodoList\TodoList\obj\Debug\net5.0\Todo.sourcelink.json

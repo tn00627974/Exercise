@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\DockerNet8.props" />
-</Project>
