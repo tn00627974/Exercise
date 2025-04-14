@@ -28,18 +28,17 @@ namespace Todo.Controllers
                 .Include(a => a.InsertEmployee)
                 .Include(a => a.UpdateEmployee)
                 //.Include(a => a.UploadFiles)
-                .Select(t => new TodoListSelectDto
+                .Select(a => new TodoListSelectDto
                 {
-                    Enable = t.Enable,
-                    InsertEmployeeName = t.InsertEmployee != null ? t.InsertEmployee.Name : null,
-                    InsertTime = t.InsertTime,
-                    Name = t.Name,
-                    Orders = t.Orders,
-                    TodoId = t.TodoId,
-                    UpdateEmployeeName = t.UpdateEmployee != null ? t.UpdateEmployee.Name : null,
-                    UpdateTime = t.UpdateTime
+                    Enable = a.Enable,
+                    InsertEmployeeName = a.InsertEmployee.Name,
+                    InsertTime = a.InsertTime,
+                    Name = a.Name,
+                    Orders = a.Orders,
+                    TodoId = a.TodoId,
+                    UpdateEmployeeName = a.UpdateEmployee.Name,
+                    UpdateTime = a.UpdateTime
                 });
-
 
             if (!string.IsNullOrWhiteSpace(TSPvalue.name))
             {
@@ -73,42 +72,35 @@ namespace Todo.Controllers
         [HttpGet("todos/{id}")]
         public ActionResult<TodoListSelectDto> GetById(Guid id)
         {
-            // LINQ 關聯JOIN寫法 (用 Include )
-            //var result = _todoContext.TodoList
-            //    .Include(a => a.InsertEmployee)
-            //    .Include(a => a.UpdateEmployee)
-            //    //.Include(a => a.UploadFiles)
-            //    .Select(t => new TodoListSelectDto
-            //    {
-            //        Enable = t.Enable,
-            //        InsertEmployeeName = t.InsertEmployee != null ? t.InsertEmployee.Name : null,
-            //        InsertTime = t.InsertTime,
-            //        Name = t.Name,
-            //        Orders = t.Orders,
-            //        TodoId = t.TodoId,
-            //        UpdateEmployeeName = t.UpdateEmployee != null ? t.UpdateEmployee.Name : null,
-            //        UpdateTime = t.UpdateTime
-            //    }).SingleOrDefault();
-
-            // LinQ 非關聯JOIN寫法
-            var result = (from t in _todoContext.TodoList
-                          join b in _todoContext.Employee on t.InsertEmployeeId equals b.EmployeeId
-                          join c in _todoContext.Employee on t.UpdateEmployeeId equals c.EmployeeId
-                          where t.TodoId == id
-                          //.Include(a => a.UploadFiles)
-                          select new TodoListSelectDto
-                          {
-                              Enable = t.Enable,
-                              InsertEmployeeName = b.Name,
-                              InsertTime = t.InsertTime,
-                              Name = t.Name,
-                              Orders = t.Orders,
-                              TodoId = t.TodoId,
-                              UpdateEmployeeName = c.Name,
-                              UpdateTime = t.UpdateTime
-                          }).SingleOrDefault();
+            // LINQ 關聯JOIN寫法 (用 Include + aDto )
+            var result = _todoContext.TodoList
+                .Include(a => a.InsertEmployee)
+                .Include(a => a.UpdateEmployee)
+                //.Include(a => a.UploadFiles)
+                .Where(a => a.TodoId == id)
+                .Select(a =>itemDto(a)).SingleOrDefault();
 
             return Ok(result);
+
+            // LinQ 非關聯JOIN寫法 + itemDto 
+            //var result = (from t in _todoContext.TodoList
+            //              join b in _todoContext.Employee on t.InsertEmployeeId equals b.EmployeeId
+            //              join c in _todoContext.Employee on t.UpdateEmployeeId equals c.EmployeeId
+            //              where t.TodoId == id
+            //              //.Include(a => a.UploadFiles)
+            //              select new TodoList
+            //              {
+            //                  Enable = t.Enable,
+            //                  InsertEmployee = b,
+            //                  InsertTime = t.InsertTime,
+            //                  Name = t.Name,
+            //                  Orders = t.Orders,
+            //                  TodoId = t.TodoId,
+            //                  UpdateEmployee = c,
+            //                  UpdateTime = t.UpdateTime
+            //              }).SingleOrDefault();
+
+            //return Ok(itemDto(result));
         }
 
         // Post : api/todos
@@ -145,6 +137,22 @@ namespace Todo.Controllers
         public dynamic GetFrom(string id)
         {
             return id;
+        }
+
+        // 將DTO轉換部分函式化
+        public static TodoListSelectDto itemDto(TodoList item)
+        {
+            return new TodoListSelectDto
+            {
+                Enable = item.Enable,
+                InsertEmployeeName = item.InsertEmployee.Name,
+                InsertTime = item.InsertTime,
+                Name = item.Name,
+                Orders = item.Orders,
+                TodoId = item.TodoId,
+                UpdateEmployeeName = item.UpdateEmployee.Name,
+                UpdateTime = item.UpdateTime
+            };
         }
 
     }
