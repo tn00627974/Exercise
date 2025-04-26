@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Todo.Dtos;
 using Todo.Models;
 using Todo.Parameter;
+using Todo.Profiles;
+using AutoMapper;
 
 namespace Todo.Controllers
 {
@@ -13,11 +15,12 @@ namespace Todo.Controllers
     public class TodoController : ControllerBase
     {
         private readonly TodoContext _todoContext;
-        //private readonly IMapper _mapper;
+        private readonly IMapper _mapper;
 
-        public TodoController(TodoContext todoContext)
+        public TodoController(TodoContext todoContext , IMapper mapper)
         {
             _todoContext = todoContext;
+            _mapper = mapper;
         }
 
         // GET: api/todos
@@ -138,6 +141,39 @@ namespace Todo.Controllers
         {
             return id;
         }
+
+
+        [HttpGet("AutoMapper")]
+        public ActionResult<TodoListSelectDto> GetAutoMapper()
+        {
+            // AutoMapper 寫法
+            var result = _todoContext.TodoList
+                .Include(a => a.InsertEmployee)
+                .Include(a => a.UpdateEmployee)
+                .ToList();
+            var map = _mapper.Map<List<TodoListSelectDto>>(result);
+            return Ok(result);
+
+            // 原始寫法 
+            //var result = _todoContext.TodoList
+            //.Include(a => a.InsertEmployee)
+            //.Include(a => a.UpdateEmployee)
+            ////.Include(a => a.UploadFiles)
+            //    .Select(a => new TodoListSelectDto
+            //    {
+            //        Enable = a.Enable,
+            //        InsertEmployeeName = a.InsertEmployee.Name,
+            //        InsertTime = a.InsertTime,
+            //        Name = a.Name,
+            //        Orders = a.Orders,
+            //        TodoId = a.TodoId,
+            //        UpdateEmployeeName = a.UpdateEmployee.Name,
+            //        UpdateTime = a.UpdateTime
+            //    });
+
+            //return Ok(map);
+        }
+
 
         // 將DTO轉換部分函式化
         public static TodoListSelectDto itemDto(TodoList item)
