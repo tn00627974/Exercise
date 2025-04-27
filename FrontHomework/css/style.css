@@ -1,25 +1,5 @@
 h1 {
-    color: #000000;
-    /* 32px */
-    font-size: 2em;
-    /* 置中 */
-    text-align: center;
-
+    color: #ff1616;
 }
 
-body {
-    font-family: Arial, sans-serif;
-}
 
-span {
-    background-color: yellow;
-    font-size: 1em;
-}
-
-strong {
-    color: rgb(255, 0, 0);
-}
-
-em {
-    color: rgb(0, 4, 255);
-}
