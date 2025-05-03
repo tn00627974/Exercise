@@ -7,8 +7,7 @@ h1{
 .box{
     width: 300px;
     background-color: black;
-    margin-left: auto;  
-    margin-right: auto;
+    margin: right;
 }
 
 .box .header{
@@ -21,6 +20,7 @@ h1{
     color: white;
     background-color: rgb(219, 138, 138);
     padding: 20px;
+    text-align : start; 
 }
 
 .content p{
