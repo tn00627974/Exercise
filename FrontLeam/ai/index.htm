@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>貪食蛇</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #1e3c72, #2a5298);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    canvas {
+      background: #111;
+      border: 4px solid #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    .controls {
+      margin-top: 0px;
+      display: grid;
+      grid-template-columns: 60px 60px 60px;
+      grid-gap: 10px;
+      justify-content: center;
+    }
+    .control-btn {
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      background: #fff;
+      color: #1e3c72;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .control-btn:active {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+<h1>貪食蛇</h1>
+<canvas id="gameCanvas" width="400" height="400"></canvas>
+<div class="controls">
+  <div></div>
+  <button class="control-btn" id="upBtn">⬆️</button>
+  <div></div>
+  <button class="control-btn" id="leftBtn">⬅️</button>
+  <div></div>
+  <button class="control-btn" id="rightBtn">➡️</button>
+  <div></div>
+  <button class="control-btn" id="downBtn">⬇️</button>
+  <div></div>
+</div>
+
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const grid = 20;
+let snake = [{ x: 160, y: 160 }];
+let apple = { x: 320, y: 320 };
+let dx = grid;
+let dy = 0;
+let score = 0;
+let speed = 100;
+
+function getRandomPosition() {
+  return Math.floor(Math.random() * 20) * grid;
+}
+
+function gameLoop() {
+  requestAnimationFrame(gameLoop);
+
+  if (++count < speed / 10) return;
+  count = 0;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  snake.unshift({ x: snake[0].x + dx, y: snake[0].y + dy });
+
+  if (snake[0].x === apple.x && snake[0].y === apple.y) {
+    apple.x = getRandomPosition();
+    apple.y = getRandomPosition();
+    score++;
+    if (speed > 20) speed -= 2;
+  } else {
+    snake.pop();
+  }
+
+  ctx.fillStyle = 'pink';
+  ctx.beginPath();
+  ctx.arc(apple.x + grid/2, apple.y + grid/2, grid/2 + 1, 0, 2 * Math.PI);
+  ctx.fill();
+
+  snake.forEach((part, index) => {
+    if (index === 0) {
+      // 蛇頭
+      ctx.fillStyle = '#90ee90';
+      ctx.beginPath();
+      ctx.arc(part.x + grid/2, part.y + grid/2, grid/2 +3, 0, 2 * Math.PI);
+      ctx.fill();
+
+      // 眼睛
+      ctx.fillStyle = 'black';
+      ctx.beginPath();
+      ctx.arc(part.x + grid/2 - 4, part.y + grid/2 - 4, 2, 0, 2 * Math.PI);
+      ctx.arc(part.x + grid/2 + 4, part.y + grid/2 - 4, 2, 0, 2 * Math.PI);
+      ctx.fill();
+    } else {
+      // 蛇身
+      ctx.fillStyle = '#7ccd7c';
+      ctx.beginPath();
+      ctx.arc(part.x + grid/2, part.y + grid/2, grid/2 - 2, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+  });
+
+  if (snake[0].x < 0 || snake[0].x >= canvas.width || snake[0].y < 0 || snake[0].y >= canvas.height) {
+    resetGame();
+  }
+
+  for (let i = 4; i < snake.length; i++) {
+    if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
+      resetGame();
+    }
+  }
+}
+
+function resetGame() {
+  snake = [{ x: 160, y: 160 }];
+  dx = grid;
+  dy = 0;
+  apple = { x: getRandomPosition(), y: getRandomPosition() };
+  score = 0;
+  speed = 100;
+}
+
+let count = 0;
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft' && dx === 0) {
+    dx = -grid;
+    dy = 0;
+  } else if (e.key === 'ArrowUp' && dy === 0) {
+    dx = 0;
+    dy = -grid;
+  } else if (e.key === 'ArrowRight' && dx === 0) {
+    dx = grid;
+    dy = 0;
+  } else if (e.key === 'ArrowDown' && dy === 0) {
+    dx = 0;
+    dy = grid;
+  }
+});
+
+document.getElementById('leftBtn').addEventListener('click', () => {
+  if (dx === 0) {
+    dx = -grid;
+    dy = 0;
+  }
+});
+
+document.getElementById('upBtn').addEventListener('click', () => {
+  if (dy === 0) {
+    dx = 0;
+    dy = -grid;
+  }
+});
+
+document.getElementById('rightBtn').addEventListener('click', () => {
+  if (dx === 0) {
+    dx = grid;
+    dy = 0;
+  }
+});
+
+document.getElementById('downBtn').addEventListener('click', () => {
+  if (dy === 0) {
+    dx = 0;
+    dy = grid;
+  }
+});
+
+requestAnimationFrame(gameLoop);
+</script>
+</body>
+</html>
