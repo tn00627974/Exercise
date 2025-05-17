@@ -1,0 +1,59 @@
+@use 'variable' as *;
+
+.header{
+  padding: 20px;
+  text-align: center;
+}
+
+.header a{
+  width: 500px;
+  color: $link-color;
+}
+
+.footer{
+    
+}
+
+.footer a{
+  color: $link-color;
+}
+
+a{
+  color: #76ff06;
+}
+
+.pure-button {
+    cursor: pointer;
+    display: inline-block;
+    line-height: normal;
+    vertical-align: middle;
+    white-space: nowrap;
+    -webkit-user-drag: none;
+    box-sizing: border-box;
+    user-select: none;
+    background-color: #e6e6e6;
+    border: #0000;
+    border-radius: 2px;
+    color: #000c;
+    font-size: 100%;
+    padding: .5em 1em;
+}
+
+.pure-button-primary{
+    background-color: #0518bb;
+    color: #fff;
+}
+
+.pure-table {
+    border: 1px solid #cbcbcb;
+    border-spacing: 0;
+    empty-cells: show;
+}
+
+.pure-table-bordered td {
+    border: 1px solid #cbcbcb;
+}
+
+table thead tr{
+  background-color : #cbcbcb ;
+}

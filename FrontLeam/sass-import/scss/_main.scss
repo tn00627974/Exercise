@@ -1,0 +1,25 @@
+@use 'variable' as *;
+
+body{
+  font-family: $font-family-base;
+  // color: #002fff;
+}
+.header {
+  a{ 
+  width: 500px;
+  color: $link-color;
+  }
+  h1{
+    font-size: $font-l;
+  }
+}
+.content a{
+  color: $link-color;
+}
+.content h2{
+  font-family: $font-family-title;
+}
+
+.footer a{
+  color: $link-color;
+}
