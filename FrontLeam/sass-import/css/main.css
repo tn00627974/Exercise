@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/* 程式引入口 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -307,82 +309,87 @@ template {
   display: none;
 }
 
-body {
-  font-family: "Arial", sans-serif;
+/* 使用variable內的變數 */
+* {
+  outline: 1px solid #333;
 }
 
-.header a {
-  width: 500px;
-  color: #a48cc4;
-}
-.header h1 {
-  font-size: 19px;
-}
-
-.content a {
-  color: #a48cc4;
+/* 全域、基礎樣式 */
+/* 版面結構與佈局樣式（容器、網格、排版等）*/
+.warp {
+  width: 640px;
+  margin: 0 auto;
 }
 
-.content h2 {
-  font-family: "Georgia", serif;
-}
-
-.footer a {
-  color: #a48cc4;
-}
-
-.header {
-  padding: 20px;
+.text-center {
   text-align: center;
 }
 
-.header a {
-  width: 500px;
-  color: #a48cc4;
+/* header */
+.header {
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #ffffff;
 }
 
-.footer a {
-  color: #a48cc4;
+.line {
+  border: black solid 1px;
 }
 
-a {
-  color: #76ff06;
+/* content內容 */
+.content {
+  display: flex;
+  padding: 24px;
+  background-color: #ffffff;
 }
 
-.pure-button {
-  cursor: pointer;
-  display: inline-block;
-  line-height: normal;
-  vertical-align: middle;
-  white-space: nowrap;
-  -webkit-user-drag: none;
-  box-sizing: border-box;
-  user-select: none;
-  background-color: #e6e6e6;
-  border: rgba(0, 0, 0, 0);
-  border-radius: 2px;
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 100%;
-  padding: 0.5em 1em;
+.content-text {
+  display: block;
 }
 
-.pure-button-primary {
-  background-color: #0518bb;
-  color: #fff;
+.content1 {
+  flex-direction: column;
+  padding-right: 20px;
+  display: flex;
+  background-color: rgba(2, 64, 235, 0.368627451);
 }
 
-.pure-table {
-  border: 1px solid #cbcbcb;
-  border-spacing: 0;
-  empty-cells: show;
+.content-left-img {
+  height: 96px;
+  width: 96px;
 }
 
-.pure-table-bordered td {
-  border: 1px solid #cbcbcb;
+.content-right-img {
+  height: 216px;
+  width: 216px;
 }
 
-table thead tr {
-  background-color: #cbcbcb;
+.content2 {
+  width: 288px;
+  background-color: rgba(2, 64, 235, 0.368627451);
+  text-align: center;
 }
 
-/*# sourceMappingURL=all.css.map */
+.content2 p {
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px;
+}
+
+.content3 {
+  padding-left: 20px;
+  background-color: rgba(2, 64, 235, 0.368627451);
+}
+
+/* footer */
+.footer {
+  height: 120px;
+}
+
+.footer p {
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=main.css.map */
