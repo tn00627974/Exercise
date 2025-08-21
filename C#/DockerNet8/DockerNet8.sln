@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerNet8", "DockerNet8\DockerNet8.csproj", "{C2014A74-C7C6-4724-9626-5A4CAF981391}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2014A74-C7C6-4724-9626-5A4CAF981391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2014A74-C7C6-4724-9626-5A4CAF981391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2014A74-C7C6-4724-9626-5A4CAF981391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2014A74-C7C6-4724-9626-5A4CAF981391}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB536165-3894-46EE-B081-4E8FB7F7816F}
+	EndGlobalSection
+EndGlobal

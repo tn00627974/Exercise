@@ -1,0 +1,29 @@
+@use 'variable' as *; /* 使用variable內的變數 */
+
+* {
+  outline: 1px solid #333;
+}
+
+/* 全域、基礎樣式 */
+// body{
+//   font-family: $font-family-base;
+// }
+// .header {
+//   a{ 
+//   width: 500px;
+//   color: $link-color;
+//   }
+//   h1{
+//     font-size: $font-l;
+//   }
+// }
+// .content a{
+//   color: $link-color;
+// }
+// .content h2{
+//   font-family: $font-family-title;
+// }
+
+// .footer a{
+//   color: $link-color;
+// }
