@@ -1,0 +1,39 @@
+練習
+C#程式語言基礎_判斷與迴圈控制流程
+# VS 專案設定檔
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# 編譯結果
+bin/
+obj/
+
+# Rider / VSCode / JetBrains IDE
+.idea/
+.vscode/
+
+# 忽略 Copilot/設計檔快取
+**/CopilotIndices/
+**/DesignTimeBuild/
+**/FileContentIndex/
+
+# 調試檔案
+*.pdb
+*.cache
+*.db
+
+# ASP.NET 使用者設定檔
+*.Publish.xml
+*.dotCover
+
+# 系統檔
+.DS_Store
+Thumbs.db
+
+# Log & 临时
+*.log
+*.tmp
+*.zip

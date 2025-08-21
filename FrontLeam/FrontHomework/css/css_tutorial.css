@@ -1,0 +1,36 @@
+h1{
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    margin: 10px;
+}
+
+.box{
+    width: 300px;
+    background-color: black;
+    margin: right;
+}
+
+.box .header{
+    height: 100px;
+    color: rgb(221, 63, 63);
+    background-color: rgb(164, 252, 49);
+}
+
+.content{   
+    color: white;
+    background-color: rgb(219, 138, 138);
+    padding: 20px;
+    text-align : start; 
+}
+
+.content p{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin: 10px;
+}
+
+.footer{
+    height: 100px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+}
