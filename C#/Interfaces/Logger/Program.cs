@@ -13,6 +13,32 @@ namespace Logger
 
     namespace Logger
     {
+        class Vehicle  // base class (parent) 
+        {
+            public string brand = "Ford";  // Vehicle field
+            public void honk() // Vehicle method 
+            {
+                Console.WriteLine("Tuut, tuut!");
+            }
+        }
+
+        public interface Vehicle1  // base class (parent) 
+        {
+            string Brand1 { get; set; }
+            void Honk1();
+        }
+
+        class Car : Vehicle ,Vehicle1
+        {
+            public string modelName = "Mustang";
+
+            public string Brand1 { get; set; } = "Fordddq";
+ 
+
+            public void Honk1() { Console.WriteLine(modelName + " " + Brand1); }              
+        }
+
+
         class Program
         {
             public interface ILogger
@@ -61,6 +87,11 @@ namespace Logger
                 ILogger dbLogger = new DateBaseLogger();
                 app = new Application(dbLogger);
                 app.DoWork();
+
+                // Car
+                Car myCar = new Car();
+                myCar.honk();
+                Console.WriteLine(myCar.brand + " " + myCar.modelName);
             }
         }
     }

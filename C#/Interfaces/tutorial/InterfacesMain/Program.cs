@@ -2,6 +2,9 @@
 using static InterfacesMain.Animal;
 using static InterfacesMain.Cars;
 using static InterfacesMain.Payment;
+using static InterfacesMain.Engine;
+using static InterfacesMain.Car;
+
 
 namespace InterfacesMain
 {
@@ -9,7 +12,7 @@ namespace InterfacesMain
     {
         static void Main(string[] args)
         {
-            // Animal
+           //Animal
             Cat mini = new Cat();
             mini.Eat("fish");
             mini.MakeSound();
@@ -25,7 +28,7 @@ namespace InterfacesMain
             Toyota fit = new Toyota();
             rav4.Drive("Tainan");
 
-            // Payment 
+            //// Payment 
             IPaymentProcessor creditCardProcessor = new CreditCardProcessor();
             creditCardProcessor.ProcessPayment(100.00m);
 
@@ -33,8 +36,14 @@ namespace InterfacesMain
             PaymentService paymentService = new PaymentService(creditCardProcessor1);
             paymentService.ProcessOrderPayment(200.00m);
 
+            // Engine 繼承
+            Car car = new Car();
+            car.Start();
+            car.StartCar();
+
+            // Engine 組合
+            Car1 car1 = new Car1();
+            car1.StartCar();
         }
-
-
     }
 }
