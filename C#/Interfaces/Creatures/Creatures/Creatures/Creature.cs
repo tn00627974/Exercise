@@ -21,9 +21,15 @@ namespace Creatures
         public void injured(int damage)
         {
             hp -= damage;
-            if (hp < 0) hp = 0;
+            if (hp < 0) hp = 0; MessageBox.Show($"{GameName()} 受到 {damage} 點傷害，剩餘 HP : {hp}"); ;
+            if (hp ==0) MessageBox.Show($"{GameName()} 已經倒下了！"); ;
         }
 
         public abstract string GameName();
+
+        public virtual void Attack(Creature target)
+        {
+            // 預設不攻擊 (NPC 不會做任何事)
+        }
     }
 }
