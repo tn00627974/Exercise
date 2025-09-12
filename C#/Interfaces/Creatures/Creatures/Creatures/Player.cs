@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Creatures
 {
-    class Player : Creature , IAttackable
+    class Player : Creature , ITalkable
     {
+        string name = "勇者";
+    
         public override string GameName()
         {
-            return "勇者";
+            return $"{name}";
         }
 
         // 不直觀又需要實作介面方法 IAttackable
@@ -19,9 +21,16 @@ namespace Creatures
         //    target.injured(30);
         //}
 
-        public override void Attack(Creature target)
+        public override string Attack(Creature target)
+        { 
+            string msg = target.injured(30);
+            return msg;
+        }
+
+        public string TalkTo(Creature target)
         {
-            target.injured(30);
+            string targetName = target.GameName();
+            return $"哈囉 {targetName}！我是{name}！";
         }
 
     }
