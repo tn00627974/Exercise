@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace Creatures
 {
     public partial class Form1 : Form
@@ -14,26 +16,35 @@ namespace Creatures
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Creature creature = new Villager();
+            string msg;
+
+            // 建立生物
+            Creature villager = new Villager();
             Creature monster = new Monster();
             Creature player = new Player();
 
-            monster.Attack(player);
-            monster.Attack(player);
-            monster.Attack(player);
-            monster.Attack(player);
+            // 開場白
+            ListBox_Log(monster.Say());
+            ListBox_Log(player.Say());
+            ListBox_Log(villager.Say());
 
-            //Creature monsterAttack = new Monster();
-            //monsterAttack.Attack(player);
-            ////MessageBox.Show(player.Say());
-            //monsterAttack.Attack(player);
-            ////MessageBox.Show(player.Say());
-            //monsterAttack.Attack(player);
-            ////MessageBox.Show(player.Say());
-            //monsterAttack.Attack(player);
-            //MessageBox.Show(player.Say());
+            // 戰鬥
+            for (int i = 0; i < 4; i++)
+            {
+                msg = monster.Attack(player);
+                ListBox_Log(msg);
+            }
+            
+            // 對話
+            ITalkable playerTalkTo = new Player();
+            msg = playerTalkTo.TalkTo(villager);
+            ListBox_Log(msg);
 
-            //MessageBox.Show(monster.Say());
+        }
+        private void ListBox_Log(string message)
+        {
+            listBox1.Items.Add(message);
+            listBox1.TopIndex = listBox1.Items.Count - 1; // 保持捲到最底
         }
     }
 }
