@@ -11,7 +11,6 @@ namespace DelegateExample
         public delegate void SkillDelegate();
 
         //private static SkillDelegate _myDelegate;
-
         public void Main()
         {
             #region 使用傳統方法
