@@ -27,14 +27,18 @@ namespace DelegateExample
 
         public void Main()
         {
-            //_myAction += SayHelloWorld;
-            //DelayAction(1000, _myAction);
-            //_myAction += SayGoodBye;
-            //DelayAction(2000, _myAction);
+            #region Action
+            _myAction += SayHelloWorld;
+            DelayAction(1000, _myAction);
+            _myAction += SayGoodBye;
+            DelayAction(2000, _myAction);
+            #endregion
 
+            #region Func
             _myFunc += PrintNumber;
             DelayFunc(3000, _myFunc);
             Console.ReadLine(); // 等使用者按 Enter，讓 async 有時間跑完
+            #endregion
 
         }
 
