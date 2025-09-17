@@ -16,7 +16,7 @@
         #endregion
 
         #region Func 用於有回傳值的方法 
-        public Func<int, int> _myAction3; // 用Func同時宣告 及 宣告委派變數 | <int,int> 第一個int是參數，第二個int是回傳值
+        public Func<int,int> _myAction3; // 用Func同時宣告 及 宣告委派變數 | <int,int> 第一個int是參數，第二個int是回傳值
         public Func<string,string> _myAction4; // 用Func同時宣告 及 宣告委派變數 | <string,string> 第一個string是參數，第二個string是回傳值
         #endregion
 
@@ -27,8 +27,8 @@
 
         public void Main()
         {
-            // 多重委派
-            _myDelegate += SendMsg0;
+            //多重委派
+           _myDelegate += SendMsg0;
             _myDelegate += PrintSum;
             _myDelegate();
 
@@ -70,12 +70,12 @@
             int result = _mythDelegate(3, 5);
             Console.WriteLine($"_mythDelegate : {result}");
 
-            _mythDelegate1 = (a,b) => a + b; // Lambda + Func 一行寫法簡寫(有回傳值) | 不用多寫 AddNumner 方法
+            _mythDelegate1 = (a, b) => a + b; // Lambda + Func 一行寫法簡寫(有回傳值) | 不用多寫 AddNumner 方法
             int result2 = _mythDelegate1(7, 8);
             Console.WriteLine($"_mythDelegate1 : {result2}");
 
-
         }
+
 
         private void SendMsg0()
         {
