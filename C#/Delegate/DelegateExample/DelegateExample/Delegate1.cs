@@ -3,26 +3,26 @@
     internal class Delegate1
     {
         #region
-        public delegate void MyDelegate(); // 宣告委派
-        public MyDelegate _myDelegate; // 宣告委派變數
+        private delegate void MyDelegate(); // 宣告委派
+        private MyDelegate _myDelegate; // 宣告委派變數
 
-        public delegate int MythDelegate(int a , int b); // 宣告委派
-        public MythDelegate _mythDelegate; // 宣告委派變數
+        private delegate int MythDelegate(int a , int b); // 宣告委派
+        private MythDelegate _mythDelegate; // 宣告委派變數
         #endregion
 
         #region Action 用於沒有回傳值的方法 
-        public Action<int> _myAction1; // 用Action同時宣告 及 宣告委派變數
-        public Action<string> _myAction2; // 用Action同時宣告 及 宣告委派變數
+        private Action<int> _myAction1; // 用Action同時宣告 及 宣告委派變數
+        private Action<string> _myAction2; // 用Action同時宣告 及 宣告委派變數
         #endregion
 
         #region Func 用於有回傳值的方法 
-        public Func<int,int> _myAction3; // 用Func同時宣告 及 宣告委派變數 | <int,int> 第一個int是參數，第二個int是回傳值
-        public Func<string,string> _myAction4; // 用Func同時宣告 及 宣告委派變數 | <string,string> 第一個string是參數，第二個string是回傳值
+        private Func<int,int> _myAction3; // 用Func同時宣告 及 宣告委派變數 | <int,int> 第一個int是參數，第二個int是回傳值
+        private Func<string,string> _myAction4; // 用Func同時宣告 及 宣告委派變數 | <string,string> 第一個string是參數，第二個string是回傳值
         #endregion
 
         #region Lambda 表達式
-        public Action _myAction5;
-        public Func<int, int, int> _mythDelegate1;
+        private Action _myAction5;
+        private Func<int, int, int> _mythDelegate1;
         #endregion
 
         public void Main()
