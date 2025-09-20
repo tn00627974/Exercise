@@ -7,6 +7,13 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DelegateExample
 {
+    // using System;
+    // IDisposable 是 .NET 提供的介面，用來釋放非受控資源
+    //public interface IDisposable
+    //{
+    //    void Dispose();
+    //}
+
     public class GameManager
     {
         public event Action _OnGameStart;  // 加上 event 關鍵字，讓其他類別可以訂閱
@@ -25,7 +32,7 @@ namespace DelegateExample
         }
     }
 
-    public class ResoureceSystem
+    public class ResoureceSystem : IDisposable
     {
         private GameManager _gameManager;
         public ResoureceSystem(GameManager gameManager)
@@ -38,7 +45,13 @@ namespace DelegateExample
         }
 
         // 解構子 Destructor : 當物件被垃圾回收時會自動呼叫
-        ~ResoureceSystem()
+        //~ResoureceSystem()
+        //{
+        //    _gameManager._OnGameStart -= LoadResources;
+        //    _gameManager._OnGameEnd -= UnloadResources;
+        //}
+
+        public void Dispose()
         {
             _gameManager._OnGameStart -= LoadResources;
             _gameManager._OnGameEnd -= UnloadResources;
@@ -48,7 +61,7 @@ namespace DelegateExample
         public void UnloadResources() => Console.WriteLine("Unloading Resources");
     }
 
-    public class ScoreSystem
+    public class ScoreSystem : IDisposable
     {
         private GameManager _gameManager;
         public ScoreSystem(GameManager gameManager)
@@ -61,7 +74,12 @@ namespace DelegateExample
         }
 
         // 解構子 Destructor : 當物件被垃圾回收時會自動呼叫
-        ~ScoreSystem()
+        //~ScoreSystem()
+        //{
+        //    _gameManager._OnGameStart -= LoadResources;
+        //    _gameManager._OnGameEnd -= UnloadResources;
+        //}
+        public void Dispose()
         {
             _gameManager._OnGameStart -= LoadResources;
             _gameManager._OnGameEnd -= UnloadResources;
@@ -80,9 +98,13 @@ namespace DelegateExample
 
         public void Main()
         {
-            _gameManager = new GameManager();
+            _gameManager = new GameManager();            
             _resoureceSystem = new ResoureceSystem(_gameManager);
             _scoreSystem = new ScoreSystem(_gameManager);
+
+            // 透過 using 來確保 Dispose 被呼叫，實作資源釋放
+            using (var rs = new ResoureceSystem(_gameManager))
+            using (var ss = new ScoreSystem(_gameManager))
 
             _gameManager.StartGame();
             _gameManager.EndGame();

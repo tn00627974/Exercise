@@ -7,9 +7,8 @@ namespace DelegateExample
     {
         static void Main(string[] args)
         {
-            Delegate1 dg = new Delegate1();
+            //Delegate1 dg = new Delegate1();
             //dg.Main();
-            dg.Test();
 
             //Delegate2 dg2 = new Delegate2();
             //dg2.Main();
@@ -19,6 +18,9 @@ namespace DelegateExample
 
             //Delegate4 gameManager = new Delegate4();
             //gameManager.Main();
+
+            Delegate5 dg5 = new Delegate5();
+            dg5.Main();
         }
     }
 }
