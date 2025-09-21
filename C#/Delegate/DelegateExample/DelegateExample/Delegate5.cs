@@ -54,8 +54,6 @@ namespace DelegateExample
             _func(a, b);
             _funcFloat = Divide;
             _funcFloat(a, b);
-
-
         }
 
         #region Lambda 表達式
