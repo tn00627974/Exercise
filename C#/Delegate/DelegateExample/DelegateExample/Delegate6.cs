@@ -25,7 +25,13 @@ namespace DelegateExample6
 
         UIManager：監聽遊戲開始事件，並印出「遊戲開始！UI 已更新」。
 
-        延續任務：加入玩家生命值 (HP) 系統
+        🎯延續任務：加入玩家生命值 (HP) 系統
+        🎯延續任務：新增 玩家等級系統 (LevelSystem)
+            功能需求 : 
+            玩家累積得分後可以升級。
+            每累積 50 分 → 升 1 級
+            初始等級為 1
+            當玩家升級時，打印：
      */
 
     public class GameManager
@@ -34,6 +40,7 @@ namespace DelegateExample6
         public event Action OnGameEnd;
         public event Action<int> OnPlayScrored;
         public event Action<int> OnPlayerDamaged;
+        public event Action<int> OnPlayerLevel;
 
         public void StartGame()
         {
@@ -60,17 +67,19 @@ namespace DelegateExample6
             Console.WriteLine($"玩家受傷 {damage}");
             OnPlayerDamaged?.Invoke(damage);
         }
+        public void PlayerLevelUp(int level)
+        { }
     }
 
     public class ScoreSystem : IDisposable
     {
         private GameManager _gameManager;
-        private int _score;
+        public int _score;
+        private Action<int> LvScore;
         public ScoreSystem(GameManager gameManager)
         {
             _gameManager = gameManager;
             _gameManager.OnPlayScrored += UpdateScore;               
-            _score = 0;
         }
         public void UpdateScore(int point)
         {
@@ -88,7 +97,6 @@ namespace DelegateExample6
     public class UIManger : IDisposable
     {
         private GameManager _gameManager;
-        private int _score;
         public UIManger(GameManager gameManager)
         {
             _gameManager = gameManager;
@@ -126,13 +134,41 @@ namespace DelegateExample6
             {
                 _gameManager.EndGame();
                 Console.WriteLine($"玩家死亡！遊戲結束！"); 
-            }
-            
+            }            
         }
         public void Dispose()
         {
             _gameManager.OnPlayerDamaged -= UpdateHealth;
             Console.WriteLine("HealthSystem 已釋放");
+        }
+    }
+
+    public class LevelSystem : IDisposable
+    {
+        private GameManager _gameManager;
+        private ScoreSystem _scoreSystem;
+        private int _level;
+        public LevelSystem(GameManager gameManager ,ScoreSystem scoreSystem)
+        {
+            _gameManager = gameManager;
+            _scoreSystem = scoreSystem;
+            _gameManager.OnPlayScrored += GetLevelScored;
+            _level = 1;
+            int point = _scoreSystem._score;
+
+        }
+        public void GetLevelScored(int point)
+        {
+            if (_scoreSystem._score >= 50)
+            {
+                _level++;
+                Console.WriteLine($"玩家升級，等級 {_level}");
+            }
+        }
+        public void Dispose()
+        {
+            _gameManager.OnPlayScrored -= GetLevelScored;
+            Console.WriteLine("LevelSystem 已釋放");
         }
     }
 
@@ -145,10 +181,12 @@ namespace DelegateExample6
             using (var ss = new ScoreSystem(gm))          
             using (var ui = new UIManger(gm))
             using (var hs = new HealthSystem(gm))
+            using (var ls = new LevelSystem(gm, ss))
             {
                 gm.StartGame();
-                gm.PlayerScored(10);
-                gm.PlayerScored(20);
+                gm.PlayerScored(30);
+                gm.PlayerScored(40);
+                gm.PlayerScored(50);
                 gm.PlayerDamaged(90);
                 gm.PlayerDamaged(40);
                 gm.PlayerDamaged(50);
