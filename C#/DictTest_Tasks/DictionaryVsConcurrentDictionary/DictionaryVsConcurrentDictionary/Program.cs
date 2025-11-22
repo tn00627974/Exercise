@@ -39,15 +39,17 @@ class Program
                         }
                         else
                         {
-                            ((Dictionary<int, string>)dict)[key] = value; // 會出錯
-                            //Console.WriteLine($"Dictionary : {value}");
+                            lock (dict) // 加鎖以避免多執行緒寫入衝突
+                            {
+                                ((Dictionary<int, string>)dict)[key] = value; // 會出錯
+                                //Console.WriteLine($"Dictionary : {value}");
+                            }
                         }
                     }
                     catch (Exception ex)
                     {
                         throw new Exception(ex.Message);
                     }
-
                 }
             }));
     }
