@@ -1,12 +1,12 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using RfidApp.Models;
-using RfidApp.Services;
+using RfidWareHouseApp.Models;
+using RfidWareHouseApp.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui;
 
-namespace RfidApp.ViewModels
+namespace RfidWareHouseApp.ViewModels
 {
     public class DashboardViewModel : BaseViewModel
     {

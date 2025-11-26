@@ -1,6 +1,6 @@
-using RfidApp.ViewModels;
+using RfidWareHouseApp.ViewModels;
 
-namespace RfidApp.Views
+namespace RfidWareHouseApp.Views
 {
     public partial class DashboardPage : ContentPage
     {

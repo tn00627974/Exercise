@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using RfidApp.Models;
+using RfidWareHouseApp.Models;
 
-namespace RfidApp.Services
+namespace RfidWareHouseApp.Services
 {
     public class MockDataService : IDataService
     {

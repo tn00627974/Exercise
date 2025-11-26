@@ -1,11 +1,11 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using RfidApp.Models;
-using RfidApp.Services;
+using RfidWareHouseApp.Models;
+using RfidWareHouseApp.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls; // for Application
 
-namespace RfidApp.ViewModels
+namespace RfidWareHouseApp.ViewModels
 {
     public class InventoryViewModel : BaseViewModel
     {
@@ -13,14 +13,6 @@ namespace RfidApp.ViewModels
         private readonly IRfidService _rfidService;
 
         public ObservableCollection<InventoryItem> Items { get; } = new();
-
-        // 公用無參數建構子：供 XAML (vm:InventoryViewModel) 使用，從 DI 容器解析依賴
-        //public InventoryViewModel()
-        //    : this(
-        //          Application.Current?.Services?.GetService<IDataService>() ?? throw new InvalidOperationException("IDataService not registered"),
-        //          Application.Current?.Services?.GetService<IRfidService>() ?? throw new InvalidOperationException("IRfidService not registered"))
-        //{
-        //}
 
         public InventoryViewModel(IDataService dataService, IRfidService rfidService)
         {

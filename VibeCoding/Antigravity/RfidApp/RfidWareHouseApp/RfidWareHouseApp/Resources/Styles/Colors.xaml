@@ -12,6 +12,7 @@
     <Color x:Key="Secondary">#DFD8F7</Color>
     <Color x:Key="SecondaryDarkText">#9880e5</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
+    <Color x:Key="AccentBlue">#2196F3</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
@@ -27,6 +28,12 @@
     <Color x:Key="Gray600">#404040</Color>
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
+
+        <!-- 新增：MainGradient 漸層背景 -->
+    <LinearGradientBrush x:Key="MainGradient" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#512BD4" Offset="0.0" />
+        <GradientStop Color="#2196F3" Offset="1.0" />
+    </LinearGradientBrush>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>

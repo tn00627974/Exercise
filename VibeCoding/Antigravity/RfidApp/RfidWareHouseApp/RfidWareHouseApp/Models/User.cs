@@ -1,4 +1,4 @@
-namespace RfidApp.Models
+namespace RfidWareHouseApp.Models
 {
     public class User
     {

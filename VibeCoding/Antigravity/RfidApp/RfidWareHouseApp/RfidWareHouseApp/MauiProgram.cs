@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using RfidApp.Services;
-using RfidApp.ViewModels;
+using RfidWareHouseApp.Services;
+using RfidWareHouseApp.ViewModels;
+using RfidWareHouseApp.Views;
 
 
 namespace RfidWareHouseApp
@@ -12,13 +13,22 @@ namespace RfidWareHouseApp
             //MauiProgram.CreateMauiApp();
             var builder = MauiApp.CreateBuilder();
 
-            //builder.Services.AddSingleton<IDataService>();
+            // 註冊 Services
+            builder.Services.AddSingleton<IAuthService, AuthService>();
+            builder.Services.AddSingleton<IDataService, MockDataService>();
+
+            // 註冊 ViewModels
             builder.Services.AddTransient<BaseViewModel>();
             builder.Services.AddTransient<DashboardViewModel>();
             builder.Services.AddTransient<LoginViewModel>();
             builder.Services.AddTransient<RepairViewModel>();
             builder.Services.AddTransient<InventoryViewModel>();
 
+            // 註冊 Pages
+            builder.Services.AddSingleton<LoginPage>();
+            builder.Services.AddSingleton<DashboardPage>();
+            builder.Services.AddSingleton<RepairPage>();
+            builder.Services.AddSingleton<InventoryPage>();
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
