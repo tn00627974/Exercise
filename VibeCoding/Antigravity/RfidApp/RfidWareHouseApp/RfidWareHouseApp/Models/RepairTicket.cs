@@ -1,6 +1,6 @@
 using System;
 
-namespace RfidApp.Models
+namespace RfidWareHouseApp.Models
 {
     public enum RepairStatus
     {

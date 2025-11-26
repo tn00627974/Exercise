@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace RfidApp.Services
+namespace RfidWareHouseApp.Services
 {
     public class RfidService : IRfidService
     {

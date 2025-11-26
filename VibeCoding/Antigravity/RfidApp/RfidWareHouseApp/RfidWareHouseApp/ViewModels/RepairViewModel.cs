@@ -1,22 +1,16 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using RfidApp.Models;
-using RfidApp.Services;
+using RfidWareHouseApp.Models;
+using RfidWareHouseApp.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;
 
-namespace RfidApp.ViewModels
+namespace RfidWareHouseApp.ViewModels
 {
     public class RepairViewModel : BaseViewModel
     {
         private readonly IDataService _dataService;
         public ObservableCollection<RepairTicket> Tickets { get; } = new();
-
-        // 公用無參數建構子，供 XAML 使用
-        //public RepairViewModel()
-        //    : this(Application.Current?.Services?.GetService<IDataService>() ?? throw new InvalidOperationException("IDataService not registered"))
-        //{
-        //}
 
         public RepairViewModel(IDataService dataService)
         {

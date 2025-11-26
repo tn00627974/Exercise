@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace RfidApp.ViewModels
+namespace RfidWareHouseApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

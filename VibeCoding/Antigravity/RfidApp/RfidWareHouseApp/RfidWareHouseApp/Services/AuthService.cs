@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using RfidApp.Models;
+using RfidWareHouseApp.Models;
 
-namespace RfidApp.Services
+namespace RfidWareHouseApp.Services
 {
     public class AuthService : IAuthService
     {

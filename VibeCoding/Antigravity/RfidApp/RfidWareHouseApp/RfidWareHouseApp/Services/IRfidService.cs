@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace RfidApp.Services
+namespace RfidWareHouseApp.Services
 {
     public interface IRfidService
     {

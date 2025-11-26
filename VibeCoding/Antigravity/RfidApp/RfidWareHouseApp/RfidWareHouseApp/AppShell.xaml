@@ -3,13 +3,34 @@
     x:Class="RfidWareHouseApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:RfidWareHouseApp"
+    xmlns:views="clr-namespace:RfidWareHouseApp.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="RfidWareHouseApp">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="LoginPage"
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        Shell.NavBarIsVisible="False" />
+
+        <!-- 主應用區域（使用 TabBar 分頁導航）-->
+    <TabBar Route="Main">
+        <ShellContent
+            Route="DashboardPage"
+            Title="Dashboard"
+            Icon="dashboard.png"
+            ContentTemplate="{DataTemplate views:DashboardPage}" />
+        
+        <ShellContent
+            Route="InventoryPage"
+            Title="Inventory"
+            Icon="inventory.png"
+            ContentTemplate="{DataTemplate views:InventoryPage}" />
+        
+        <ShellContent
+            Route="RepairPage"
+            Title="Repair"
+            Icon="repair.png"
+            ContentTemplate="{DataTemplate views:RepairPage}" />
+    </TabBar>
 
 </Shell>

@@ -1,9 +1,9 @@
 using System.Windows.Input;
-using RfidApp.Services;
+using RfidWareHouseApp.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls; // Application
 
-namespace RfidApp.ViewModels
+namespace RfidWareHouseApp.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {

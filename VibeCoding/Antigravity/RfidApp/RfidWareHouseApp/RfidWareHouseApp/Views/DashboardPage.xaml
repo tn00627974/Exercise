@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:RfidApp.ViewModels"
-             x:Class="RfidApp.Views.DashboardPage"
+             xmlns:vm="clr-namespace:RfidWareHouseApp.ViewModels"
+             x:Class="RfidWareHouseApp.Views.DashboardPage"
              Title="Dashboard">
 
     <ScrollView>
@@ -11,13 +11,14 @@
             <Label Text="Overview" 
                    FontSize="24" 
                    FontAttributes="Bold" 
-                   TextColor="{StaticResource TextDark}" />
+                   TextColor="{StaticResource Gray900}" />
 
             <!-- Stats Grid -->
             <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15">
                 
                 <!-- Total Inventory -->
-                <Frame Grid.Row="0" Grid.Column="0" Style="{StaticResource CardStyle}">
+                <Frame Grid.Row="0" Grid.Column="0" 
+                       BackgroundColor="White" CornerRadius="15" Padding="15" HasShadow="True">
                     <VerticalStackLayout>
                         <Label Text="Total Items" TextColor="Gray" FontSize="12"/>
                         <Label Text="{Binding TotalInventory}" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource AccentBlue}"/>
@@ -25,20 +26,22 @@
                 </Frame>
 
                 <!-- Active Repairs -->
-                <Frame Grid.Row="0" Grid.Column="1" Style="{StaticResource CardStyle}">
+                <Frame Grid.Row="0" Grid.Column="1" 
+                       BackgroundColor="White" CornerRadius="15" Padding="15" HasShadow="True">
                     <VerticalStackLayout>
                         <Label Text="Active Repairs" TextColor="Gray" FontSize="12"/>
-                        <Label Text="{Binding ActiveRepairs}" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource PrimaryPink}"/>
+                        <Label Text="{Binding ActiveRepairs}" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource Magenta}"/>
                     </VerticalStackLayout>
                 </Frame>
 
                 <!-- Low Stock -->
-                <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource CardStyle}">
+                <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                       BackgroundColor="White" CornerRadius="15" Padding="15" HasShadow="True">
                     <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
                         <Label Text="!" FontSize="24" TextColor="Orange" FontAttributes="Bold" VerticalOptions="Center"/>
                         <VerticalStackLayout>
                             <Label Text="Low Stock Alert" TextColor="Gray" FontSize="12"/>
-                            <Label Text="{Binding LowStockItems, StringFormat='{0} items need reordering'}" FontSize="16" TextColor="{StaticResource TextDark}"/>
+                            <Label Text="{Binding LowStockItems, StringFormat='{0} items need reordering'}" FontSize="16" TextColor="{StaticResource Gray900}"/>
                         </VerticalStackLayout>
                     </HorizontalStackLayout>
                 </Frame>
@@ -48,16 +51,15 @@
             <Label Text="Quick Actions" 
                    FontSize="20" 
                    FontAttributes="Bold" 
-                   TextColor="{StaticResource TextDark}" 
+                   TextColor="{StaticResource Gray900}" 
                    Margin="0,10,0,0"/>
 
             <Button Text="Scan New Item" 
-                    Style="{StaticResource PrimaryButtonStyle}" 
-                    ImageSource="scan_icon.png"/>
+                    Style="{StaticResource PrimaryButtonStyle}"/>
             
             <Button Text="Create Repair Ticket" 
-                    BackgroundColor="{StaticResource PrimaryBlue}"
-                    TextColor="{StaticResource TextDark}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
                     CornerRadius="20"
                     HeightRequest="50"
                     FontAttributes="Bold"/>
