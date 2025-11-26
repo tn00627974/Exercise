@@ -1,0 +1,5 @@
+{
+  "name": "Gemini SkyCast",
+  "description": "An intelligent weather dashboard powered by Gemini 2.5 Flash with Google Search Grounding to provide real-time forecasts, clothing advice, and data sourcing.",
+  "requestFramePermissions": []
+}

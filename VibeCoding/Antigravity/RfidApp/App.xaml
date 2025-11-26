@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RfidApp"
+             x:Class="RfidApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Colors -->
+            <Color x:Key="PrimaryPink">#FFC3A0</Color>
+            <Color x:Key="PrimaryHoney">#FFD1A9</Color>
+            <Color x:Key="PrimaryBlue">#A2D2FF</Color>
+            <Color x:Key="AccentBlue">#4A90E2</Color>
+            <Color x:Key="BackgroundWhite">#F8F9FA</Color>
+            <Color x:Key="TextDark">#333333</Color>
+
+            <!-- Gradients -->
+            <LinearGradientBrush x:Key="MainGradient" StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{StaticResource PrimaryPink}" Offset="0.0" />
+                <GradientStop Color="{StaticResource PrimaryHoney}" Offset="0.5" />
+                <GradientStop Color="{StaticResource PrimaryBlue}" Offset="1.0" />
+            </LinearGradientBrush>
+
+            <!-- Styles -->
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource BackgroundWhite}" />
+            </Style>
+
+            <Style x:Key="CardStyle" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="Padding" Value="15" />
+            </Style>
+
+            <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="{StaticResource MainGradient}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
