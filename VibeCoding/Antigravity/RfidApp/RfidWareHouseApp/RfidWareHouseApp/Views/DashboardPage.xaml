@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:RfidApp.ViewModels"
+             x:Class="RfidApp.Views.DashboardPage"
+             Title="Dashboard">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+            <!-- Header -->
+            <Label Text="Overview" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   TextColor="{StaticResource TextDark}" />
+
+            <!-- Stats Grid -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15">
+                
+                <!-- Total Inventory -->
+                <Frame Grid.Row="0" Grid.Column="0" Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout>
+                        <Label Text="Total Items" TextColor="Gray" FontSize="12"/>
+                        <Label Text="{Binding TotalInventory}" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource AccentBlue}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Active Repairs -->
+                <Frame Grid.Row="0" Grid.Column="1" Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout>
+                        <Label Text="Active Repairs" TextColor="Gray" FontSize="12"/>
+                        <Label Text="{Binding ActiveRepairs}" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource PrimaryPink}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Low Stock -->
+                <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource CardStyle}">
+                    <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                        <Label Text="!" FontSize="24" TextColor="Orange" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <VerticalStackLayout>
+                            <Label Text="Low Stock Alert" TextColor="Gray" FontSize="12"/>
+                            <Label Text="{Binding LowStockItems, StringFormat='{0} items need reordering'}" FontSize="16" TextColor="{StaticResource TextDark}"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- Quick Actions -->
+            <Label Text="Quick Actions" 
+                   FontSize="20" 
+                   FontAttributes="Bold" 
+                   TextColor="{StaticResource TextDark}" 
+                   Margin="0,10,0,0"/>
+
+            <Button Text="Scan New Item" 
+                    Style="{StaticResource PrimaryButtonStyle}" 
+                    ImageSource="scan_icon.png"/>
+            
+            <Button Text="Create Repair Ticket" 
+                    BackgroundColor="{StaticResource PrimaryBlue}"
+                    TextColor="{StaticResource TextDark}"
+                    CornerRadius="20"
+                    HeightRequest="50"
+                    FontAttributes="Bold"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

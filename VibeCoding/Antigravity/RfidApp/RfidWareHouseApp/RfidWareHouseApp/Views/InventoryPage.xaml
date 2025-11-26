@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:RfidApp.ViewModels"
+             x:Class="RfidApp.Views.InventoryPage"
+             Title="Inventory">
+
+   
+
+    <Grid RowDefinitions="Auto,*">
+        <!-- Search & Scan Bar -->
+        <Frame Grid.Row="0" Margin="10" Padding="10" CornerRadius="10" HasShadow="False" BorderColor="LightGray">
+            <Grid ColumnDefinitions="*,Auto">
+                <SearchBar Placeholder="Search items..." Grid.Column="0"/>
+                <Button Text="SCAN" 
+                        Command="{Binding StartScanCommand}"
+                        Grid.Column="1" 
+                        Margin="10,0,0,0"
+                        BackgroundColor="{StaticResource AccentBlue}"
+                        TextColor="White"/>
+            </Grid>
+        </Frame>
+
+        <!-- Inventory List -->
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Items}" Margin="10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,5" Padding="10" CornerRadius="10" HasShadow="True" BorderColor="Transparent">
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <BoxView Color="{StaticResource PrimaryHoney}" WidthRequest="5" VerticalOptions="Fill" Grid.Column="0" Margin="0,0,10,0"/>
+                            
+                            <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="16"/>
+                                <Label Text="{Binding Category}" TextColor="Gray" FontSize="12"/>
+                                <Label Text="{Binding RfidTag}" TextColor="{StaticResource AccentBlue}" FontSize="10"/>
+                            </VerticalStackLayout>
+
+                            <Label Grid.Column="2" 
+                                   Text="{Binding Quantity}" 
+                                   FontSize="20" 
+                                   FontAttributes="Bold" 
+                                   VerticalOptions="Center"
+                                   TextColor="{StaticResource TextDark}"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
