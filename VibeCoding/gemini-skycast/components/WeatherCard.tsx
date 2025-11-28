@@ -1,19 +1,33 @@
 import React from 'react';
 import { WeatherData } from '../types';
-import { Cloud, CloudRain, Sun, Wind, Droplets, MapPin, CloudLightning, CloudSnow } from 'lucide-react';
+import { Cloud, CloudRain, Sun, Wind, Droplets, MapPin, CloudLightning, CloudSnow, Calendar, Share2 } from 'lucide-react';
 
 interface WeatherCardProps {
   data: WeatherData | null;
   loading: boolean;
+  onShare?: () => void;
 }
 
-const getWeatherIcon = (condition: string) => {
+const getWeatherIcon = (condition: string, className: string = "w-16 h-16") => {
   const c = condition.toLowerCase();
-  if (c.includes('雨') || c.includes('rain') || c.includes('drizzle')) return <CloudRain className="w-16 h-16 text-blue-200" />;
-  if (c.includes('雷') || c.includes('storm')) return <CloudLightning className="w-16 h-16 text-yellow-300" />;
-  if (c.includes('雪') || c.includes('snow')) return <CloudSnow className="w-16 h-16 text-white" />;
-  if (c.includes('雲') || c.includes('cloud') || c.includes('陰')) return <Cloud className="w-16 h-16 text-gray-200" />;
-  return <Sun className="w-16 h-16 text-yellow-400" />;
+  let Icon = Sun;
+  let colorClass = "text-yellow-400";
+
+  if (c.includes('雨') || c.includes('rain') || c.includes('drizzle')) {
+    Icon = CloudRain;
+    colorClass = "text-blue-200";
+  } else if (c.includes('雷') || c.includes('storm')) {
+    Icon = CloudLightning;
+    colorClass = "text-yellow-300";
+  } else if (c.includes('雪') || c.includes('snow')) {
+    Icon = CloudSnow;
+    colorClass = "text-white";
+  } else if (c.includes('雲') || c.includes('cloud') || c.includes('陰')) {
+    Icon = Cloud;
+    colorClass = "text-gray-200";
+  }
+
+  return <Icon className={`${className} ${colorClass}`} />;
 };
 
 const getBackgroundGradient = (condition: string) => {
@@ -25,11 +39,12 @@ const getBackgroundGradient = (condition: string) => {
     return 'from-blue-400 to-blue-600'; // Default Sunny
 };
 
-export const WeatherCard: React.FC<WeatherCardProps> = ({ data, loading }) => {
+export const WeatherCard: React.FC<WeatherCardProps> = ({ data, loading, onShare }) => {
   if (loading) {
     return (
-      <div className="w-full h-64 bg-white/50 backdrop-blur-md rounded-3xl animate-pulse flex items-center justify-center shadow-xl">
-        <div className="text-gray-500 font-medium">正如火如荼地搜索最新的天氣資訊...</div>
+      <div className="w-full h-96 bg-white/50 backdrop-blur-md rounded-3xl animate-pulse flex flex-col items-center justify-center shadow-xl gap-4">
+        <div className="w-16 h-16 bg-white/50 rounded-full"></div>
+        <div className="text-gray-500 font-medium">正在為您搜尋最新的天氣資訊...</div>
       </div>
     );
   }
@@ -61,13 +76,24 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({ data, loading }) => {
             <MapPin className="w-4 h-4 text-white/80" />
             <span className="font-medium">{data.location}</span>
           </div>
-          <div className="text-white/80 text-sm font-medium">
-             即時概況
+          <div className="flex gap-2">
+            {onShare && (
+              <button 
+                onClick={onShare}
+                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm p-1.5 rounded-full transition-colors"
+                title="分享至 LINE"
+              >
+                <Share2 className="w-4 h-4 text-white" />
+              </button>
+            )}
+            <div className="text-white/80 text-sm font-medium py-1">
+               即時概況
+            </div>
           </div>
         </div>
 
-        {/* Middle Row: Big Temp & Icon */}
-        <div className="flex items-center justify-between my-6">
+        {/* Main Temp & Icon */}
+        <div className="flex items-center justify-between my-8">
           <div className="flex flex-col">
             <span className="text-7xl font-bold tracking-tighter">
               {data.temp}°
@@ -77,12 +103,12 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({ data, loading }) => {
             </span>
           </div>
           <div className="animate-float">
-             {getWeatherIcon(data.condition)}
+             {getWeatherIcon(data.condition, "w-20 h-20")}
           </div>
         </div>
 
-        {/* Bottom Row: Details */}
-        <div className="grid grid-cols-2 gap-4">
+        {/* Details Grid */}
+        <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 flex items-center gap-3 border border-white/10">
             <Droplets className="w-5 h-5 text-blue-200" />
             <div className="flex flex-col">
@@ -98,6 +124,33 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({ data, loading }) => {
             </div>
           </div>
         </div>
+
+        {/* 7-Day Forecast Section */}
+        {data.forecast && data.forecast.length > 0 && (
+          <div className="border-t border-white/20 pt-4 mt-2">
+            <div className="flex items-center gap-2 mb-3 opacity-80">
+                <Calendar className="w-4 h-4" />
+                <h4 className="text-xs font-bold uppercase tracking-wider">未來 7 天預報</h4>
+            </div>
+            
+            <div className="flex flex-col gap-2">
+              {data.forecast.map((day, idx) => (
+                <div key={idx} className="flex items-center justify-between bg-white/5 hover:bg-white/10 transition-colors rounded-lg p-2 px-3">
+                  <span className="w-14 font-medium text-sm">{day.day}</span>
+                  <div className="flex items-center gap-2 flex-1 justify-center">
+                    {getWeatherIcon(day.condition, "w-5 h-5")}
+                    <span className="text-xs opacity-90 truncate max-w-[80px]">{day.condition}</span>
+                  </div>
+                  <div className="flex gap-3 text-sm font-medium w-20 justify-end">
+                    <span className="opacity-60">{day.low}°</span>
+                    <span>{day.high}°</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );

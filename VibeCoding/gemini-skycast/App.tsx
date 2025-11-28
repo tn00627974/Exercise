@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Search, ExternalLink, Sparkles, AlertCircle } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Search, ExternalLink, Sparkles, AlertCircle, Clock } from 'lucide-react';
 import { getWeatherData } from './services/geminiService';
 import { WeatherData, GroundingChunk } from './types';
 import { WeatherCard } from './components/WeatherCard';
+import { DeploymentHelper } from './components/DeploymentHelper';
 
 const App = () => {
   const [city, setCity] = useState('台北');
@@ -11,27 +12,115 @@ const App = () => {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [rawResponse, setRawResponse] = useState<string>('');
   const [groundingSources, setGroundingSources] = useState<GroundingChunk[]>([]);
+  const [autoUpdate, setAutoUpdate] = useState(false);
+  const lastUpdateRef = useRef<number>(0);
 
-  const handleSearch = async (e?: React.FormEvent) => {
+  const handleSearch = async (e?: React.FormEvent, isAuto: boolean = false) => {
     if (e) e.preventDefault();
     if (!city.trim()) return;
 
     setLoading(true);
     setError(null);
-    setWeatherData(null);
-    setRawResponse('');
-    setGroundingSources([]);
+    if (!isAuto) {
+        setWeatherData(null);
+        setRawResponse('');
+        setGroundingSources([]);
+    }
 
     try {
       const result = await getWeatherData(city);
       setWeatherData(result.parsedData);
       setRawResponse(result.rawText);
       setGroundingSources(result.groundingChunks);
+      
+      lastUpdateRef.current = Date.now();
+      
+      if (isAuto) {
+        sendNotification(`Gemini SkyCast: ${city} 天氣已更新`, `${result.parsedData?.temp}° ${result.parsedData?.condition}`);
+      }
     } catch (err) {
       setError("無法獲取天氣資訊，請稍後再試。");
     } finally {
       setLoading(false);
     }
+  };
+
+  const sendNotification = (title: string, body: string) => {
+    if (Notification.permission === 'granted') {
+        new Notification(title, { body });
+    }
+  };
+
+  const requestNotificationPermission = () => {
+      if (!('Notification' in window)) return;
+      if (Notification.permission !== 'granted') {
+          Notification.requestPermission();
+      }
+  };
+
+  const toggleAutoUpdate = () => {
+      const newState = !autoUpdate;
+      setAutoUpdate(newState);
+      if (newState) {
+          requestNotificationPermission();
+      }
+  };
+
+  // 7 AM Scheduler
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    
+    if (autoUpdate) {
+        interval = setInterval(() => {
+            const now = new Date();
+            // Check if it is between 07:00:00 and 07:00:59
+            if (now.getHours() === 7 && now.getMinutes() === 0) {
+                // Prevent duplicate calls within the same minute
+                const oneHour = 60 * 60 * 1000;
+                if (Date.now() - lastUpdateRef.current > oneHour) {
+                    handleSearch(undefined, true);
+                }
+            }
+        }, 10000); // Check every 10 seconds
+    }
+
+    return () => {
+        if (interval) clearInterval(interval);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoUpdate, city]);
+
+  const generateLineMessage = () => {
+    if (!weatherData) return '';
+
+    const today = new Date().toLocaleDateString('zh-TW');
+    let msg = `📅 Gemini SkyCast 天氣預報 (${today})\n`;
+    msg += `📍 地點: ${weatherData.location}\n`;
+    msg += `🌡️ 目前: ${weatherData.temp}° ${weatherData.condition}\n`;
+    msg += `💧 濕度: ${weatherData.humidity}% | 🌬️ 風速: ${weatherData.wind}\n\n`;
+
+    if (weatherData.forecast && weatherData.forecast.length > 0) {
+        msg += `📋 未來一週預報:\n`;
+        weatherData.forecast.forEach(f => {
+            msg += `${f.day} | ${f.condition} | ${f.low}°~${f.high}°\n`;
+        });
+    }
+
+    if (rawResponse) {
+        msg += `\n💡 建議:\n${rawResponse.substring(0, 100)}...`;
+    }
+
+    msg += `\n\n(由 Gemini SkyCast 產生)`;
+    return msg;
+  };
+
+  const handleShareToLine = () => {
+      const text = generateLineMessage();
+      if (!text) return;
+      // Using the line:// URL scheme to open the app directly with text
+      // Works on Mobile and Desktop if LINE is installed
+      const url = `https://line.me/R/msg/text/?${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
   };
 
   // Initial load
@@ -46,20 +135,35 @@ const App = () => {
         
         {/* Header */}
         <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2 text-blue-600">
-            <Sparkles className="w-5 h-5" />
-            <h1 className="font-bold tracking-tight text-sm uppercase">Gemini SkyCast</h1>
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-2 text-blue-600">
+                <Sparkles className="w-5 h-5" />
+                <h1 className="font-bold tracking-tight text-sm uppercase">Gemini SkyCast</h1>
+            </div>
+            
+            <button 
+                onClick={toggleAutoUpdate}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-colors border ${
+                    autoUpdate 
+                    ? 'bg-green-100 text-green-700 border-green-200 hover:bg-green-200' 
+                    : 'bg-white text-slate-500 border-slate-200 hover:bg-slate-50'
+                }`}
+                title="保持此頁面開啟，每天早上 07:00 自動更新並通知"
+            >
+                <Clock className="w-3.5 h-3.5" />
+                {autoUpdate ? '每日 07:00 自動更新 (已開啟)' : '開啟每日自動更新'}
+            </button>
           </div>
           <h2 className="text-2xl font-bold text-slate-900">智能天氣預報</h2>
         </div>
 
         {/* Search Input */}
-        <form onSubmit={handleSearch} className="relative group">
+        <form onSubmit={(e) => handleSearch(e)} className="relative group">
           <input
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            placeholder="輸入城市 (例如: 東京, 紐約)"
+            placeholder="輸入城市 (例如: 台北, 東京)"
             className="w-full h-12 pl-12 pr-4 bg-white rounded-2xl border-2 border-slate-100 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-sm group-hover:shadow-md"
             disabled={loading}
           />
@@ -82,7 +186,17 @@ const App = () => {
         )}
 
         {/* Main Weather Card */}
-        <WeatherCard data={weatherData} loading={loading} />
+        <WeatherCard 
+            data={weatherData} 
+            loading={loading} 
+            onShare={weatherData ? handleShareToLine : undefined}
+        />
+        
+        {autoUpdate && (
+            <div className="text-center text-xs text-slate-400 -mt-2">
+                ⚠️ 請保持此網頁分頁開啟以啟用自動更新
+            </div>
+        )}
 
         {/* Analysis / Forecast Text */}
         {(rawResponse || loading) && (
@@ -132,6 +246,9 @@ const App = () => {
           </div>
         )}
       </div>
+
+      {/* 開發環境下顯示部署助手 */}
+      {typeof window !== 'undefined' && process.env.NODE_ENV === 'development' && <DeploymentHelper />}
     </div>
   );
 };
