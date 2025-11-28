@@ -18,3 +18,9 @@ export interface SearchResult {
   parsedData: WeatherData | null;
   groundingChunks: GroundingChunk[];
 }
+
+export interface SearchResult {
+  rawText: string;
+  parsedData: WeatherData | null;
+  groundingChunks: GroundingChunk[];
+}
