@@ -1,6 +1,6 @@
 from flask import Flask
-from controllers.health_controller import health_bp
-from controllers.user_controller import user_bp
+from app.controllers.health_controller import health_bp
+from app.controllers.user_controller import user_bp
 
 def create_app():
     app = Flask(__name__)
@@ -13,7 +13,3 @@ def create_app():
         return "Flask app is running. Try /health or /users."
     
     return app
-
-
-if __name__ == "__main__":
-    create_app().run(debug=True)
