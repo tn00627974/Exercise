@@ -24,7 +24,7 @@ project_root/
 - app/__init__.py 建議採用 factory pattern（提供 create_app），讓測試與不同環境更容易切換。
 - 使用 Blueprint 分組路由（controllers 或 blueprints 資料夾），保持單一檔案責任小。
 - 把設定抽成 config.py 或從環境讀取，避免在程式碼中寫死環境設定。
-- tests/ 放自動化測試，並在 CI 中執行。 
+- tests/ 放自動化測試，並在 CI 中執行。
 
 快速啟動（開發）：
 1. 建立虛擬環境並啟用：
