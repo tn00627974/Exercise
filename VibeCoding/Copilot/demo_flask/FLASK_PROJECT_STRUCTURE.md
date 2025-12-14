@@ -42,3 +42,5 @@ project_root/
 - app/main.py: 只在直接執行時啟動 server（if __name__ == '__main__'）。
 
 此結構針對小型專案，若專案成長可再分出 services/, schemas/, adapters/ 等模組以維持可維護性。
+
+# 123
