@@ -37,3 +37,6 @@ Thumbs.db
 *.log
 *.tmp
 *.zip
+
+# 內層.git忽略專案
+VibeCoding/Copilot/HappyNewYear/

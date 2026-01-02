@@ -1,0 +1,270 @@
+:root {
+    --primary-red: #d32f2f;
+    --primary-gold: #ffd700;
+    --dark-red: #8e0000;
+    --text-color: #fff;
+    --modal-bg: rgba(255, 255, 255, 0.95);
+    --modal-text: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    font-family: 'Noto Serif TC', serif;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    background: url('assets/background.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align top to leave space for gifts */
+    padding-top: 5vh;
+}
+
+/* Title & Button */
+.title {
+    color: var(--primary-gold);
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease-out;
+    z-index: 10;
+}
+
+.subtitle {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.glow-button {
+    background: linear-gradient(45deg, #ff0000, #ff5252);
+    border: 2px solid var(--primary-gold);
+    color: var(--primary-gold);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--primary-gold);
+    transition: all 0.3s ease;
+    z-index: 100; /* Ensure button is clickable */
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+}
+
+.glow-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--primary-gold), 0 0 10px #ff0000;
+}
+
+/* Gift Container */
+#gift-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Let clicks pass through to background if needed, but gifts will have pointer-events: auto */
+    z-index: 5;
+}
+
+.gift {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+.gift:hover {
+    transform: scale(1.2) translateY(-10px);
+    z-index: 20;
+}
+
+.gift img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Tooltip / Card */
+.gift-tooltip {
+    position: absolute;
+    bottom: 110%; /* Above the gift */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: var(--dark-red);
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    text-align: center;
+    border: 2px solid var(--primary-gold);
+    font-size: 0.9rem;
+    z-index: 30;
+}
+
+.gift-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+.gift:hover .gift-tooltip,
+.gift:focus .gift-tooltip,
+.gift.active .gift-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-content {
+    background: var(--modal-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    border: 4px solid var(--primary-red);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.modal.hidden .modal-content {
+    transform: scale(0.8);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--primary-red);
+}
+
+.modal-content h2 {
+    color: var(--primary-red);
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: none;
+    font-family: inherit;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-red);
+}
+
+.char-count {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.primary-button {
+    background: var(--primary-red);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-family: inherit;
+}
+
+.primary-button:hover {
+    background: var(--dark-red);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .title {
+        font-size: 2rem;
+    }
+    .gift {
+        width: 60px;
+        height: 60px;
+    }
+}

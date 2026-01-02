@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年快樂 - 許願牆</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- 背景音樂控制 (Optional, not implemented per strict requirements but good for vibe) -->
+        
+        <!-- 主要內容區 -->
+        <main>
+            <h1 class="title">✨ 新年快樂 2026 ✨</h1>
+            <p class="subtitle">點擊下方按鈕，製作你的新年禮物與祝福</p>
+            
+            <button id="create-gift-btn" class="glow-button">
+                🎁 製作禮物及留言
+            </button>
+        </main>
+
+        <!-- 禮物容器 -->
+        <div id="gift-container"></div>
+
+        <!-- Modal -->
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>🧧 寫下你的祝福</h2>
+                <div class="input-group">
+                    <textarea id="message-input" placeholder="請輸入你的新年新希望或祝福留言... (例如：祝大家身體健康，財源滾滾！)" maxlength="100"></textarea>
+                    <div class="char-count">0/100</div>
+                </div>
+                <button id="confirm-btn" class="primary-button">確認製作禮物</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
