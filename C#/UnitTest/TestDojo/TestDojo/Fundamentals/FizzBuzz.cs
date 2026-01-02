@@ -16,7 +16,7 @@
                 if (i % 3 == 0 && i % 5 == 0) list.Add("FizzBuzz");
                 else if (i % 3 == 0) list.Add("Fizz");
                 else if (i % 5 == 0) list.Add("Buzz");
-                list.Add(i.ToString()); 
+                else list.Add(i.ToString()); 
             }
             return list;
         }
