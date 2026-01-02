@@ -17,8 +17,6 @@ public class FizzBuzzTests
         Assert.That(result[5 - 1], Is.EqualTo("Buzz"));
         Assert.That(result[15 - 1], Is.EqualTo("FizzBuzz"));
         Assert.That(result[2-1], Is.EqualTo("2"));
-
-
     }
 
 }
