@@ -18,11 +18,18 @@ namespace TestDojoTests.Fundamentals
         [TestCase(2300,false)]
         [TestCase(2400,true)]
         [TestCase(3333,false)]
-        public void IsLeapYear_When1900_ReturnsFalse(int year , bool expected)
+        public void IsLeapYear_WhenInputYear_ReturnsBool(int year , bool expected)
         {
             var leapYear = new LeapYear();
             var result = leapYear.IsLeapYear(year);
             Assert.That(result,Is.EqualTo(expected));
+        }
+
+        public void IsLeapYear_When_Input2000Year_ReturnsBool()
+        {
+            var leapYear = new LeapYear();
+            var result = leapYear.IsLeapYear(2000);
+            Assert.IsTrue(result);
         }
     }
 }
