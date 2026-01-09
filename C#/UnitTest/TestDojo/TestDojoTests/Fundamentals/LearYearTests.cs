@@ -25,10 +25,11 @@ namespace TestDojoTests.Fundamentals
             Assert.That(result,Is.EqualTo(expected));
         }
 
+        [Test]
         public void IsLeapYear_When_Input2000Year_ReturnsBool()
         {
             var leapYear = new LeapYear();
-            var result = leapYear.IsLeapYear(2000);
+            var result = leapYear.IsLeapYear(2000); 
             Assert.IsTrue(result);
         }
     }
