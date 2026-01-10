@@ -58,6 +58,5 @@ namespace TestDojoTests.Fundamentals
             Assert.That(result == 2);
             Assert.That(myStack.Count == 2);
         }
-
     }
 }

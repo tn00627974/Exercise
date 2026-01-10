@@ -12,7 +12,7 @@ namespace TestDojo.Fundamentals
         {
             // There's a bug here, can you find it?
             
-            return date.AddMonths(1).AddDays(-date.Day + 1);
+            return new DateTime(date.Year, date.Month, 1).AddMonths(1);
         }
     }
 }
