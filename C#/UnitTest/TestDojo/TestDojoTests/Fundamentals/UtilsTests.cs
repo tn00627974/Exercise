@@ -1,13 +1,13 @@
 ﻿using TestDojo.Fundamentals;
+namespace TestDojoTests.Fundamentals;
 
+//[TestFixture]
 public class UtilsTests
 {
-    private UtilsTests _utils;
 
     [SetUp]
     public void Setup()
     {
-        _utils = new UtilsTests();
     }
 
     [Test]
