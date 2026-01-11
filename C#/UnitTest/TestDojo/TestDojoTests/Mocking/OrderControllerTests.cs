@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using TestDojo.Mocking;
 
-namespace TestDojoTests;
+namespace TestDojoTests.Fundamentals;
 
 [TestFixture]
 public class OrderControllerTests

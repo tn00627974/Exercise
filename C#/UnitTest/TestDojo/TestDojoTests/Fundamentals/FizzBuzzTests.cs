@@ -1,6 +1,6 @@
 ﻿using TestDojo.Fundamentals;
 
-namespace TestDojoTests;
+namespace TestDojoTests.Fundamentals;
 
 [TestFixture]
 public class FizzBuzzTests
