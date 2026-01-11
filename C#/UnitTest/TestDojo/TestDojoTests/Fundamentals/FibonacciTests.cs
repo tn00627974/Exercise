@@ -1,6 +1,6 @@
 ﻿using TestDojo.Fundamentals;
 
-namespace TestDojoTests;
+namespace TestDojoTests.Fundamentals;
 
 public class FibonacciTests
 {
@@ -16,12 +16,14 @@ public class FibonacciTests
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => _fibonacci.GetFibonacci(-1));
     }
+
     [Test]
     public void GetFibonacci_WithZero_ReturnsZero()
     {
         var result = _fibonacci.GetFibonacci(0);
         Assert.That(result, Is.EqualTo(0));
     }
+
     [Test]
     public void GetFibonacci_WithOne_ReturnsOne()
     {
