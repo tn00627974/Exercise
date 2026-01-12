@@ -4,7 +4,7 @@ using TestDojo.Mocking;
 
 namespace TestDojoTests.Fundamentals;
 
-//[TestFixture]
+[TestFixture]
 public class OrderOutputTests
 {
     [SetUp]

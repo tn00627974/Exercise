@@ -13,7 +13,7 @@ public class OrderControllerTests
     }
 
     [Test]
-    public void Order_Properties_Has_Required_Attribute()
+    public void Post_Properties_Has_Required_Attribute()
     {
         Assert.That(typeof(OrderController)
             .GetMethod(nameof(OrderController.Post)),
