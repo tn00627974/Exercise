@@ -22,7 +22,5 @@ namespace TestDojoTests.Fundamentals
 
             Assert.That(myGuid , Is.EqualTo(Guid.Empty));
         }
-    }
-
-    
+    }    
 }

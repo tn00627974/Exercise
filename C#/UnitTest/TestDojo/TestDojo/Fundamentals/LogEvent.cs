@@ -21,7 +21,8 @@ namespace TestDojo.Fundamentals
             }
 
             _logger.LogError("{Error}", error);
-
+            
+            // 觸發事件，傳遞一個新的 Guid
             ErrorLogged?.Invoke(this, Guid.NewGuid());
         }
     }
