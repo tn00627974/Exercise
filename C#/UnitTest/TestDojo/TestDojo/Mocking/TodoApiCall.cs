@@ -4,16 +4,27 @@ namespace TestDojo.Mocking;
 
 public class TodoApiCall
 {
-    public async Task<string> GetTodoTitle(int id)
+    private readonly IMyHttpClient _client;
+    public TodoApiCall(IMyHttpClient client)
     {
-        var client = new MyHttpClient();
-        var todo = await client.GetAsync($"https://jsonplaceholder.typicode.com/todos/{id}");
+        _client = client;
+    }
+
+    public async Task<string> GetTodoTitleAsync(int id)
+    {
+        var todo = await _client.GetAsync($"https://jsonplaceholder.typicode.com/todos/{id}");
 
         return (todo != null) ? todo.Title : string.Empty;
     }
 }
 
-public class MyHttpClient
+public interface IMyHttpClient
+{
+    Task<Todo?> GetAsync(string url);
+}
+
+
+public class MyHttpClient : IMyHttpClient
 {
     private readonly HttpClient _client;
 
@@ -21,7 +32,7 @@ public class MyHttpClient
     {
         _client = new HttpClient();
     }
-    
+
     public async Task<Todo?> GetAsync(string url)
     {
         var response = await _client.GetAsync(url);
