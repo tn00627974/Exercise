@@ -5,7 +5,7 @@ using TestDojo.Mocking;
 namespace TestDojoTests.Fundamentals;
 
 [TestFixture]
-public class OrderOutputTests
+public class PrinterTests
 {
     [SetUp]
     public void Setup()

@@ -10,16 +10,30 @@ namespace TestDojo.Fundamentals
     {
         public ActionResult GetProduct(int id)
         {
-            if (id == 0)
-                return new NotFound();
+            try 
+            {
+                if (id == 0)
+                    return new NotFound();
+                
+                if (id < 0)
+                    throw new ArgumentException("ID cannot be negative");
+            }
+            catch (Exception)
+            {
+                return new BadRequest();
+            }
 
             return new Ok();
         }
     }
 
-    public class ActionResult { }
+    public class ActionResult { public virtual int GetStatusCode() => 200; }
 
-    public class NotFound : ActionResult { }
+    public class NotFound : ActionResult { public override int GetStatusCode() => 404; }
 
-    public class Ok : ActionResult { }
+    public class Ok : ActionResult { public override int GetStatusCode() => 200; }
+
+    // 500 
+    public class BadRequest : ActionResult { public override int GetStatusCode() => 500; }
+
 }

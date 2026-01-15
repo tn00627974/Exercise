@@ -6,22 +6,21 @@
 
         public void FileProcess(string filepath)
         {
-            // This text is added only once to the file.
+            // Check if the input file exists
+            string logMessage;
             if (!File.Exists(filepath))
             {
-                // Create a file to write to.
-                string createText = "Hello and Welcome" + Environment.NewLine;
-                File.WriteAllText(filepath, createText);
+                logMessage = "File not found" + Environment.NewLine;
+            }
+            else
+            {
+                // Read the file content if it exists
+                string readText = File.ReadAllText(filepath);
+                logMessage = readText + Environment.NewLine;
             }
 
-            // This text is always added, making the file longer over time
-            // if it is not deleted.
-            string appendText = "This is extra text" + Environment.NewLine;
-            File.AppendAllText(filepath, appendText);
-
-            // Open the file to read from.
-            string readText = File.ReadAllText(filepath);
-            Console.WriteLine(readText);
+            // Write the message to log.txt
+            File.WriteAllText("log.txt", logMessage);
         }
     }
 }
