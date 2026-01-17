@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include=".github\練習專案主題.md" />
+    <None Include="LineNotificationSender.cs" />
+  </ItemGroup>
+
 </Project>
