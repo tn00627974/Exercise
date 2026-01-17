@@ -26,8 +26,15 @@ namespace OrderNotificationSystem
                     Message = "訂單金額錯誤"
                 };
             }
-
-            return _sender.Send(order);
+            else 
+            {
+                _sender.Send(order);
+                return new NotificationResult
+                {
+                    Success = true,
+                    Message = $"訂單金額為{order.Amount}元"
+                };
+            }           
         }
     }
 }

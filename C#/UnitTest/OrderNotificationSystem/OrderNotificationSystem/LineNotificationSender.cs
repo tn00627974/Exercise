@@ -1,13 +1,13 @@
 ﻿namespace OrderNotificationSystem
 {
-    public class EmailNotificationSender : INotificationSender
+    public class LineNotificationSender : INotificationSender
     {
         public NotificationResult Send(Order order)
         {
             return new NotificationResult
             {
                 Success = true,
-                Message = $"Email Sent to CustomEmail"
+                Message = $"Line Sent to {order.OrderNo}"
             };
         }
     }
