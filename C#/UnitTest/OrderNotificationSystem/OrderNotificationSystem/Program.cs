@@ -1,4 +1,5 @@
 ﻿global using OrderNotificationSystem.Models;
+global using OrderNotificationSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;

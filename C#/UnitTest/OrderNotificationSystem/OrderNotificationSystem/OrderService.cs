@@ -9,32 +9,31 @@ namespace OrderNotificationSystem
     public class OrderService
     {
         private readonly INotificationSender _sender;
+        private readonly IOrderValidator _validator;
 
         // 👉 DI：從外面注入
-        public OrderService(INotificationSender sender)
+        public OrderService(INotificationSender sender , IOrderValidator validator)
         {
             _sender = sender;
+            _validator = validator;
         }
 
         public NotificationResult PlaceOrder(Order order)
         {
-            if (order.Amount <= 0)
+            // 第一步 : 驗證訂單
+            var vaildationResult = _validator.Validate(order);
+            if (!vaildationResult.Success) // 驗證失敗
             {
-                return new NotificationResult
-                {
-                    Success = false,
-                    Message = "訂單金額錯誤"
-                };
+                return vaildationResult; // 返回錯誤訊息
             }
-            else 
+
+            // 第二步：驗證通過，發送通知
+            _sender.Send(order);
+            return new NotificationResult
             {
-                _sender.Send(order);
-                return new NotificationResult
-                {
-                    Success = true,
-                    Message = $"訂單金額為{order.Amount}元"
-                };
-            }           
+                Success = true,
+                Message = $"{order.OrderNo}:金額為{order.Amount}元"
+            };                      
         }
     }
 }
