@@ -12,7 +12,7 @@ namespace OrderNotificationSystem
         private readonly IOrderValidator _validator;
 
         // 👉 DI：從外面注入
-        public OrderService(INotificationSender sender , IOrderValidator validator)
+        public OrderService(IOrderValidator validator, INotificationSender sender )
         {
             _sender = sender;
             _validator = validator;
