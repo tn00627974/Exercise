@@ -4,11 +4,13 @@
     {
         public NotificationResult Send(Order order)
         {
-            return new NotificationResult
+            var result = new NotificationResult
             {
                 Success = true,
                 Message = $"Email Sent to CustomEmail"
             };
+            Console.WriteLine($"{result.Message}:{result.Success}");
+            return result;
         }
     }
 }

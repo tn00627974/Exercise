@@ -10,3 +10,5 @@ using System.Threading.Tasks;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
+var composites = new CompositeNotificationSender();
+composites.test();
