@@ -3,7 +3,7 @@ using OrderNotificationSystem.Models;
 using OrderNotificationSystem;
 
 
-namespace OrderNotificationSystemTests
+namespace OrderNotificationSystemTests.Unit
 {
     public class OrderServiceTests
     {
@@ -37,8 +37,8 @@ namespace OrderNotificationSystemTests
 
             // ✅ 驗證 Send 被呼叫
             _mockSender.Received(1).Send(order);
-
         }
+
         [Test]
         public void PlaceOrder_When_ValidatorFails_ReturnsFailed()
         {

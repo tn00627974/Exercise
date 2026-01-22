@@ -11,4 +11,4 @@ using System.Threading.Tasks;
 Console.WriteLine("Hello, World!");
 
 var composites = new CompositeNotificationSender();
-composites.test();
+

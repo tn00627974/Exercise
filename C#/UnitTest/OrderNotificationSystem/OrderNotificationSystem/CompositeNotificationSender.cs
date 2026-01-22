@@ -12,39 +12,56 @@ namespace OrderNotificationSystem
         private readonly IEnumerable<INotificationSender> _senders;
         public CompositeNotificationSender(params INotificationSender[] senders)
         {
-            _senders = senders;
+            _senders = senders ?? Array.Empty<INotificationSender>();
         }
 
         public NotificationResult Send(Order order)
         {
-            var reuslts = new List<NotificationResult>();
+            // 檢查是否有配置發送器
+            if (!_senders.Any())
+            {
+                return new NotificationResult
+                {
+                    Success = false,
+                    Message = "沒有配置任何通知發送器"
+                };
+            }
+
+            var results = new List<NotificationResult>();
+            var failedMessages = new List<string>();
+
             foreach (var sender in _senders)
             {
-                var orderRusult = sender.Send(order);
-                reuslts.Add(orderRusult);
-                if (!orderRusult.Success)
+                try 
                 {
-                    Console.WriteLine("Failed to send notification to " + sender.GetType().Name);
+                    var orderResult = sender.Send(order);
+                    results.Add(orderResult);
+                    if (!orderResult.Success)
+                    {
+                        failedMessages.Add(orderResult.Message);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    failedMessages.Add($"發送失敗: {ex.Message}");
                 }
             }
-            Console.WriteLine("ok" );
-            return new NotificationResult { Success = true, Message = "test" };
-        }
 
+            // 決定整體結果
+            if (failedMessages.Any())
+            {
+                return new NotificationResult
+                {
+                    Success = false,
+                    Message = $"部分通知失敗: {string.Join("; ", failedMessages)}"
+                };
+            }
 
-
-        public void test()
-        {
-            var order = new Order { OrderNo = "ORD001", Amount = 1000 };
-
-            var compostite = new CompositeNotificationSender(
-               new EmailNotificationSender(),
-                      new LineNotificationSender());
-
-            compostite.Send(order);
+            return new NotificationResult
+            {
+                Success = true,
+                Message = $"所有通知已發送 ({results.Count} 個)"
+            };
         }
     }
-
-
-
 }
