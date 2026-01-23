@@ -8,7 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include=".github\README.md" />
+    <None Include=".github\第6關完整代碼.md" />
+    <None Include=".github\第6關快速參考.md" />
+    <None Include=".github\第6關說明.md" />
     <None Include=".github\練習專案主題.md" />
+    <None Include=".github\課程進度.md" />
     <None Include="LineNotificationSender.cs" />
   </ItemGroup>
 
