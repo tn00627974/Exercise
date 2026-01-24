@@ -1,342 +1,118 @@
-# ?? 第 6 關文檔總結
+# 第 6 關：裝飾器模式
 
-## 我為你建立了什麼？
+## 快速開始
 
-### ?? 4 個完整文檔
+### 需要完成的 6 個檔案
 
-#### 1?? **練習專案主題.md** ? 已更新
-- **位置**：`.github/練習專案主題.md`
-- **內容**：完整的課程指南，包含第 1-6 關全部內容
-- **大小**：~1500 行
-- **最新內容**：第 6 關裝飾器模式完整說明 + 代碼 + 測試
+#### 核心實現（3 個）
+- `OrderNotificationSystem/Decorators/LoggingNotificationSenderDecorator.cs`
+- `OrderNotificationSystem/Decorators/RetryNotificationSenderDecorator.cs`
+- `OrderNotificationSystem/Decorators/TimeoutNotificationSenderDecorator.cs`
 
-#### 2?? **第6關說明.md** ?? 新建
-- **位置**：`.github/第6關說明.md`
-- **內容**：第 6 關的詳細講解
-- **包含**：
-  - 為什麼需要裝飾器
-  - 3 個裝飾器的詳細實現
-  - 單元測試範例
-  - 使用示例
-  - 挑戰任務
-
-#### 3?? **第6關快速參考.md** ?? 新建
-- **位置**：`.github/第6關快速參考.md`
-- **內容**：5 分鐘快速理解
-- **包含**：
-  - 核心代碼樣版
-  - Mock 用法
-  - 常見錯誤
-  - 驗證成功標誌
-
-#### 4?? **第6關完整代碼.md** ?? 新建
-- **位置**：`.github/第6關完整代碼.md`
-- **內容**：可直接複製的完整代碼
-- **包含**：
-  - 3 個裝飾器（110+90+70=270 行）
-  - 3 個測試檔案（完整實現）
-  - 使用示例
-
-#### 5?? **課程進度.md** ?? 新建
-- **位置**：`.github/課程進度.md`
-- **內容**：整個課程的進度管理
-- **包含**：
-  - 8 關課程總覽
-  - 檢查清單
-  - SOLID 原則對照
-  - 下一步建議
+#### 單元測試（3 個）
+- `OrderNotificationSystemTests/Unit/Decorators/LoggingDecoratorTests.cs`
+- `OrderNotificationSystemTests/Unit/Decorators/RetryDecoratorTests.cs`
+- `OrderNotificationSystemTests/Unit/Decorators/TimeoutDecoratorTests.cs`
 
 ---
 
-## ?? 第 6 關完成步驟
+## 建立步驟
 
-### 步驟 1??：建立檔案結構
+### Step 1: 建立資料夾
 ```bash
 mkdir OrderNotificationSystem\Decorators
 mkdir OrderNotificationSystemTests\Unit\Decorators
 ```
 
-### 步驟 2??：複製核心代碼（6 個檔案）
+### Step 2: 複製代碼
+參考「第6關完整代碼.md」中的完整代碼
 
-| 檔案名 | 來源 | 行數 |
-|-------|------|------|
-| LoggingNotificationSenderDecorator.cs | 第6關完整代碼.md | ~50 |
-| RetryNotificationSenderDecorator.cs | 第6關完整代碼.md | ~70 |
-| TimeoutNotificationSenderDecorator.cs | 第6關完整代碼.md | ~60 |
-| LoggingDecoratorTests.cs | 第6關完整代碼.md | ~70 |
-| RetryDecoratorTests.cs | 第6關完整代碼.md | ~90 |
-| TimeoutDecoratorTests.cs | 第6關完整代碼.md | ~80 |
-
-### 步驟 3??：執行測試
+### Step 3: 執行測試
 ```bash
 dotnet test
-
-# 預期結果：
-# Total: 10
-# Passed: 10 ?
-# Failed: 0
 ```
 
-### 步驟 4??：（可選）完成挑戰任務
-- 難度 ??：指數退避重試
-- 難度 ???：快取裝飾器
-- 難度 ????：熔斷器模式
+預期結果：
+```
+Total: 10
+Passed: 10 ?
+Failed: 0
+```
 
 ---
 
-## ?? 文檔對應關係
+## 文檔導航
 
-### 如果你想...
-
-| 需求 | 看哪個文檔 |
-|------|-----------|
-| **快速理解概念** | 第6關快速參考.md |
-| **詳細學習過程** | 第6關說明.md |
-| **直接複製代碼** | 第6關完整代碼.md |
-| **看完整課程** | 練習專案主題.md |
-| **追蹤進度** | 課程進度.md |
+| 文檔 | 用途 |
+|------|------|
+| **第6關快速參考.md** | 5分鐘快速理解 |
+| **第6關說明.md** | 詳細學習和講解 |
+| **第6關完整代碼.md** | 直接複製的完整代碼 |
+| **課程進度.md** | 整個課程的進度管理 |
+| **練習專案主題.md** | 完整的課程指南 |
 
 ---
 
-## ?? 核心概念速記
+## 核心概念
 
-### 什麼是裝飾器模式？
-- **目的**：為對象動態添加功能，不修改原有代碼
-- **原理**：組合 + 代理
-- **特點**：
-  - 保持接口不變
-  - 責任清晰（每個裝飾器只做一件事）
-  - 可任意組合堆疊
+### 裝飾器模式是什麼？
+不修改原有代碼，動態為對象添加新功能
 
 ### 為什麼需要它？
 ```csharp
-// ? 不用：代碼膨脹
+// 不好：代碼膨脹
 public class EmailNotificationSender
 {
-    // 原有邏輯 50 行
-    // + 日誌 40 行
-    // + 重試 60 行
-    // + 超時 50 行
-    // = 200 行混亂的代碼
+    // 原有邏輯 + 日誌 + 重試 + 超時 = 200行混亂代碼
 }
 
-// ? 用：職責清晰
-var sender = new EmailNotificationSender();           // 50 行
-var withLog = new LoggingDecorator(sender);           // 40 行
-var withRetry = new RetryDecorator(withLog);          // 60 行
-var withTimeout = new TimeoutDecorator(withRetry);    // 50 行
-// = 4 個小而精的類
+// 好：職責清晰
+var sender = new EmailNotificationSender();
+var withLog = new LoggingNotificationSenderDecorator(sender);
+var withRetry = new RetryNotificationSenderDecorator(withLog);
+var withTimeout = new TimeoutNotificationSenderDecorator(withRetry);
 ```
 
 ---
 
-## ? 你得到的 6 個新檔案
+## 3個裝飾器
 
-### 核心實現（OrderNotificationSystem/Decorators/）
-```
-LoggingNotificationSenderDecorator.cs
-├─ 功能：記錄發送過程
-├─ 職責：Console.WriteLine()
-├─ 行數：~50
-└─ 複雜度：? 簡單
+### 1. LoggingNotificationSenderDecorator
+- 功能：記錄發送過程
+- 職責：Console.WriteLine()
+- 複雜度：簡單
 
-RetryNotificationSenderDecorator.cs
-├─ 功能：失敗自動重試
-├─ 職責：while 迴圈 + 延遲
-├─ 行數：~70
-└─ 複雜度：?? 中等
+### 2. RetryNotificationSenderDecorator
+- 功能：失敗自動重試
+- 職責：重試邏輯和延遲
+- 複雜度：中等
 
-TimeoutNotificationSenderDecorator.cs
-├─ 功能：設置執行超時
-├─ 職責：Task.Run + Wait
-├─ 行數：~60
-└─ 複雜度：?? 中等
-```
-
-### 測試實現（OrderNotificationSystemTests/Unit/Decorators/）
-```
-LoggingDecoratorTests.cs
-├─ 測試數：3
-├─ 覆蓋：成功、失敗、異常
-└─ 複雜度：? 簡單
-
-RetryDecoratorTests.cs
-├─ 測試數：4
-├─ 覆蓋：成功、失敗後成功、全失敗、異常重試
-└─ 複雜度：?? 中等
-
-TimeoutDecoratorTests.cs
-├─ 測試數：3
-├─ 覆蓋：及時、超時、異常
-└─ 複雜度：?? 中等
-```
-
-**總計：6 個檔案，270 行核心代碼，10 個測試用例**
+### 3. TimeoutNotificationSenderDecorator
+- 功能：設置執行超時
+- 職責：Task.Run和Wait
+- 複雜度：中等
 
 ---
 
-## ?? 立即開始
+## 常見錯誤
 
-### 最快的方法（5 分鐘）
+? 忘記 null check  
+? 忘記呼叫 _innerSender.Send()  
+? 命名空間不正確  
 
-1. **打開** `第6關完整代碼.md`
-2. **複製** 3 個裝飾器代碼
-3. **粘貼** 到 `OrderNotificationSystem/Decorators/`
-4. **複製** 3 個測試代碼
-5. **粘貼** 到 `OrderNotificationSystemTests/Unit/Decorators/`
-6. **運行** `dotnet test` ?
-
-### 標準的方法（30 分鐘）
-
-1. **閱讀** 第6關快速參考.md（5 分鐘）
-2. **理解** 裝飾器原理
-3. **手動輸入** 代碼（體驗更深）
-4. **修改** 參數並觀察行為
-5. **運行測試** 並驗證
-
-### 深入學習的方法（2 小時）
-
-1. **詳細閱讀** 第6關說明.md
-2. **邊讀邊寫** 代碼
-3. **自己設計** 新的裝飾器
-4. **完成** 挑戰任務
-5. **思考** 實際應用場景
+查看「第6關快速參考.md」了解詳細內容
 
 ---
 
-## ?? 課程進度
+## 檢查清單
 
-```
-? 已完成：
-   - 第 1-5 關完整實現
-   - 5 個核心設計模式
-   - 單元測試 vs 整合測試
-
-?? 進行中：
-   - 第 6 關：裝飾器模式
-
-? 待做：
-   - 第 7 關：非同步編程（Async/Await）
-   - 第 8 關：發佈-訂閱模式（Pub/Sub）
-
-?? 已掌握的技能：
-   - C# 基礎語法
-   - Interface + DI
-   - NUnit + NSubstitute
-   - SOLID 原則
-   - 4 種設計模式（待加裝飾器）
-```
+- [ ] 建立 Decorators 資料夾
+- [ ] 複製 3 個裝飾器檔案
+- [ ] 建立 Unit/Decorators 測試資料夾
+- [ ] 複製 3 個測試檔案
+- [ ] 執行 dotnet test
+- [ ] 確保 10 個測試全部通過
 
 ---
 
-## ?? 關鍵要點
-
-### 裝飾器 vs 其他模式
-
-| 模式 | 關卡 | 用途 | 例子 |
-|------|------|------|------|
-| **Strategy** | 2-3 | 同一接口，多個實現 | Email、Line、SMS |
-| **Composite** | 5 | 組合多個相同對象 | CompositeNotificationSender |
-| **Decorator** | 6 | 動態添加功能 | Log + Retry + Timeout |
-| **Observer** | 8 | 事件驅動 | 發佈-訂閱 |
-
-### 什麼時候用裝飾器？
-
-? **應該用**：
-- 功能是可選的（Log、Retry、Timeout）
-- 功能組合方式多變
-- 不想修改原有類
-- 職責容易分離
-
-? **不應該用**：
-- 功能是必需的核心邏輯
-- 組合方式簡單且固定
-- 類本身就很簡單
-
----
-
-## ?? 文檔清單
-
-| 文檔 | 字數 | 適合 | 時間 |
-|------|------|------|------|
-| 第6關快速參考.md | ~2000 | 快速入門 | 5-10 分 |
-| 第6關說明.md | ~3000 | 詳細學習 | 30-45 分 |
-| 第6關完整代碼.md | ~1500 | 直接使用 | 5 分 |
-| 練習專案主題.md | ~1500 | 完整參考 | 1-2 小時 |
-| 課程進度.md | ~1000 | 整體規劃 | 10 分 |
-
-**總計：~9000 字，涵蓋裝飾器模式的全方位內容**
-
----
-
-## ?? 檔案位置快速查詢
-
-```
-.github/
-├── 練習專案主題.md          ?? 完整課程（1-6 關）
-├── 第6關說明.md            ?? 詳細講解（推薦從這開始）
-├── 第6關快速參考.md        ?? 快速上手
-├── 第6關完整代碼.md        ?? 複製粘貼（最快）
-└── 課程進度.md             ?? 進度管理
-```
-
----
-
-## ?? 下一步行動
-
-### 今天（第 6 關）
-1. ? 閱讀快速參考（5 分）
-2. ? 複製代碼並執行測試（5 分）
-3. ? 修改參數觀察行為（10 分）
-
-### 本週（第 6 關深化）
-1. ? 詳細學習說明
-2. ? 完成 1 個挑戰任務
-3. ? 在實際專案中應用
-
-### 下週（第 7 關）
-1. ? 非同步編程（Async/Await）
-2. ? 並行發送通知
-3. ? 性能優化
-
----
-
-## ?? 你已經達成
-
-? 完成了 5 個完整的學習關卡  
-? 掌握了 4 種設計模式  
-? 理解了 SOLID 原則  
-? 學會了專業的測試方法  
-? 建立了企業級的代碼架構  
-
-**現在，加上第 6 關的裝飾器模式，你已經是一個很有競爭力的開發者了！** ??
-
----
-
-## ?? 需要幫助？
-
-如果你卡在某個地方，檢查：
-
-1. **代碼不編譯？**
-   - 檢查命名空間是否正確
-   - 檢查是否缺少 using
-   - 查看第6關快速參考的常見錯誤
-
-2. **測試失敗？**
-   - 查看測試錯誤訊息
-   - 驗證 Mock 設置
-   - 對比第6關完整代碼
-
-3. **邏輯不清楚？**
-   - 重讀第6關說明.md
-   - 查看使用示例
-   - 在調試器中逐步執行
-
----
-
-**祝你學習愉快！** ???
-
-完成第 6 關後，你就可以說：
-> 我理解了如何不修改原有代碼，動態添加新功能！
-> 我學會了職責分離和設計模式！
-> 我已經掌握了企業級的代碼設計！
+**完成後說「第 6 關完成」！** ??

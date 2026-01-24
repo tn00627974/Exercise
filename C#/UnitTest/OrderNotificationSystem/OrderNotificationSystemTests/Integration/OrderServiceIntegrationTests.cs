@@ -2,6 +2,7 @@
 using NSubstitute.ExceptionExtensions;
 using OrderNotificationSystem;
 using OrderNotificationSystem.Models;
+using OrderNotificationSystem.Service;
 
 
 namespace OrderNotificationSystemTests.Integration
