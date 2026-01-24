@@ -1,4 +1,7 @@
-﻿namespace OrderNotificationSystem
+﻿using OrderNotificationSystem;
+
+
+namespace OrderNotificationSystem.Service
 {
     public class OrderService
     {

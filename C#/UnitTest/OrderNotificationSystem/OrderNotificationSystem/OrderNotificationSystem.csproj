@@ -8,10 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include=".github\Arg快速導航.md" />
+    <None Include=".github\Arg視覺化圖解.md" />
+    <None Include=".github\Arg詳細解釋.md" />
+    <None Include=".github\NSubstitute-ArgAny對比.md" />
     <None Include=".github\README.md" />
+    <None Include=".github\一張圖勝千言.md" />
+    <None Include=".github\完整學習指南.md" />
     <None Include=".github\第6關完整代碼.md" />
     <None Include=".github\第6關快速參考.md" />
-    <None Include=".github\第6關說明.md" />
     <None Include=".github\練習專案主題.md" />
     <None Include=".github\課程進度.md" />
     <None Include="LineNotificationSender.cs" />
