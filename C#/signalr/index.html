@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>醫療輔具監控系統</title>
+    <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@latest/dist/browser/signalr.min.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .device-card {
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            background: #fff;
+        }
+        .device-card.abnormal {
+            border-color: #e74c3c;
+            background: #ffebee;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status.connected {
+            background: #27ae60;
+            color: white;
+        }
+        .status.disconnected {
+            background: #95a5a6;
+            color: white;
+        }
+        .alert {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏥 醫療輔具即時監控系統</h1>
+        
+        <div>
+            <span id="connectionStatus" class="status disconnected">未連接</span>
+            <button onclick="connect()">連接</button>
+            <button onclick="disconnect()">斷開</button>
+            <button onclick="subscribeAll()">訂閱所有設備</button>
+        </div>
+
+        <div id="alerts"></div>
+        
+        <h2>設備監控</h2>
+        <div id="devices"></div>
+    </div>
+
+    <script>
+        let connection = null;
+        const deviceData = {};
+
+        function connect() {
+            connection = new signalR.HubConnectionBuilder()
+                .withUrl("http://localhost:5000/medicalhub")
+                .withAutomaticReconnect()
+                .configureLogging(signalR.LogLevel.Information)
+                .build();
+
+            connection.on("Connected", (data) => {
+                console.log("連接成功:", data);
+                document.getElementById("connectionStatus").textContent = "已連接";
+                document.getElementById("connectionStatus").className = "status connected";
+            });
+
+            connection.on("ReceiveDeviceData", (data) => {
+                console.log("收到設備數據:", data);
+                updateDeviceDisplay(data);
+            });
+
+            connection.on("AbnormalDataAlert", (data) => {
+                console.warn("異常數據警報:", data);
+                showAlert(data);
+            });
+
+            connection.on("SubscriptionConfirmed", (data) => {
+                console.log("訂閱確認:", data);
+            });
+
+            connection.start()
+                .then(() => {
+                    console.log("SignalR 連接已建立");
+                })
+                .catch(err => {
+                    console.error("連接失敗:", err);
+                    document.getElementById("connectionStatus").textContent = "連接失敗";
+                });
+        }
+
+        function disconnect() {
+            if (connection) {
+                connection.stop();
+                document.getElementById("connectionStatus").textContent = "未連接";
+                document.getElementById("connectionStatus").className = "status disconnected";
+            }
+        }
+
+        function subscribeAll() {
+            if (connection) {
+                connection.invoke("SubscribeToDevice", "BP001", "P001");
+                connection.invoke("SubscribeToDevice", "HR001", "P001");
+                connection.invoke("SubscribeToDevice", "OX001", "P001");
+                connection.invoke("SubscribeToDevice", "TH001", "P001");
+            }
+        }
+
+        function updateDeviceDisplay(data) {
+            const devicesDiv = document.getElementById("devices");
+            const deviceKey = data.deviceId;
+            
+            if (!deviceData[deviceKey]) {
+                deviceData[deviceKey] = document.createElement("div");
+                deviceData[deviceKey].className = "device-card";
+                deviceData[deviceKey].id = `device-${deviceKey}`;
+                devicesDiv.appendChild(deviceData[deviceKey]);
+            }
+
+            const card = deviceData[deviceKey];
+            card.className = data.isAbnormal ? "device-card abnormal" : "device-card";
+            card.innerHTML = `
+                <h3>${data.deviceType} (${data.deviceId})</h3>
+                <div class="value">${data.value} ${data.unit}</div>
+                <p><strong>測量類型:</strong> ${data.measurementType}</p>
+                <p><strong>患者ID:</strong> ${data.patientId}</p>
+                <p><strong>時間:</strong> ${new Date(data.timestamp).toLocaleString('zh-TW')}</p>
+                <p><strong>備註:</strong> ${data.notes}</p>
+            `;
+        }
+
+        function showAlert(data) {
+            const alertsDiv = document.getElementById("alerts");
+            const alert = document.createElement("div");
+            alert.className = "alert";
+            alert.innerHTML = `
+                ⚠️ <strong>異常警報!</strong> ${data.deviceType} - ${data.measurementType}: ${data.value} ${data.unit}<br>
+                ${data.notes}
+            `;
+            alertsDiv.appendChild(alert);
+
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+
+        window.onload = function() {
+            connect();
+            setTimeout(subscribeAll, 1000);
+        };
+    </script>
+</body>
+</html>
