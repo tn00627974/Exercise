@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Threading.Tasks;
 
-namespace MedicalAssistiveDevices.Hubs
+namespace MedicalDeviceMonitoring.Web.Hubs
 {
     /// <summary>
     /// 醫療輔具 SignalR Hub - 處理醫療設備與客戶端的即時通訊

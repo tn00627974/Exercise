@@ -104,7 +104,7 @@
 
         function connect() {
             connection = new signalR.HubConnectionBuilder()
-                .withUrl("http://localhost:5000/medicalhub")
+                .withUrl("http://localhost:5278/medicalhub")
                 .withAutomaticReconnect()
                 .configureLogging(signalR.LogLevel.Information)
                 .build();
