@@ -37,7 +37,7 @@ namespace MedicalDeviceMonitoring.Web.Hubs
         /// <summary>
         /// 客戶端斷開連接時觸發
         /// </summary>
-        public override async Task OnDisconnectedAsync(Exception exception)
+        public override async Task OnDisconnectedAsync(Exception? exception)
         {
             var connectionId = Context.ConnectionId;
             _logger.LogInformation($"客戶端已斷開: {connectionId}");
