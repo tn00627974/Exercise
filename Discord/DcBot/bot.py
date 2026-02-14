@@ -10,7 +10,9 @@ from dotenv import load_dotenv
 
 POLL_INTERVAL_SECONDS = 300
 
-logging.basicConfig(level=logging.INFO, format="[%(asctime)s] %(levelname)s: %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="[%(asctime)s] %(levelname)s: %(message)s"
+)
 
 
 def get_env_var(name: str) -> str:
@@ -23,10 +25,19 @@ def get_env_var(name: str) -> str:
 
 
 class RssDiscordBot(discord.Client):
-    def __init__(self, *, channel_id: int, rss_url: str, test_message: str | None = None, **options):
+    def __init__(
+        self,
+        *,
+        channel_id: int,
+        rss_url: str,
+        mention_user_id: int | None = None,
+        test_message: str | None = None,
+        **options,
+    ):
         super().__init__(**options)
         self.channel_id = channel_id
         self.rss_url = rss_url
+        self.mention_user_id = mention_user_id
         self.test_message = test_message
         self.seen_ids: Set[str] = set()
         self._task: asyncio.Task | None = None
@@ -44,7 +55,8 @@ class RssDiscordBot(discord.Client):
 
         try:
             channel = await self.fetch_channel(self.channel_id)
-            await channel.send(self.test_message)
+            message = self._format_message(self.test_message)
+            await channel.send(message)
             logging.info("Test message sent")
         except discord.NotFound:
             logging.error(
@@ -112,9 +124,15 @@ class RssDiscordBot(discord.Client):
         for entry in reversed(new_entries):
             title = getattr(entry, "title", "(no title)")
             link = getattr(entry, "link", "")
-            message = f"{title}\n{link}".strip()
+            content = f"{title}\n{link}".strip()
+            message = self._format_message(content)
             await channel.send(message)
             logging.info("Posted: %s", title)
+
+    def _format_message(self, content: str) -> str:
+        if self.mention_user_id:
+            return f"<@{self.mention_user_id}> {content}"
+        return content
 
     @staticmethod
     def _entry_id(entry) -> str:
@@ -135,11 +153,14 @@ def main() -> None:
     token = get_env_var("DISCORD_TOKEN")
     channel_id = int(get_env_var("CHANNEL_ID"))
     rss_url = get_env_var("RSS_URL")
+    mention_user_id_str = os.getenv("MENTION_USER_ID", "").strip()
+    mention_user_id = int(mention_user_id_str) if mention_user_id_str else None
 
     intents = discord.Intents.default()
     client = RssDiscordBot(
         channel_id=channel_id,
         rss_url=rss_url,
+        mention_user_id=mention_user_id,
         test_message=args.test,
         intents=intents,
     )

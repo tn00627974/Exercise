@@ -1,0 +1,37 @@
+# Python 虛擬環境
+.venv
+venv
+env
+
+# 環境變數檔案（含私密資訊）
+.env
+.env.local
+.env.*.local
+
+# Python 快取
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+
+# Git 版控
+.git
+.gitignore
+.github
+
+# IDE 設定
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# 系統檔案
+.DS_Store
+Thumbs.db
+
+# 測試與開發
+*.log
+.pytest_cache
+.coverage
+htmlcov
