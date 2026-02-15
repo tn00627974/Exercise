@@ -97,19 +97,131 @@ docker-compose logs -f      # 查看日誌
 docker-compose down         # 停止
 ```
 
-## Railway 部署
+## Railway 雲端部署
 
-### 方式一：使用 Dockerfile（推薦）
+### 前置準備
 
-1. Railway 建立新專案並連結此 repo
-2. 在 Variables 設定：`DISCORD_TOKEN`、`CHANNEL_ID`、`RSS_URL`
-3. Railway 會自動偵測 Dockerfile 並建置
+#### 1. 建立 Git Repository
 
-### 方式二：直接執行 Python
+```bash
+# 初始化 Git（如果還未初始化）
+git init
 
-1. Railway 建立新專案並連結此 repo
-2. 在 Variables 設定：`DISCORD_TOKEN`、`CHANNEL_ID`、`RSS_URL`
-3. Start Command 設定為：`python bot.py`
+# 加入所有檔案
+git add .
+
+# 提交變更
+git commit -m "Initial commit: Stock RSS Discord Bot"
+
+# 在 GitHub 建立新 repository，然後連結並推送
+git remote add origin https://github.com/你的用戶名/stock-rss-bot.git
+git branch -M main
+git push -u origin main
+```
+
+**注意：** 確保 `.gitignore` 已排除 `.env` 檔案，避免 Token 外洩。
+
+#### 2. Railway 註冊與登入
+
+1. 前往 [Railway.app](https://railway.app/)
+2. 點擊「Login」，使用 GitHub 帳號登入（推薦）
+3. 授權 Railway 存取你的 GitHub repositories
+
+### 部署步驟
+
+#### 方式一：使用 Dockerfile（推薦 ✅）
+
+**優點：** 環境一致、易於維護、自動偵測
+
+1. **建立新專案**
+   - Railway 首頁點擊「New Project」
+   - 選擇「Deploy from GitHub repo」
+   - 選擇你的 `stock-rss-bot` repository
+   - Railway 會自動偵測 `Dockerfile` 並開始建置
+
+2. **設定環境變數**
+   - 點擊部署的服務（service）
+   - 切換到「Variables」頁籤
+   - 點擊「+ New Variable」，逐一加入：
+     ```
+     DISCORD_TOKEN=你的_Discord_Bot_Token
+     CHANNEL_ID=你的_Discord_頻道_ID
+     RSS_URL=https://tw.stock.yahoo.com/rss?category=tw-market
+     MENTION_USER_ID=要提及的用戶ID（可選）
+     ```
+   - 點擊「Add」儲存
+
+3. **觸發重新部署**
+   - 設定環境變數後，Railway 會自動重新部署
+   - 或手動點擊 「Settings」→「Redeploy」
+
+4. **查看部署狀態**
+   - 「Deployments」頁籤可看到建置進度
+   - 點擊最新的 deployment → 「View Logs」查看執行日誌
+   - 看到 `Primed X items from RSS` 表示啟動成功
+
+#### 方式二：直接執行 Python
+
+**適用情境：** 不想使用 Docker，或想要更快的建置速度
+
+1. **建立新專案**（同方式一）
+
+2. **設定環境變數**（同方式一）
+
+3. **設定 Start Command**
+   - 點擊服務 → 「Settings」
+   - 找到「Start Command」欄位
+   - 輸入：`python bot.py`
+   - 點擊「Deploy」
+
+4. **Railway 會自動：**
+   - 偵測 `requirements.txt`
+   - 安裝 Python 依賴
+   - 執行啟動命令
+
+### 部署後檢查
+
+```bash
+# 確認日誌顯示：
+✅ Logged in as YourBot#1234
+✅ Primed XX items from RSS
+✅ 每 5 分鐘應該會看到檢查 RSS 的日誌
+```
+
+### 更新程式碼
+
+當你修改 `bot.py` 或其他檔案後：
+
+```bash
+git add .
+git commit -m "更新說明"
+git push
+```
+
+Railway 會自動偵測推送並重新部署（需在 Settings 啟用 Auto Deploy）。
+
+### 費用說明
+
+- **免費額度：** 每月 $5 USD 額度或 500 小時執行時間
+- **此 Bot 用量：** 約 720 小時/月（24/7 運行）
+- **建議：**
+  - 監控 Railway Dashboard 的使用量
+  - 超過免費額度可升級 Hobby Plan（$5/月無限時數）
+  - 或設定每日定時啟動來節省時間
+
+### 常見部署問題
+
+**Q: 部署成功但 Bot 離線？**
+- 檢查 `DISCORD_TOKEN` 是否正確
+- 確認 Bot 已被邀請進 Discord 伺服器
+
+**Q: 看到 `Forbidden` 錯誤？**
+- Bot 需要 `View Channel` + `Send Messages` 權限
+- 檢查 `CHANNEL_ID` 是否正確
+
+**Q: Railway 顯示建置失敗？**
+- 查看 Build Logs 找出錯誤訊息
+- 確認 `Dockerfile` 和 `requirements.txt` 格式正確
 
 ## 常見問題
 
