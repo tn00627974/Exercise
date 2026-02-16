@@ -1,4 +1,4 @@
-# 使用官方 Python 3.12 精簡版映像
+# 使用官方 Python 3.13 精簡版映像
 FROM python:3.12-slim
 
 # 設定工作目錄
