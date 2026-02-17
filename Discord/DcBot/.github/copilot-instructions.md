@@ -14,5 +14,7 @@
 - DISCORD_TOKEN
 - CHANNEL_ID
 - RSS_URL
+- CHECK_INTERVAL (單位：秒，預設 300 秒)
+- MENTION_USER_ID (測試用，推播時提及特定用戶，加入--test 參數啟用)
 
 
