@@ -55,6 +55,18 @@ RSS_URL=https://tw.stock.yahoo.com/rss?category=tw-market
 MENTION_USER_ID=要_@_提及的用戶_ID（可選）
 ```
 
+如果需要同時監聽多個頻道/多個 RSS，您可以使用 `SUBSCRIPTIONS` 環境變數（JSON 陣列）。
+範例如下：
+
+```env
+# SUBSCRIPTIONS=[
+#   {"channel_id":1471437966114291795,"rss_url":"https://tw.stock.yahoo.com/rss?category=tw-market","mention_user_id":401030097093525514},
+#   {"channel_id":222222222222222222,"rss_url":"https://example.com/feed","mention_user_id":""}
+# ]
+```
+
+若設定 `SUBSCRIPTIONS`，程式會使用它；否則仍會回退到單一 `CHANNEL_ID` + `RSS_URL` 的向下相容行為。
+
 **如何取得各個值？** 見[附錄](#-附錄)
 
 ### 4. 本地測試

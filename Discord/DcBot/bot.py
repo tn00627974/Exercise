@@ -127,22 +127,13 @@ class RssDiscordBot(discord.Client):
                     sub.channel_id,
                 )
             except discord.HTTPException as exc:
-                logging.error("Failed to send test message to %s: %s", sub.channel_id, exc)
-        except discord.NotFound:
-            logging.error(
-                "Channel not found (ID %s). Check CHANNEL_ID and that the bot is in the server.",
-                self.channel_id,
-            )
-        except discord.Forbidden:
-            logging.error(
-                "Forbidden sending to channel %s. Check View Channel/Send Messages permissions.",
-                self.channel_id,
-            )
-        except discord.HTTPException as exc:
-            logging.error("Failed to send test message to %s: %s", self.channel_id, exc)
-        finally:
-            # 測試完成後關閉 Bot
-            await self.close()
+                logging.error(
+                    "Failed to send test message to %s: %s", sub.channel_id, exc
+                )
+
+        # 測試完成，短暫延遲後關閉 Bot（確保所有訊息都已發送）
+        await asyncio.sleep(1)
+        await self.close()
 
     async def _prime_seen_ids(self) -> None:
         """預先載入當前 RSS Feed 中的所有文章 ID
@@ -196,7 +187,9 @@ class RssDiscordBot(discord.Client):
                 logging.exception("Polling failed for %s: %s", sub.rss_url, exc)
             await asyncio.sleep(POLL_INTERVAL_SECONDS)
 
-    async def _poll_once_for_subscription(self, channel: discord.abc.Messageable, sub: Subscription) -> None:
+    async def _poll_once_for_subscription(
+        self, channel: discord.abc.Messageable, sub: Subscription
+    ) -> None:
         """執行一次 RSS Feed 輪詢
 
         檢查 RSS Feed 中的新文章，並將未推播過的文章發送到 Discord 頻道。
@@ -233,7 +226,9 @@ class RssDiscordBot(discord.Client):
             await channel.send(message)
             logging.info("Posted: %s", title)
 
-    def _format_message(self, content: str, mention_user_id: Optional[int] = None) -> str:
+    def _format_message(
+        self, content: str, mention_user_id: Optional[int] = None
+    ) -> str:
         """格式化訊息內容
 
         如果設定了 mention_user_id，則在訊息前面加上 @ 提及該用戶。
@@ -300,17 +295,29 @@ def main() -> None:
             for item in parsed:
                 cid = int(item["channel_id"])
                 url = item["rss_url"]
-                mid = int(item["mention_user_id"]) if item.get("mention_user_id") not in (None, "") else None
-                subscriptions.append(Subscription(channel_id=cid, rss_url=url, mention_user_id=mid))
+                mid = (
+                    int(item["mention_user_id"])
+                    if item.get("mention_user_id") not in (None, "")
+                    else None
+                )
+                subscriptions.append(
+                    Subscription(channel_id=cid, rss_url=url, mention_user_id=mid)
+                )
         except Exception as exc:
-            raise RuntimeError("Invalid SUBSCRIPTIONS format; must be JSON array of objects") from exc
+            raise RuntimeError(
+                "Invalid SUBSCRIPTIONS format; must be JSON array of objects"
+            ) from exc
     else:
         # 向下相容：使用單一 CHANNEL_ID / RSS_URL
         channel_id = int(get_env_var("CHANNEL_ID"))
         rss_url = get_env_var("RSS_URL")
         mention_user_id_str = os.getenv("MENTION_USER_ID", "").strip()
         mention_user_id = int(mention_user_id_str) if mention_user_id_str else None
-        subscriptions.append(Subscription(channel_id=channel_id, rss_url=rss_url, mention_user_id=mention_user_id))
+        subscriptions.append(
+            Subscription(
+                channel_id=channel_id, rss_url=rss_url, mention_user_id=mention_user_id
+            )
+        )
 
     # 設定 Discord Bot 的 Intents（權限）
     intents = discord.Intents.default()
