@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 .env
+.env.example
 .DS_Store
 .vscode/
 共享Bot架構規劃.md
