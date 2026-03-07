@@ -1,0 +1,17 @@
+[
+    {
+        "channel_id": 1471437966114291795,
+        "rss_url": "https://tw.stock.yahoo.com/rss?category=tw-market",
+        "mention_user_id": 401030097093525514
+    },
+    {
+        "channel_id": 1478028289862930576,
+        "rss_url": "https://tw.stock.yahoo.com/rss?category=personal-finance",
+        "mention_user_id": 401030097093525514
+    },
+    {
+        "channel_id": 1479863790156648590,
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPIDQXQBGyBKj7fAuJIk-ag",
+        "mention_user_id": 401030097093525514
+    }
+]
