@@ -10,6 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # 複製專案檔案
 COPY bot.py .
+COPY subscriptions.json .
 
 # 設定啟動命令
 CMD ["python", "bot.py"]

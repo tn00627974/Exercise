@@ -286,10 +286,33 @@ def main() -> None:
 
     # 取得必要的環境變數
     token = get_env_var("DISCORD_TOKEN")
-    # 支援多訂閱：從 SUBSCRIPTIONS（JSON）解析
-    subs_env = os.getenv("SUBSCRIPTIONS", "").strip()
+
+    # 優先順序：SUBSCRIPTIONS_FILE > SUBSCRIPTIONS（JSON 字串）> 單一 CHANNEL_ID/RSS_URL
     subscriptions: List[Subscription] = []
-    if subs_env:
+    subs_file = os.getenv("SUBSCRIPTIONS_FILE", "").strip()
+    subs_env = os.getenv("SUBSCRIPTIONS", "").strip()
+
+    if subs_file:
+        # 從外部 JSON 檔案讀取（推薦方式，方便維護）
+        try:
+            with open(subs_file, encoding="utf-8") as f:
+                parsed = json.load(f)
+        except FileNotFoundError:
+            raise RuntimeError(f"SUBSCRIPTIONS_FILE 找不到：{subs_file}")
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(f"SUBSCRIPTIONS_FILE JSON 格式錯誤：{exc}") from exc
+        for item in parsed:
+            cid = int(item["channel_id"])
+            url = item["rss_url"]
+            mid = (
+                int(item["mention_user_id"])
+                if item.get("mention_user_id") not in (None, "")
+                else None
+            )
+            subscriptions.append(Subscription(channel_id=cid, rss_url=url, mention_user_id=mid))
+        logging.info("從 %s 載入 %d 筆訂閱", subs_file, len(subscriptions))
+    elif subs_env:
+        # 從環境變數 JSON 字串解析（向下相容）
         try:
             parsed = json.loads(subs_env)
             for item in parsed:
