@@ -67,6 +67,7 @@ class RssDiscordBot(discord.Client):
         *,
         subscriptions: List[Subscription],
         test_message: str | None = None,
+        test_yt: bool = False,
         **options,
     ):
         """初始化 RSS Discord Bot
@@ -83,6 +84,7 @@ class RssDiscordBot(discord.Client):
         # map rss_url -> set of seen ids for that feed
         self.seen_ids_map: Dict[str, Set[str]] = {}
         self.test_message = test_message
+        self.test_yt = test_yt
         self._tasks: List[asyncio.Task] = []  # 輪詢任務的 asyncio.Tasks
 
     async def setup_hook(self) -> None:
@@ -91,7 +93,7 @@ class RssDiscordBot(discord.Client):
         如果是測試模式則跳過，否則初始化已讀文章列表並啟動輪詢任務。
         """
         # 如果是測試模式則不在這裡啟動持續輪詢（on_ready 會發送測試訊息）
-        if self.test_message:
+        if self.test_message or self.test_yt:
             return
 
         # 預先載入每個 RSS Feed 的已讀 ID 並為每個訂閱建立輪詢任務
@@ -106,30 +108,66 @@ class RssDiscordBot(discord.Client):
         僅在測試模式下執行：發送測試訊息並關閉 Bot。
         """
         # 非測試模式下不執行
-        if not self.test_message:
+        if not self.test_message and not self.test_yt:
             return
 
-        # 測試模式：對每個訂閱的頻道發送一次測試訊息
-        for sub in self.subscriptions:
-            try:
-                channel = await self.fetch_channel(sub.channel_id)
-                message = self._format_message(self.test_message, sub.mention_user_id)
-                await channel.send(message)
-                logging.info("Test message sent to %s", sub.channel_id)
-            except discord.NotFound:
+        if self.test_yt:
+            # --test-yt：對每個 YouTube 訂閱抓最新一部影片以 Embed 格式推送
+            yt_subs = [
+                s for s in self.subscriptions if self._is_youtube_feed(s.rss_url)
+            ]
+            if not yt_subs:
                 logging.error(
-                    "Channel not found (ID %s). Check CHANNEL_ID and that the bot is in the server.",
-                    sub.channel_id,
+                    "subscriptions 中沒有任何 YouTube feed，請確認 rss_url 包含 youtube.com/feeds/videos.xml"
                 )
-            except discord.Forbidden:
-                logging.error(
-                    "Forbidden sending to channel %s. Check View Channel/Send Messages permissions.",
-                    sub.channel_id,
-                )
-            except discord.HTTPException as exc:
-                logging.error(
-                    "Failed to send test message to %s: %s", sub.channel_id, exc
-                )
+            for sub in yt_subs:
+                try:
+                    feed = feedparser.parse(sub.rss_url)
+                    if not feed.entries:
+                        logging.error("無法取得影片（頻道 RSS 為空）：%s", sub.rss_url)
+                        continue
+                    entry = feed.entries[0]  # 最新一部
+                    title = getattr(entry, "title", "(no title)")
+                    link = getattr(entry, "link", "")
+                    content = f"{title}\n{link}".strip()
+                    message = self._format_message(content, sub.mention_user_id)
+                    channel = await self.fetch_channel(sub.channel_id)
+                    await channel.send(message)
+                    logging.info(
+                        "YT test sent to %s：%s",
+                        sub.channel_id,
+                        title,
+                    )
+                except discord.NotFound:
+                    logging.error("找不到頻道 ID %s", sub.channel_id)
+                except discord.Forbidden:
+                    logging.error("無法傳送到頻道 %s，請確認 Bot 權限", sub.channel_id)
+                except discord.HTTPException as exc:
+                    logging.error("傳送失敗 %s：%s", sub.channel_id, exc)
+        else:
+            # --test：對每個訂閱的頻道發送一次純文字測試訊息
+            for sub in self.subscriptions:
+                try:
+                    channel = await self.fetch_channel(sub.channel_id)
+                    message = self._format_message(
+                        self.test_message, sub.mention_user_id
+                    )
+                    await channel.send(message)
+                    logging.info("Test message sent to %s", sub.channel_id)
+                except discord.NotFound:
+                    logging.error(
+                        "Channel not found (ID %s). Check CHANNEL_ID and that the bot is in the server.",
+                        sub.channel_id,
+                    )
+                except discord.Forbidden:
+                    logging.error(
+                        "Forbidden sending to channel %s. Check View Channel/Send Messages permissions.",
+                        sub.channel_id,
+                    )
+                except discord.HTTPException as exc:
+                    logging.error(
+                        "Failed to send test message to %s: %s", sub.channel_id, exc
+                    )
 
         # 測試完成，短暫延遲後關閉 Bot（確保所有訊息都已發送）
         await asyncio.sleep(1)
@@ -214,16 +252,20 @@ class RssDiscordBot(discord.Client):
             return
 
         # 反轉列表順序，以舊到新的順序推播（RSS Feed 通常是新到舊）
+        is_yt = self._is_youtube_feed(sub.rss_url)
         for entry in reversed(new_entries):
-            # 取得文章標題和連結
             title = getattr(entry, "title", "(no title)")
             link = getattr(entry, "link", "")
-            # 組合訊息內容：標題 + 連結
-            content = f"{title}\n{link}".strip()
-            # 格式化訊息（可能包含 @ 提及）
-            message = self._format_message(content, sub.mention_user_id)
-            # 發送到 Discord 頻道
-            await channel.send(message)
+            if is_yt:
+                # YouTube：直接送連結，Discord 會自動展開成影片預覽
+                content = f"{title}\n{link}".strip()
+                message = self._format_message(content, sub.mention_user_id)
+                await channel.send(message)
+            else:
+                # 一般 RSS：送純文字
+                content = f"{title}\n{link}".strip()
+                message = self._format_message(content, sub.mention_user_id)
+                await channel.send(message)
             logging.info("Posted: %s", title)
 
     def _format_message(
@@ -257,6 +299,50 @@ class RssDiscordBot(discord.Client):
         """
         return getattr(entry, "id", None) or getattr(entry, "link", None) or ""
 
+    @staticmethod
+    def _is_youtube_feed(rss_url: str) -> bool:
+        """判斷是否為 YouTube RSS Feed"""
+        return "youtube.com/feeds/videos.xml" in rss_url
+
+    @staticmethod
+    def _build_yt_embed(entry, feed_info) -> discord.Embed:
+        """建立 YouTube 新影片的 Discord Embed"""
+        title = getattr(entry, "title", None) or entry.get("title", "（無標題）")
+        link = getattr(entry, "link", None) or entry.get("link", "")
+        channel_name = getattr(feed_info, "title", None) or feed_info.get(
+            "title", "YouTube 頻道"
+        )
+        channel_url = getattr(feed_info, "link", None) or feed_info.get("link", "")
+        published = getattr(entry, "published", None) or entry.get("published", "")
+
+        embed = discord.Embed(
+            title=title,
+            url=link if link else None,
+            color=discord.Color.red(),
+        )
+
+        if channel_name:
+            embed.set_author(name=channel_name, url=channel_url or None)
+
+        # 標題 + 連結固定顯示在 description（確保 Embed 不空白）
+        desc_lines = [f"**{title}**"]
+        if link:
+            desc_lines.append(link)
+        summary = getattr(entry, "summary", None) or entry.get("summary", "")
+        if summary:
+            desc_lines.append(summary[:200] + ("…" if len(summary) > 200 else ""))
+        embed.description = "\n".join(desc_lines)
+
+        # 縮圖（media:thumbnail）
+        thumbnails = entry.get("media_thumbnail") or []
+        if thumbnails:
+            embed.set_image(url=thumbnails[0].get("url", ""))
+
+        if published:
+            embed.set_footer(text=f"📅 {published}")
+
+        return embed
+
 
 def main() -> None:
     """主程式進入點
@@ -278,6 +364,11 @@ def main() -> None:
         "--test",
         metavar="MESSAGE",
         help="Send a one-off test message to CHANNEL_ID and exit",
+    )
+    parser.add_argument(
+        "--test-yt",
+        action="store_true",
+        help="Send the latest YouTube video as an Embed to all YT-subscribed channels and exit",
     )
     args = parser.parse_args()
 
@@ -309,7 +400,9 @@ def main() -> None:
                 if item.get("mention_user_id") not in (None, "")
                 else None
             )
-            subscriptions.append(Subscription(channel_id=cid, rss_url=url, mention_user_id=mid))
+            subscriptions.append(
+                Subscription(channel_id=cid, rss_url=url, mention_user_id=mid)
+            )
         logging.info("從 %s 載入 %d 筆訂閱", subs_file, len(subscriptions))
     elif subs_env:
         # 從環境變數 JSON 字串解析（向下相容）
@@ -348,6 +441,7 @@ def main() -> None:
     client = RssDiscordBot(
         subscriptions=subscriptions,
         test_message=args.test,
+        test_yt=args.test_yt,
         intents=intents,
     )
     # 啟動 Bot（阻塞式執行）

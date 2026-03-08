@@ -11,7 +11,10 @@
     },
     {
         "channel_id": 1479863790156648590,
-        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPIDQXQBGyBKj7fAuJIk-ag",
-        "mention_user_id": 401030097093525514
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPIDQXQBGyBKj7fAuJIk-ag"
+    },
+    {
+        "channel_id": 1479863790156648590,
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVXaorXfGwSGBBoyr00dAhg"
     }
 ]
