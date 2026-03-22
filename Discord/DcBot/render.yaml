@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: dc-rss-bot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    # Render 免費方案：閒置 15 分鐘後會休眠，建議使用 UptimeRobot 定期 ping
+    # 健康檢查端點：GET /health
+    healthCheckPath: /health
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false           # 在 Render Dashboard 手動設定，不寫入此檔
+      - key: SUBSCRIPTIONS_FILE
+        value: subscriptions.json

@@ -12,5 +12,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY bot.py .
 COPY subscriptions.json .
 
+# Render 會透過 PORT 環境變數指定要監聽的端口
+EXPOSE 10000
+
 # 設定啟動命令
 CMD ["python", "bot.py"]

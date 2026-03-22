@@ -18,6 +18,7 @@ from typing import Set, List, Optional, Dict
 
 import discord
 import feedparser
+from aiohttp import web
 from dotenv import load_dotenv
 
 # RSS 輪詢間隔時間（秒）- 預設為 300 秒（5 分鐘）
@@ -444,8 +445,42 @@ def main() -> None:
         test_yt=args.test_yt,
         intents=intents,
     )
-    # 啟動 Bot（阻塞式執行）
-    client.run(token)
+
+    if args.test or args.test_yt:
+        # 測試模式：不需要 HTTP 伺服器，直接執行
+        client.run(token)
+    else:
+        # 正式模式：同時啟動 HTTP 健康檢查伺服器與 Discord Bot
+        asyncio.run(_async_main(client, token))
+
+
+async def _async_main(client: discord.Client, token: str) -> None:
+    """非同步主函數：同時啟動健康檢查 HTTP 伺服器和 Discord Bot
+
+    Render Web Service 需要監聽 HTTP 端口，否則服務會被視為無效。
+    此函數同時啟動一個輕量 aiohttp 伺服器回應健康檢查，以及 Discord Bot。
+    """
+
+    # 建立健康檢查 HTTP 伺服器
+    async def health(request: web.Request) -> web.Response:
+        return web.Response(text="OK")
+
+    app = web.Application()
+    app.router.add_get("/", health)
+    app.router.add_get("/health", health)
+
+    runner = web.AppRunner(app)
+    await runner.setup()
+    port = int(os.getenv("PORT", "10000"))
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+    logging.info("Health check server running on port %d", port)
+
+    try:
+        async with client:
+            await client.start(token)
+    finally:
+        await runner.cleanup()
 
 
 if __name__ == "__main__":
