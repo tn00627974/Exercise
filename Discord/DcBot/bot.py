@@ -478,7 +478,22 @@ async def _async_main(client: discord.Client, token: str) -> None:
 
     try:
         async with client:
-            await client.start(token)
+            # 重試登入，最多 5 次，每次等待時間加倍
+            for attempt in range(1, 6):
+                try:
+                    await client.start(token)
+                    break
+                except discord.HTTPException as exc:
+                    if exc.status == 429 and attempt < 5:
+                        wait = 30 * attempt  # 30, 60, 90, 120, 150 秒
+                        logging.warning(
+                            "Rate limited by Discord (attempt %d/5), retrying in %ds...",
+                            attempt,
+                            wait,
+                        )
+                        await asyncio.sleep(wait)
+                    else:
+                        raise
     finally:
         await runner.cleanup()
 
