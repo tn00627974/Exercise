@@ -20,6 +20,7 @@ import discord
 import feedparser
 from aiohttp import web
 from dotenv import load_dotenv
+import time
 
 # RSS 輪詢間隔時間（秒）- 預設為 300 秒（5 分鐘）
 POLL_INTERVAL_SECONDS = 300
@@ -451,7 +452,13 @@ def main() -> None:
         client.run(token)
     else:
         # 正式模式：同時啟動 HTTP 健康檢查伺服器與 Discord Bot
-        asyncio.run(_async_main(client, token))
+        try:
+            asyncio.run(_async_main(client, token))
+
+        # 防止 Cloudflare 1015 連線過多導致的 Bot 崩潰，捕獲所有異常並在 30 秒後重試
+        except Exception as ex:
+            logging.exception("Bot crashed, restart in 30s")
+            time.sleep(60)
 
 
 async def _async_main(client: discord.Client, token: str) -> None:
