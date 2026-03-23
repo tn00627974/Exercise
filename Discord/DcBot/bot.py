@@ -124,7 +124,7 @@ class RssDiscordBot(discord.Client):
                 )
             for sub in yt_subs:
                 try:
-                    feed = feedparser.parse(sub.rss_url)
+                    feed = feedparser.parse(sub.rss_url, agent=self._FEEDPARSER_AGENT)
                     if not feed.entries:
                         logging.error("無法取得影片（頻道 RSS 為空）：%s", sub.rss_url)
                         continue
@@ -175,6 +175,13 @@ class RssDiscordBot(discord.Client):
         await asyncio.sleep(1)
         await self.close()
 
+    # feedparser 預設的 User-Agent 容易被 Cloudflare 封鎖，改用瀏覽器 UA
+    _FEEDPARSER_AGENT = (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    )
+
     async def _prime_seen_ids(self) -> None:
         """預先載入當前 RSS Feed 中的所有文章 ID
 
@@ -182,7 +189,7 @@ class RssDiscordBot(discord.Client):
         避免啟動時推播大量舊文章。
         """
         for sub in self.subscriptions:
-            feed = feedparser.parse(sub.rss_url)
+            feed = feedparser.parse(sub.rss_url, agent=self._FEEDPARSER_AGENT)
             seen: Set[str] = set()
             for entry in feed.entries:
                 entry_id = self._entry_id(entry)
@@ -237,7 +244,7 @@ class RssDiscordBot(discord.Client):
         Args:
             channel: Discord 頻道物件，用於發送訊息
         """
-        feed = feedparser.parse(sub.rss_url)
+        feed = feedparser.parse(sub.rss_url, agent=self._FEEDPARSER_AGENT)
         new_entries = []
 
         seen = self.seen_ids_map.get(sub.rss_url, set())
@@ -492,7 +499,7 @@ async def _async_main(client: discord.Client, token: str) -> None:
                 async with client:
                     await client.start(token)
             except Exception as e:
-                logging.warning(logging.exception("Bot crashed, retry in 60s"))
+                logging.exception("Bot crashed, retry in 60s")
                 await asyncio.sleep(60)
     finally:
         await runner.cleanup()
