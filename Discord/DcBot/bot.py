@@ -484,23 +484,13 @@ async def _async_main(client: discord.Client, token: str) -> None:
     logging.info("Health check server running on port %d", port)
 
     try:
-        async with client:
-            # 重試登入，最多 5 次，每次等待時間加倍
-            for attempt in range(1, 6):
-                try:
+        while True:
+            try:
+                async with client:
                     await client.start(token)
-                    break
-                except discord.HTTPException as exc:
-                    if exc.status == 429 and attempt < 5:
-                        wait = 30 * attempt  # 30, 60, 90, 120, 150 秒
-                        logging.warning(
-                            "Rate limited by Discord (attempt %d/5), retrying in %ds...",
-                            attempt,
-                            wait,
-                        )
-                        await asyncio.sleep(wait)
-                    else:
-                        raise
+            except Exception as e:
+                logging.warning(logging.exception("Bot crashed, retry in 60s"))
+                await asyncio.sleep(60)
     finally:
         await runner.cleanup()
 
