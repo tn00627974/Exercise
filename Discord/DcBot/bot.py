@@ -485,6 +485,9 @@ async def _async_main(client: discord.Client, token: str) -> None:
 
     try:
         while True:
+            client = RssDiscordBot(
+                subscriptions=client.subscriptions, intents=discord.Intents.default()
+            )
             try:
                 async with client:
                     await client.start(token)
