@@ -129,9 +129,12 @@ class RssDiscordBot(discord.Client):
                         logging.error("無法取得影片（頻道 RSS 為空）：%s", sub.rss_url)
                         continue
                     entry = feed.entries[0]  # 最新一部
+                    channel_name = getattr(feed.feed, "title", None) or feed.feed.get(
+                        "title", "YouTube 頻道"
+                    )
                     title = getattr(entry, "title", "(no title)")
                     link = getattr(entry, "link", "")
-                    content = f"{title}\n{link}".strip()
+                    content = f"● {channel_name} :\n🎬 {title}\n🔗 {link}".strip()
                     message = self._format_message(content, sub.mention_user_id)
                     channel = await self.fetch_channel(sub.channel_id)
                     await channel.send(message)
@@ -263,11 +266,14 @@ class RssDiscordBot(discord.Client):
         # 反轉列表順序，以舊到新的順序推播（RSS Feed 通常是新到舊）
         is_yt = self._is_youtube_feed(sub.rss_url)
         for entry in reversed(new_entries):
+            channel_name = getattr(feed.feed, "title", None) or feed.feed.get(
+                "title", "YouTube 頻道" if is_yt else "RSS Feed"
+            )
             title = getattr(entry, "title", "(no title)")
             link = getattr(entry, "link", "")
             if is_yt:
                 # YouTube：直接送連結，Discord 會自動展開成影片預覽
-                content = f"{title}\n{link}".strip()
+                content = f"● {channel_name} :\n🎬 {title}\n🔗 {link}".strip()
                 message = self._format_message(content, sub.mention_user_id)
                 await channel.send(message)
             else:
@@ -469,7 +475,7 @@ def main() -> None:
 
 
 async def _async_main(client: discord.Client, token: str) -> None:
-    """非同步主函數：同時啟動健康檢查 HTTP 伺服器和 Discord Bot
+    """非同步主函數：同時啟動健康檢查 HTTP 伺服器和 DiscorYouTubed Bot
 
     Render Web Service 需要監聽 HTTP 端口，否則服務會被視為無效。
     此函數同時啟動一個輕量 aiohttp 伺服器回應健康檢查，以及 Discord Bot。

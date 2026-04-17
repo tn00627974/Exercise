@@ -11,22 +11,42 @@
     },
     {
         "channel_id": 1479863790156648590,
-        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPIDQXQBGyBKj7fAuJIk-ag"
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPIDQXQBGyBKj7fAuJIk-ag",
+        "youtube_channel_name": "PFY玩給你看"
     },
     {
         "channel_id": 1479863790156648590,
-        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVXaorXfGwSGBBoyr00dAhg"
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVXaorXfGwSGBBoyr00dAhg",
+        "youtube_channel_name": "一發入魂"
     },
     {
         "channel_id": 1479863790156648590,
-        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCF3X_V1Gd5yagyTgwIIScag"
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCF3X_V1Gd5yagyTgwIIScag",
+        "youtube_channel_name": "平民百姓"
     },
     {
         "channel_id": 1479863790156648590,
-        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSHzAI3rwHtHN9XS9mRkWGw"
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSHzAI3rwHtHN9XS9mRkWGw",
+        "youtube_channel_name": "Rod / 隨便玩"
     },
     {
         "channel_id": 1479863790156648590,
-        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpmszDgk135POU3WxpdVt1g"
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpmszDgk135POU3WxpdVt1g",
+        "youtube_channel_name": "阿瑞斯Ares"
+    },
+    {
+        "channel_id": 1479863790156648590,
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_IaXjkXABqXjLjiIHDJPqw",
+        "youtube_channel_name": "微笑"
+    },
+    {
+        "channel_id": 1479863790156648590,
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_XZ4O10pZq9RCigggGSB1A",
+        "youtube_channel_name": "CD喜德"
+    },
+    {
+        "channel_id": 1479863790156648590,
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCjCSgRei43lOxiTwpQakXVg",
+        "youtube_channel_name": "三叔公"
     }
 ]
