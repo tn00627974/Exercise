@@ -373,15 +373,15 @@ WantedBy=multi-user.target
 ### 9.2 重新載入並啟用服務
 
 ```bash
-sudo systemctl daemon-reload # 
-sudo systemctl enable dc-rss-bot #
-sudo systemctl start dc-rss-bot # 
+sudo systemctl daemon-reload # 重新讀設定
+sudo systemctl enable dc-rss-bot # 開機自動啟動
+sudo systemctl start dc-rss-bot # 立刻啟動
 ```
 
 ### 9.3 檢查服務狀態
 
 ```bash
-sudo systemctl status dc-rss-bot
+sudo systemctl status dc-rss-bot # 檢查服務
 ```
 
 若看到 `active (running)` 就代表已成功常駐。

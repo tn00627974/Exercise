@@ -1,52 +1,104 @@
 [
     {
-        "channel_id": 1471437966114291795,
         "rss_url": "https://tw.stock.yahoo.com/rss?category=tw-market",
-        "mention_user_id": 401030097093525514
+        "display_name": "台股市場",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 1471437966114291795,
+                "mention_user_id": 401030097093525514
+            }
+        ]
     },
     {
-        "channel_id": 1478028289862930576,
         "rss_url": "https://tw.stock.yahoo.com/rss?category=personal-finance",
-        "mention_user_id": 401030097093525514
+        "display_name": "個人理財",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 1478028289862930576,
+                "mention_user_id": 401030097093525514
+            }
+        ]
     },
     {
-        "channel_id": 1479863790156648590,
         "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPIDQXQBGyBKj7fAuJIk-ag",
-        "youtube_channel_name": "PFY玩給你看"
+        "display_name": "PFY玩給你看",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 1479863790156648590
+            }
+        ]
     },
     {
-        "channel_id": 1479863790156648590,
         "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVXaorXfGwSGBBoyr00dAhg",
-        "youtube_channel_name": "一發入魂"
+        "display_name": "一發入魂",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 1479863790156648590
+            }
+        ]
     },
     {
-        "channel_id": 1479863790156648590,
         "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCF3X_V1Gd5yagyTgwIIScag",
-        "youtube_channel_name": "平民百姓"
+        "display_name": "平民百姓",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 1479863790156648590
+            }
+        ]
     },
     {
-        "channel_id": 1479863790156648590,
         "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSHzAI3rwHtHN9XS9mRkWGw",
-        "youtube_channel_name": "Rod / 隨便玩"
+        "display_name": "Rod / 隨便玩",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 1479863790156648590
+            }
+        ]
     },
     {
-        "channel_id": 1479863790156648590,
         "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpmszDgk135POU3WxpdVt1g",
-        "youtube_channel_name": "阿瑞斯Ares"
+        "display_name": "阿瑞斯Ares",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 1479863790156648590
+            }
+        ]
     },
     {
-        "channel_id": 1479863790156648590,
         "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_IaXjkXABqXjLjiIHDJPqw",
-        "youtube_channel_name": "微笑"
+        "display_name": "微笑",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 1479863790156648590
+            }
+        ]
     },
     {
-        "channel_id": 1479863790156648590,
         "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_XZ4O10pZq9RCigggGSB1A",
-        "youtube_channel_name": "CD喜德"
+        "display_name": "CD喜德",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 1479863790156648590
+            }
+        ]
     },
     {
-        "channel_id": 1479863790156648590,
         "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCjCSgRei43lOxiTwpQakXVg",
-        "youtube_channel_name": "三叔公"
+        "display_name": "三叔公",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 1479863790156648590
+            }
+        ]
     }
 ]

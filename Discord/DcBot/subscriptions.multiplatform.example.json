@@ -1,0 +1,31 @@
+[
+    {
+        "rss_url": "https://tw.stock.yahoo.com/rss?category=tw-market",
+        "display_name": "Yahoo 台股",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 123456789012345678,
+                "mention_user_id": 401030097093525514
+            },
+            {
+                "platform": "line",
+                "target_id": "Uxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+            },
+            {
+                "platform": "feishu",
+                "webhook_url": "https://open.feishu.cn/open-apis/bot/v2/hook/your-webhook-token"
+            }
+        ]
+    },
+    {
+        "rss_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPIDQXQBGyBKj7fAuJIk-ag",
+        "display_name": "PFY玩給你看",
+        "targets": [
+            {
+                "platform": "discord",
+                "channel_id": 123456789012345678
+            }
+        ]
+    }
+]
