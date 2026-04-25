@@ -7,6 +7,11 @@
                 "platform": "discord",
                 "channel_id": 1471437966114291795,
                 "mention_user_id": 401030097093525514
+            },
+            {
+                "platform": "line",
+                "target_id": "C14a7a9e5692319bb4603813ad97c4410",
+                "_description": "Group:多源快訊"
             }
         ]
     },
@@ -18,6 +23,10 @@
                 "platform": "discord",
                 "channel_id": 1478028289862930576,
                 "mention_user_id": 401030097093525514
+            },
+            {
+                "platform": "line",
+                "target_id": "C14a7a9e5692319bb4603813ad97c4410"
             }
         ]
     },
@@ -28,6 +37,10 @@
             {
                 "platform": "discord",
                 "channel_id": 1479863790156648590
+            },
+            {
+                "platform": "line",
+                "target_id": "C14a7a9e5692319bb4603813ad97c4410"
             }
         ]
     },
@@ -38,6 +51,10 @@
             {
                 "platform": "discord",
                 "channel_id": 1479863790156648590
+            },
+            {
+                "platform": "line",
+                "target_id": "C14a7a9e5692319bb4603813ad97c4410"
             }
         ]
     },
@@ -48,6 +65,10 @@
             {
                 "platform": "discord",
                 "channel_id": 1479863790156648590
+            },
+            {
+                "platform": "line",
+                "target_id": "C14a7a9e5692319bb4603813ad97c4410"
             }
         ]
     },
@@ -58,6 +79,10 @@
             {
                 "platform": "discord",
                 "channel_id": 1479863790156648590
+            },
+            {
+                "platform": "line",
+                "target_id": "C14a7a9e5692319bb4603813ad97c4410"
             }
         ]
     },
@@ -68,6 +93,10 @@
             {
                 "platform": "discord",
                 "channel_id": 1479863790156648590
+            },
+            {
+                "platform": "line",
+                "target_id": "C14a7a9e5692319bb4603813ad97c4410"
             }
         ]
     },
@@ -78,6 +107,10 @@
             {
                 "platform": "discord",
                 "channel_id": 1479863790156648590
+            },
+            {
+                "platform": "line",
+                "target_id": "C14a7a9e5692319bb4603813ad97c4410"
             }
         ]
     },
@@ -88,6 +121,10 @@
             {
                 "platform": "discord",
                 "channel_id": 1479863790156648590
+            },
+            {
+                "platform": "line",
+                "target_id": "C14a7a9e5692319bb4603813ad97c4410"
             }
         ]
     },
@@ -98,6 +135,10 @@
             {
                 "platform": "discord",
                 "channel_id": 1479863790156648590
+            },
+            {
+                "platform": "line",
+                "target_id": "C14a7a9e5692319bb4603813ad97c4410"
             }
         ]
     }

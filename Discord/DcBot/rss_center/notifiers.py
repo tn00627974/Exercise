@@ -40,11 +40,13 @@ class LineNotifier(BaseNotifier):
         self.session = session
 
     async def send(self, sub: Subscription, content: str) -> None:
+        line_channel_token = get_env_var("LINE_CHANNEL_ACCESS_TOKEN")
+
         if not sub.target_id:
             raise RuntimeError("line 訂閱缺少 target_id")
 
         headers = {
-            "Authorization": f"Bearer {get_env_var('LINE_CHANNEL_ACCESS_TOKEN')}",
+            "Authorization": f"Bearer {line_channel_token}",
             "Content-Type": "application/json",
         }
         payload = {

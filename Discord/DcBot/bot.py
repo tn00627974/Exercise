@@ -9,6 +9,7 @@
 
 import argparse
 import asyncio
+import contextlib
 import logging
 import os
 import time
@@ -43,12 +44,14 @@ class SubscriptionCenterBot(discord.Client):
         *,
         test_message: str | None = None,
         test_yt: bool = False,
+        test_line: str | None = None,
         **options,
     ):
         super().__init__(**options)
         self.service: Optional[RssPollingService] = None
         self.test_message = test_message
         self.test_yt = test_yt
+        self.test_line = test_line
         self._poll_task: asyncio.Task | None = None
 
     def set_service(self, service: RssPollingService) -> None:
@@ -60,7 +63,7 @@ class SubscriptionCenterBot(discord.Client):
         return self.service
 
     async def setup_hook(self) -> None:
-        if self.test_message or self.test_yt:
+        if self.test_message or self.test_yt or self.test_line:
             return
 
         service = self._require_service()
@@ -68,11 +71,13 @@ class SubscriptionCenterBot(discord.Client):
         self._poll_task = asyncio.create_task(service.poll_loop(POLL_INTERVAL_SECONDS))
 
     async def on_ready(self) -> None:
-        if not self.test_message and not self.test_yt:
+        if not self.test_message and not self.test_yt and not self.test_line:
             return
 
         service = self._require_service()
-        if self.test_yt:
+        if self.test_line:
+            await service.send_test_message(self.test_line, platform="line")
+        elif self.test_yt:
             await service.send_latest_youtube()
         else:
             await service.send_test_message(self.test_message or "RSS 訂閱中心測試成功")
@@ -83,6 +88,9 @@ class SubscriptionCenterBot(discord.Client):
     async def close(self) -> None:
         if self._poll_task is not None:
             self._poll_task.cancel()
+            with contextlib.suppress(asyncio.CancelledError):
+                await self._poll_task
+            self._poll_task = None
         await super().close()
 
 
@@ -91,6 +99,7 @@ async def _async_main(
     *,
     test_message: str | None,
     test_yt: bool,
+    test_line: str | None,
 ) -> None:
     """非同步主函數：組裝 SRP 分層元件並執行。"""
     subscriptions = load_subscriptions(get_env_var("SUBSCRIPTIONS_FILE"))
@@ -99,6 +108,7 @@ async def _async_main(
         client = SubscriptionCenterBot(
             test_message=test_message,
             test_yt=test_yt,
+            test_line=test_line,
             intents=discord.Intents.default(),
         )
 
@@ -111,7 +121,7 @@ async def _async_main(
         )
         client.set_service(RssPollingService(subscriptions, router))
 
-        if test_message or test_yt:
+        if test_message or test_yt or test_line:
             async with client:
                 await client.start(token)
             return
@@ -143,8 +153,7 @@ async def _run_with_health_server(client: discord.Client, token: str) -> None:
         await runner.cleanup()
 
 
-def main() -> None:
-    """主程式進入點。"""
+def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="RSS subscription center")
     parser.add_argument(
         "--test",
@@ -156,22 +165,62 @@ def main() -> None:
         action="store_true",
         help="Send the latest YouTube video to all YT-subscribed targets and exit",
     )
-    args = parser.parse_args()
+    parser.add_argument(
+        "--test-line",
+        metavar="MESSAGE",
+        help="Send a one-off test message to all LINE-subscribed targets and exit",
+    )
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="Enable debug logging (overrides DISCORD_LOG_LEVEL)",
+    )
 
-    load_dotenv()
-    token = get_env_var("DISCORD_TOKEN")
+    return parser.parse_args()
 
+
+def _setup_logging(debug: bool) -> None:
+    """設定日誌等級，僅負責日誌配置。"""
+    if debug:
+        logging.getLogger().setLevel(logging.DEBUG)
+
+
+def _run_bot(
+    token: str,
+    *,
+    test_message: str | None = None,
+    test_yt: bool = False,
+    test_line: str | None = None,
+) -> None:
+    """啟動 Discord Bot。"""
     try:
         asyncio.run(
             _async_main(
                 token,
-                test_message=args.test,
-                test_yt=args.test_yt,
+                test_message=test_message,
+                test_yt=test_yt,
+                test_line=test_line,
             )
         )
+    except KeyboardInterrupt:
+        logging.info("Bot stopped by user")
     except Exception:
         logging.exception("Bot crashed, restart in 60s")
         time.sleep(60)
+
+
+def main() -> None:
+    """主程式進入點。"""
+    args = _parse_args()  # 解析命令列參數
+    load_dotenv()
+    token = get_env_var("DISCORD_TOKEN")
+    _setup_logging(args.debug)  # 設定日誌等級
+    _run_bot(
+        token,
+        test_message=args.test,
+        test_yt=args.test_yt,
+        test_line=args.test_line,
+    )  # 啟動 Bot
 
 
 if __name__ == "__main__":

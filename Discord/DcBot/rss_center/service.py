@@ -4,6 +4,7 @@ from typing import Dict, List, Set
 
 import feedparser
 
+from .config import normalize_platform
 from .formatters import format_feed_message, is_youtube_feed
 from .models import Subscription
 from .notifiers import NotificationRouter
@@ -78,9 +79,15 @@ class RssPollingService:
             for sub in self.subscriptions_by_feed.get(rss_url, []):
                 await self._notify_subscription(sub, entry, feed.feed)
 
-    async def send_test_message(self, message: str) -> None:
-        """對所有通知目標發送一次測試訊息。"""
+    async def send_test_message(
+        self, message: str, platform: str | None = None
+    ) -> None:
+        """對指定平台或所有通知目標發送一次測試訊息。"""
+        target_platform = normalize_platform(platform) if platform else None
+
         for sub in self.subscriptions:
+            if target_platform and normalize_platform(sub.platform) != target_platform:
+                continue
             await self.router.send(sub, message)
             logging.info("Test message sent to %s target", sub.platform)
 
