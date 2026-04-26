@@ -88,7 +88,7 @@ class RssPollingService:
         for sub in self.subscriptions:
             if target_platform and normalize_platform(sub.platform) != target_platform:
                 continue
-            await self.router.send(sub, message)
+            await self.router.send(sub, message + f" {sub.display_name} ")
             logging.info("Test message sent to %s target", sub.platform)
 
     async def send_latest_youtube(self) -> None:
