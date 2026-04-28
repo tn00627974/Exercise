@@ -2,8 +2,41 @@ version: '3.8'
 
 services:
   bot:
-    build: .
+    #image: python:3.12-slim
+    build: . # 執行路徑上 Dockerfile 構建映像
     env_file:
       - .env
     restart: unless-stopped
-    container_name: stock-rss-bot
+    container_name: rss-notify-bot
+    ports:
+      - "${PORT:-10000}:${PORT:-10000}"
+    volumes:
+      - ./subscriptions.json:/app/subscriptions.json:ro
+    environment:
+      PORT: ${PORT:-10000}
+      SUBSCRIPTIONS_FILE: /app/subscriptions.json
+      DATABASE_URL: postgresql://${POSTGRES_USER:-botuser}:${POSTGRES_PASSWORD:-botpassword}@db:5432/${POSTGRES_DB:-botdb}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    container_name: rss-notify-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-botuser}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-botpassword}
+      POSTGRES_DB: ${POSTGRES_DB:-botdb}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-botuser} -d ${POSTGRES_DB:-botdb}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:
