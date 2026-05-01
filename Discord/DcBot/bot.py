@@ -13,20 +13,21 @@ import contextlib
 import logging
 import os
 import time
-from typing import Optional
+from typing import Dict, Optional
 
 import aiohttp
 import discord
 from aiohttp import web
 from dotenv import load_dotenv
 
-from rss_center.config import get_env_var, load_subscriptions
-from rss_center.notifiers import (
-    DiscordNotifier,
-    FeishuNotifier,
-    LineNotifier,
-    NotificationRouter,
+from rss_center.batch_notifier import (
+    BaseBatchNotifier,
+    DiscordBatchNotifier,
+    LineBatchNotifier,
+    FeishuBatchNotifier,
 )
+from rss_center.config import get_env_var, load_subscriptions
+from rss_center.notifiers import NotificationRouter
 from rss_center.service import RssPollingService
 
 POLL_INTERVAL_SECONDS = 300
@@ -37,7 +38,7 @@ logging.basicConfig(
 
 
 class SubscriptionCenterBot(discord.Client):
-    """僅負責 Discord 連線生命週期。"""
+    """僅負責 連線生命週期。"""
 
     def __init__(
         self,
@@ -49,6 +50,7 @@ class SubscriptionCenterBot(discord.Client):
     ):
         super().__init__(**options)
         self.service: Optional[RssPollingService] = None
+        self._batch_notifiers: Dict[str, BaseBatchNotifier] = {}
         self.test_message = test_message
         self.test_yt = test_yt
         self.test_line = test_line
@@ -56,6 +58,12 @@ class SubscriptionCenterBot(discord.Client):
 
     def set_service(self, service: RssPollingService) -> None:
         self.service = service
+
+    def register_batch_notifier(
+        self, platform: str, notifier: BaseBatchNotifier
+    ) -> None:
+        """註冊指定平台的批量推送器，Bot 關閉時會統一 shutdown。"""
+        self._batch_notifiers[platform] = notifier
 
     def _require_service(self) -> RssPollingService:
         if self.service is None:
@@ -86,6 +94,9 @@ class SubscriptionCenterBot(discord.Client):
         await self.close()
 
     async def close(self) -> None:
+        # 統一刷新所有平台的待推送隊列，確保 Bot 關閉前消息不遺失
+        for notifier in self._batch_notifiers.values():
+            await notifier.shutdown()
         if self._poll_task is not None:
             self._poll_task.cancel()
             with contextlib.suppress(asyncio.CancelledError):
@@ -112,11 +123,19 @@ async def _async_main(
             intents=discord.Intents.default(),
         )
 
+        discord_notifier = DiscordBatchNotifier(client)
+        line_notifier = LineBatchNotifier(session)
+        feishu_notifier = FeishuBatchNotifier(session)
+
+        client.register_batch_notifier("discord", discord_notifier)
+        client.register_batch_notifier("line", line_notifier)
+        client.register_batch_notifier("feishu", feishu_notifier)
+
         router = NotificationRouter(
             {
-                "discord": DiscordNotifier(client),
-                "line": LineNotifier(session),
-                "feishu": FeishuNotifier(session),
+                "discord": discord_notifier,
+                "line": line_notifier,
+                "feishu": feishu_notifier,
             }
         )
         client.set_service(RssPollingService(subscriptions, router))
