@@ -1,7 +1,7 @@
 # 多源快訊 Bot (BOT2l4)
 
 ## 專案概覽
-多平台 RSS 訂閱推播 Bot，支援 Discord、LINE、飛書三個通知平台。
+多平台 RSS 訂閱推播 Bot，支援 Discord、LINE、飛書等多個通知平台。
 每 5 分鐘抓一次 RSS Feed（Yahoo 台股、YouTube 等），推播新文章到指定頻道，並以 ID 去重避免重複推播。
 
 ---
@@ -14,7 +14,6 @@ DcBot/
 ├── line_userid_webhook.py                     # 工具：取得 LINE User ID 的 Webhook
 ├── requirements.txt                           # Python 套件依賴
 ├── subscriptions.json                         # 訂閱設定（正式使用）
-├── subscriptions.multiplatform.example.json   # 多平台訂閱範例
 ├── render.yaml                                # Render 部署設定
 ├── Dockerfile                                 # Docker 映像設定
 ├── docker-compose.yml                         # 本地 Docker 執行設定
@@ -23,25 +22,28 @@ DcBot/
 │
 ├── rss_center/                                # 核心業務邏輯（SRP 分層）
 │   ├── __init__.py
-│   ├── models.py       # 資料結構：Subscription dataclass
-│   ├── config.py       # 設定載入：env var、subscriptions.json 解析
-│   ├── formatters.py   # 訊息格式化：RSS 條目 → 文字訊息
-│   ├── notifiers.py    # 通知發送：Discord / LINE / 飛書
-│   └── service.py      # RSS 輪詢服務：去重、分派
+│   ├── models.py          # 資料結構：Subscription dataclass
+│   ├── config.py          # 設定載入：env var、subscriptions.json 解析
+│   ├── formatters.py      # 訊息格式化：RSS 條目 → 文字訊息
+│   ├── notifiers.py       # 通知發送：Discord / LINE / 飛書
+│   ├── batch_queue.py     # 批量隊列：數量/超時雙觸發，純邏輯無 I/O
+│   ├── batch_notifier.py  # 批量通知器：BaseBatchNotifier，合併多條為單次 API 呼叫
+│   └── service.py         # RSS 輪詢服務：去重、分派
 │
-├── test/                                      # 單元與整合測試
+├── test/                           # 單元與整合測試
 │   ├── test_bot_cli.py             # CLI 引數解析測試
 │   ├── test_rss.py                 # RSS 解析測試
 │   ├── test_subscriptions.py       # subscriptions.json 載入測試
 │   ├── test_subscription_center.py # 訂閱中心整合測試
 │   └── test_line_userid_webhook.py # LINE Webhook 測試
+|   └── test_batch_notifier.py      # 批量通知器測試 
 │
 ├── .github/
 │   ├── copilot-instructions.md     # AI Agent 指引（本檔）
 │   └── skills/
-│       └── rss-discord-bot/        # Copilot skill 專用指引
+│       └── rss-multiplatform-bot/  # Copilot skill 專用指引
 │
-└── railway_error/                             # Railway 部署錯誤 log 存檔
+
 ```
 
 ---
@@ -54,7 +56,7 @@ DcBot/
 | `_setup_logging()` | 日誌等級設定 |
 | `_run_bot()` | 非同步主迴圈執行與錯誤處理 |
 | `main()` | 進入點協調（4 行） |
-| `SubscriptionCenterBot` | Discord Client 連線生命週期 |
+| `SubscriptionCenterBot` | Discord 連線生命週期(Client) | LineBot FeishuBot 也可繼承此類別以共用生命週期管理(session) |
 | `_async_main()` | 元件組裝與模式判斷（測試 vs 正式） |
 | `_run_with_health_server()` | 正式模式：HTTP 健康檢查 + Bot |
 
@@ -66,6 +68,8 @@ DcBot/
 | `config.py` | `get_env_var()`、`load_subscriptions()`、`normalize_platform()` |
 | `formatters.py` | `format_feed_message()`、`format_discord_message()` |
 | `notifiers.py` | `DiscordNotifier`、`LineNotifier`、`FeishuNotifier`、`NotificationRouter` |
+| `batch_queue.py` | `BatchQueue`、`BatchQueueManager`：隊列管理與雙觸發條件（數量/超時） |
+| `batch_notifier.py` | `BaseBatchNotifier`：批量推送基底，合併訊息為單次 API 呼叫 |
 | `service.py` | `RssPollingService`：輪詢、去重、通知分派 |
 
 ---
@@ -101,7 +105,7 @@ python bot.py --test-yt
 python bot.py --debug
 
 # 執行測試套件
-python -m pytest test/
+python -m pytest tests/
 ```
 
 ---
@@ -145,6 +149,27 @@ aiohttp==3.11.18
 | **Railway** | 每月 $5 免費額度 | 2020/12/08 起不再提供完全免費運行；網址：https://railway.com/ |
 | **Oracle Cloud** | Always Free VM | 完全控制，參考 `Oracle Cloud 佈署.md` |
 | **Docker** | 本地或自架伺服器 | 參考 `Dockerfile` 與 `docker-compose.yml` |
+
+---
+
+## 技術棧概述
+
+| 層級 | 技術 | 用途 |
+|---|---|---|
+| **Web Framework** | aiohttp | 非同步 HTTP 伺服器（健康檢查、LINE Webhook） |
+| **Discord Bot** | discord.py 2.4.0 | Discord 通知發送、連線生命週期管理 |
+| **RSS 解析** | feedparser 6.0.11 | RSS/Atom Feed 爬取與條目解析 |
+| **非同步** | asyncio | 並發輪詢多個 Feed、批量隊列、多平台推送 |
+| **設定管理** | python-dotenv 1.0.1 | 讀取 `.env` 環境變數 |
+| **HTTP 客戶端** | aiohttp 3.11.18 | 非同步 HTTP 呼叫（LINE API、飛書 Webhook） |
+| **測試框架** | unittest + mock | 單元測試、整合測試（test/ 目錄） |
+| **編程範式** | SRP 分層 + 批量推送隊列 | 去重、訊息合併、平台無關化 |
+
+核心設計模式：
+- **分層架構**：config → models → formatters → notifiers → service → bot
+- **批量推送**：`BatchQueue` + `BatchQueueManager` 實現數量/超時雙觸發
+- **去重保護**：`seen_ids_map` 使用 RSS feed ID 或 link 避免重複
+- **多平台適配**：`NotificationRouter` + `BaseBatchNotifier` 子類（Discord/LINE/飛書）
 
 ---
 
