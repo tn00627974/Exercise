@@ -11,7 +11,7 @@ def is_youtube_feed(rss_url: str) -> bool:
 def format_discord_message(content: str, mention_user_id: Optional[int] = None) -> str:
     """格式化 Discord 訊息。"""
     if mention_user_id:
-        return f"<@{mention_user_id}> {content}"
+        return f"<@{mention_user_id}> \n {content}"
     return content
 
 

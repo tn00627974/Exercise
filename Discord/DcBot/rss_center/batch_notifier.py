@@ -114,8 +114,8 @@ class LineBatchNotifier(BaseBatchNotifier):
     def __init__(
         self,
         session: aiohttp.ClientSession,
-        max_batch_size: int = 10,
-        max_wait_seconds: int = 3600,
+        max_batch_size: int = 10,  # 10 條合併為 1 次 API 呼叫
+        max_wait_seconds: int = 3600,  # 1 小時
     ) -> None:
         super().__init__(max_batch_size, max_wait_seconds)
         self._session = session
@@ -141,8 +141,22 @@ class LineBatchNotifier(BaseBatchNotifier):
             json=payload,
         ) as resp:
             body = await resp.text()
-            if resp.status >= 400:
+            if resp.status == 429:
+                # 可能是月額度超限，也可能是短期速率限制
+                body_lower = body.lower()
+                if "quota" in body_lower or "monthly" in body_lower:
+                    logging.warning("LINE 超過每月訊息量: %s", body)
+                    raise RuntimeError("LINE 超過每月訊息量，請檢查帳戶狀態")
+                else:
+                    logging.warning("LINE 速率限制: %s", body)
+                    raise RuntimeError("LINE 速率限制，請稍後再試")
+
+            elif resp.status >= 400:
                 raise RuntimeError(f"LINE 推送失敗: {resp.status} {body}")
+
+            elif resp.status >= 500:
+                logging.error("LINE 伺服器錯誤: %s", body)
+                raise RuntimeError("LINE 伺服器錯誤，請稍後再試")
 
 
 class DiscordBatchNotifier(BaseBatchNotifier):
@@ -151,13 +165,13 @@ class DiscordBatchNotifier(BaseBatchNotifier):
     隊列 key 為 str(channel_id)，同頻道的訊息才會合併。
     """
 
-    _MAX_CONTENT_LENGTH = 2000  # Discord 單則訊息上限
+    _MAX_CONTENT_LENGTH = 5000  # Discord 單則訊息上限
 
     def __init__(
         self,
         client: discord.Client,
-        max_batch_size: int = 1,
-        max_wait_seconds: int = 1,
+        max_batch_size: int = 5,  # 5 條合併為 1 次 API 呼叫
+        max_wait_seconds: int = 900,  # 15 分鐘
     ) -> None:
         super().__init__(max_batch_size, max_wait_seconds)
         self.client = client
@@ -181,7 +195,9 @@ class DiscordBatchNotifier(BaseBatchNotifier):
             self._channel_cache[channel_id] = channel
 
         mention_user_id = self._mention_map.get(target_id)
-        message = format_discord_message(content, mention_user_id)
+        message = format_discord_message(
+            content[: self._MAX_CONTENT_LENGTH], mention_user_id
+        )
         await channel.send(message)
 
 
@@ -197,8 +213,8 @@ class FeishuBatchNotifier(BaseBatchNotifier):
     def __init__(
         self,
         session: aiohttp.ClientSession,
-        max_batch_size: int = 1,
-        max_wait_seconds: int = 1,
+        max_batch_size: int = 1,  # 即時推送
+        max_wait_seconds: int = 1,  # 即時推送
     ) -> None:
         super().__init__(max_batch_size, max_wait_seconds)
         self._session = session
