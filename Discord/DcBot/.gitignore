@@ -1,8 +1,0 @@
-.venv/
-__pycache__/
-*.pyc
-.env
-.DS_Store
-.vscode/
-共享Bot架構規劃.md
-railway_error
