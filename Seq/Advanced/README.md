@@ -25,10 +25,13 @@
 
 ### 1️⃣ 啟動 Seq 伺服器（Docker）
 
+Docker hub url : https://hub.docker.com/r/datalust/seq
+
 透過 Docker 快速啟動一個 Seq 伺服器：
 
 ```bash
-docker run --name seq -d --restart unless-stopped -e ACCEPT_EULA=Y -p 5341:80 datalust/seq:latest
+docker run --name seq -d --restart unless-stopped -e ACCEPT_EULA=Y -e SEQ_PASSWORD=<password> -p 5341:80 datalust/seq:latest
+
 ```
 
 **預設會監聽** `http://localhost:5341`
