@@ -1,0 +1,6 @@
+@MongoLa.Api_HostAddress = http://localhost:5089
+
+GET {{MongoLa.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

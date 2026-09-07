@@ -1,0 +1,39 @@
+## .NET 建置產出
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+[Ll]og/
+*.dll
+*.pdb
+*.exe
+
+## Visual Studio / Rider / VS Code 的個人設定
+.vs/
+.idea/
+*.csproj.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## NuGet
+*.nupkg
+packages/
+.nuget/
+
+## 使用者機密（不要進版控）
+appsettings.*.local.json
+secrets.json
+*.pfx
+
+## 作業系統雜訊
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+## 測試與覆蓋率
+[Tt]est[Rr]esult*/
+coverage*.json
+coverage*.xml
+*.coverage
