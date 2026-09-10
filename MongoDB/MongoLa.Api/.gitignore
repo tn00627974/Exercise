@@ -37,3 +37,6 @@ Desktop.ini
 coverage*.json
 coverage*.xml
 *.coverage
+
+## AI個人助理
+CLAUDE.md

@@ -1,6 +1,21 @@
 @MongoLa.Api_HostAddress = http://localhost:5089
 
+### 查 INV-003 最新 10 筆（對應 Day 1 那句 find + sort + limit）
+GET {{MongoLa.Api_HostAddress}}/readings/INV-003
+Accept: application/json
+
+### 換一台設備
+GET {{MongoLa.Api_HostAddress}}/readings/INV-001
+Accept: application/json
+
+### 不存在的設備 —— 應該回空陣列，不是 404
+GET {{MongoLa.Api_HostAddress}}/readings/INV-999
+Accept: application/json
+
+### 原本的樣板（之後可以刪）
 GET {{MongoLa.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
-###
+### 每小時平均發電量（對應 Compass 的 $match -> $group -> $sort）
+GET {{MongoLa.Api_HostAddress}}/readings/INV-003/hourly
+Accept: application/json
